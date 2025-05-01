@@ -21,7 +21,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
     <div className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-all duration-1000 ${animationComplete ? 'opacity-0 scale-110' : 'opacity-100'}`}>
       <div className="text-center">
         <img 
-          src="/lovable-uploads/d73cc946-9a60-4d35-91f0-b6221cc76b23.png" 
+          src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
           alt="FADCO Logo" 
           className="w-64 md:w-96 h-auto mx-auto animate-fade-in"
           onError={(e) => {

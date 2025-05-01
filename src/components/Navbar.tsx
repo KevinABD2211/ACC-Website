@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/d73cc946-9a60-4d35-91f0-b6221cc76b23.png" 
+              src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
               alt="FADCO Logo" 
               className="h-12 md:h-16 w-auto"
             />

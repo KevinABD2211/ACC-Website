@@ -34,7 +34,7 @@ const HomePage = () => {
           <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
             <div className="max-w-3xl mx-auto text-center">
               <img
-                src="/lovable-uploads/d73cc946-9a60-4d35-91f0-b6221cc76b23.png"
+                src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
                 alt="FADCO Logo"
                 className="w-64 mx-auto mb-8"
               />
