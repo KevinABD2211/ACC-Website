@@ -25,6 +25,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
             icon={
               <Droplet className="h-10 w-10" />
             }
+            bulletPoints={[
+              "Fit-outs (bathrooms, kitchens, HVAC tie-ins)",
+              "Municipal sewer connections",
+              "Hydronic radiators & under-floor heating",
+              "Preventive maintenance"
+            ]}
           />
           <ServiceCard 
             title="Electrical & Automation"
@@ -33,6 +39,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
             icon={
               <Plug className="h-10 w-10" />
             }
+            bulletPoints={[
+              "Full wiring & panel work",
+              "LED & architectural lighting",
+              "Motorized curtains, shades, AC controls",
+              "Structured cabling & CCTV"
+            ]}
           />
           <ServiceCard 
             title="Construction & Renovation"
@@ -41,6 +53,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
             icon={
               <Hammer className="h-10 w-10" />
             }
+            bulletPoints={[
+              "Partial renovations (any room/façade)",
+              "Full-scope overhauls",
+              "New residential/commercial construction",
+              "All trades supervised by Kevin Abdallah"
+            ]}
           />
           <ServiceCard 
             title="Outdoor & Landscape Systems"
@@ -49,6 +67,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
             icon={
               <Trees className="h-10 w-10" />
             }
+            bulletPoints={[
+              "New pools & deck waterproofing",
+              "Automated irrigation & drainage",
+              "Patios, walkways & exterior lighting",
+              "Landscape electrical wiring"
+            ]}
           />
         </div>
       </div>
