@@ -31,9 +31,29 @@ const AboutPage = () => {
             title="Our Story" 
             center={true}
           />
-          <p className="text-gray-700 text-lg text-center">
-            FADCO's journey began with founder Fadi Abdallah's 28-year career in plumbing. His dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's construction sector. Eight years ago, we expanded our services to include electrical work, responding to client needs and growing our expertise. Two years ago, we further evolved to take on comprehensive renovation projects. Today, FADCO is entering an exciting new chapter under the leadership of Kevin Abdallah, who brings both hands-on experience and academic insight in finance and real estate.
-          </p>
+          <div className="space-y-4 text-gray-700 text-lg">
+            <p>
+              FADCO's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
+              dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
+              construction sector.
+            </p>
+            <p>
+              Eight years ago, we expanded our services to include electrical work, responding to client needs
+              and growing our expertise. Two years ago, we further evolved to take on comprehensive
+              renovation projects.
+            </p>
+            <p>
+              Today, FADCO is entering an exciting new chapter under the leadership of Kevin
+              Abdallah, who is bringing his academic background in finance and specialized training in real
+              estate economics from institutions like the London School of Economics to complement our
+              hands-on construction expertise.
+            </p>
+            <p>
+              This unique blend of practical experience and academic insight allows us to offer comprehensive
+              construction and property development services that consider both the technical aspects of
+              building and the financial implications of property investment.
+            </p>
+          </div>
         </div>
       </section>
 
