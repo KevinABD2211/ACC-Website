@@ -12,7 +12,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
     "Heritage & Trust",
     "Client-First Service",
     "Seamless Integration",
-    "Technical & Supervisory Excellence",
+    "Supervisory Excellence",
     "Lebanese Pride"
   ];
 
@@ -25,21 +25,40 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
           center={true}
         />
         
+        {/* Leadership Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
-          <div className="bg-fadco-lightgray p-8 rounded-lg">
-            <h3 className="text-2xl font-bold text-fadco-navy mb-4">Our Vision</h3>
+          <div className="bg-fadco-lightgray p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold text-fadco-navy mb-4">Fadi Abdallah</h3>
+            <p className="text-gray-700 mb-4">
+              With 28 years of mastery in plumbing, electrical, and renovation, Fadi started as a tradesman 
+              and now oversees full-scale builds and renovations across Lebanon with an impeccable reputation.
+            </p>
             <p className="text-gray-700">
-              To be Lebanon's most trusted full-service development partner, accountable for every craft 
-              and every craftsperson, from groundbreaking through move-in.
+              His dedication to excellence and hands-on leadership approach has established FADCO as a trusted 
+              name in Lebanon's construction and development industry.
             </p>
           </div>
           
-          <div className="bg-fadco-lightgray p-8 rounded-lg">
+          <div className="bg-fadco-lightgray p-8 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold text-fadco-navy mb-4">Kevin Abdallah</h3>
+            <p className="text-gray-700 mb-4">
+              Full-time on-site construction specialist who coordinates all trades directly with engineers and architects. 
+              A finance scholar (LAU, GPA 3.98) and certified in real-estate economics and property development, 
+              Kevin drives the next generation of FADCO's turnkey expertise.
+            </p>
+            <p className="text-gray-700">
+              His blend of academic excellence and practical knowledge ensures FADCO maintains its position 
+              at the forefront of Lebanon's construction industry.
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-16">
+          <div className="bg-white p-8 rounded-lg border border-gray-200">
             <h3 className="text-2xl font-bold text-fadco-navy mb-4">Our Mission</h3>
             <p className="text-gray-700">
-              At FADCO, we coordinate every element—electrical, plumbing, construction, automation, 
-              landscaping and beyond—under our direct supervision. We take full responsibility for each 
-              worker and each trade, delivering turnkey excellence and peace of mind to every client.
+              We manage every element—plumbing, electrical, construction, automation, landscaping, and beyond—under 
+              our direct supervision, taking full responsibility for every worker and every detail.
             </p>
           </div>
         </div>

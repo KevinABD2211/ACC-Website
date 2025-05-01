@@ -42,7 +42,7 @@ const HomePage = () => {
                 Building Legacies, Delivering Homes
               </h1>
               <p className="text-xl text-gray-700 mb-8">
-                FADCO is Lebanon's trusted turnkey development partner with over 28 years of family legacy
+                Your Complete Build Partner—Every Trade, Every Time
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <NavLink

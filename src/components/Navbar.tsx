@@ -24,24 +24,23 @@ const Navbar = () => {
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
         isScrolled
           ? "bg-white shadow-md py-2"
-          : "bg-fadco-navy bg-opacity-80 py-4"
+          : "bg-white bg-opacity-80 py-4"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
-            <div className={cn(
-              "font-playfair font-bold text-2xl md:text-3xl",
-              isScrolled ? "text-fadco-navy" : "text-white"
-            )}>
-              FADCO
-            </div>
+            <img 
+              src="/lovable-uploads/d73cc946-9a60-4d35-91f0-b6221cc76b23.png" 
+              alt="FADCO Logo" 
+              className="h-12 md:h-16 w-auto"
+            />
           </NavLink>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn("md:hidden", isScrolled ? "text-fadco-navy" : "text-white")}
+            className={cn("md:hidden", isScrolled ? "text-fadco-navy" : "text-fadco-navy")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,26 +70,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink
-              to="/"
-              className={({ isActive }) =>
-                cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
-                  isActive 
-                    ? (isScrolled ? "text-fadco-navy font-semibold" : "text-fadco-gold font-semibold") 
-                    : (isScrolled ? "text-gray-600" : "text-white")
-                )
-              }
-            >
-              Home
-            </NavLink>
-            <NavLink
               to="/about"
               className={({ isActive }) =>
                 cn(
                   "font-opensans font-medium transition-colors hover:text-fadco-gold",
                   isActive 
-                    ? (isScrolled ? "text-fadco-navy font-semibold" : "text-fadco-gold font-semibold") 
-                    : (isScrolled ? "text-gray-600" : "text-white")
+                    ? "text-fadco-navy font-semibold" 
+                    : "text-fadco-navy"
                 )
               }
             >
@@ -102,8 +88,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-fadco-gold",
                   isActive 
-                    ? (isScrolled ? "text-fadco-navy font-semibold" : "text-fadco-gold font-semibold") 
-                    : (isScrolled ? "text-gray-600" : "text-white")
+                    ? "text-fadco-navy font-semibold" 
+                    : "text-fadco-navy"
                 )
               }
             >
@@ -115,12 +101,25 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-fadco-gold",
                   isActive 
-                    ? (isScrolled ? "text-fadco-navy font-semibold" : "text-fadco-gold font-semibold") 
-                    : (isScrolled ? "text-gray-600" : "text-white")
+                    ? "text-fadco-navy font-semibold" 
+                    : "text-fadco-navy"
                 )
               }
             >
               Projects
+            </NavLink>
+            <NavLink
+              to="/process"
+              className={({ isActive }) =>
+                cn(
+                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  isActive 
+                    ? "text-fadco-navy font-semibold" 
+                    : "text-fadco-navy"
+                )
+              }
+            >
+              Process
             </NavLink>
             <NavLink
               to="/contact"
@@ -128,8 +127,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-fadco-gold",
                   isActive 
-                    ? (isScrolled ? "text-fadco-navy font-semibold" : "text-fadco-gold font-semibold") 
-                    : (isScrolled ? "text-gray-600" : "text-white")
+                    ? "text-fadco-navy font-semibold" 
+                    : "text-fadco-navy"
                 )
               }
             >
@@ -142,20 +141,6 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 bg-white rounded-lg mt-2 shadow-lg">
             <div className="flex flex-col space-y-4">
-              <NavLink
-                to="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    "px-4 py-2 font-medium transition-colors",
-                    isActive
-                      ? "bg-fadco-navy text-white"
-                      : "text-gray-600 hover:bg-gray-100"
-                  )
-                }
-              >
-                Home
-              </NavLink>
               <NavLink
                 to="/about"
                 onClick={() => setMobileMenuOpen(false)}
@@ -197,6 +182,20 @@ const Navbar = () => {
                 }
               >
                 Projects
+              </NavLink>
+              <NavLink
+                to="/process"
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    "px-4 py-2 font-medium transition-colors",
+                    isActive
+                      ? "bg-fadco-navy text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  )
+                }
+              >
+                Process
               </NavLink>
               <NavLink
                 to="/contact"

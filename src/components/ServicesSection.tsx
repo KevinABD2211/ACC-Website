@@ -36,7 +36,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
           />
           <ServiceCard 
             title="Construction & Renovation"
-            description="Project management, partial upgrades (any room/façade), full renovations, ground-up builds—all trades supervised."
+            description="Project management, targeted upgrades (any room/façade), full renovations, ground-up builds—all trades supervised by Kevin."
             imageUrl="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
             icon={
               <Hammer className="h-10 w-10" />
