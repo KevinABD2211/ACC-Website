@@ -1,5 +1,5 @@
 
-import { Droplet, Plug, Hammer, Tree } from "lucide-react";
+import { Droplet, Plug, Hammer, Trees } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 import ServiceCard from "./ServiceCard";
 import { cn } from "@/lib/utils";
@@ -47,7 +47,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ className }) => {
             description="Pools & water features, irrigation & drainage, hardscape & lighting, waterproofing."
             imageUrl="https://images.unsplash.com/photo-1551241484-e58d2cfacd63?auto=format&fit=crop&w=600&q=80"
             icon={
-              <Tree className="h-10 w-10" />
+              <Trees className="h-10 w-10" />
             }
           />
         </div>
