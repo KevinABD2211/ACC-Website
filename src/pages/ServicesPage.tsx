@@ -1,8 +1,43 @@
 
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
+import ServiceCard from "@/components/ServiceCard";
+import { Building, Construction, Home, LineChart, LayoutDashboard } from "lucide-react";
 
 const ServicesPage = () => {
+  const serviceCards = [
+    {
+      title: "General Contracting",
+      description: "Full-service contracting for residential and commercial projects, handling all aspects from pre-construction to final delivery.",
+      icon: <Building className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Plumbing & Electrical",
+      description: "Expert plumbing and electrical services for both residential and commercial properties, ensuring safety and code compliance.",
+      icon: <Construction className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Full Renovations",
+      description: "Comprehensive renovation services to transform your existing space, from single rooms to entire properties.",
+      icon: <Home className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Project Management",
+      description: "Experienced project managers overseeing every aspect of your construction project for efficient communication and quality control.",
+      icon: <LayoutDashboard className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Real Estate Development",
+      description: "Full-service real estate development for residential and commercial properties, from concept to completion.",
+      icon: <LineChart className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80"
+    }
+  ];
+
   return (
     <div>
       <PageHeader
@@ -11,7 +46,30 @@ const ServicesPage = () => {
         imageUrl="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=1920&q=80"
       />
 
-      {/* Services Overview */}
+      {/* Services Cards */}
+      <section className="py-16 px-4 md:px-6 bg-fadco-lightgray">
+        <div className="container mx-auto">
+          <SectionTitle 
+            title="Our Services" 
+            subtitle="From initial concept to final delivery, we provide complete solutions for all your construction needs."
+            center={true}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {serviceCards.map((service, index) => (
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                imageUrl={service.imageUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Detail */}
       <section className="py-20 px-4 md:px-6">
         <div className="container mx-auto">
           <SectionTitle 
@@ -60,9 +118,9 @@ const ServicesPage = () => {
               </div>
               <div className="order-1 lg:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
                   alt="General Contracting"
-                  className="rounded-lg w-full h-96 object-cover"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
             </div>
@@ -71,9 +129,9 @@ const ServicesPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
                   alt="Plumbing & Electrical"
-                  className="rounded-lg w-full h-96 object-cover"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
               <div>
@@ -152,7 +210,7 @@ const ServicesPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80"
                   alt="Full Renovations"
-                  className="rounded-lg w-full h-96 object-cover"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
             </div>
@@ -163,7 +221,7 @@ const ServicesPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80"
                   alt="Project Management"
-                  className="rounded-lg w-full h-96 object-cover"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
               <div>
@@ -242,7 +300,7 @@ const ServicesPage = () => {
                 <img
                   src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80"
                   alt="Real Estate Development"
-                  className="rounded-lg w-full h-96 object-cover"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
             </div>
