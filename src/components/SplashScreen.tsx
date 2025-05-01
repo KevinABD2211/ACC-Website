@@ -23,7 +23,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         <img 
           src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
           alt="FADCO Logo" 
-          className="w-64 md:w-96 h-auto mx-auto animate-fade-in"
+          className="w-80 md:w-[500px] h-auto mx-auto animate-fade-in"
           onError={(e) => {
             e.currentTarget.src = "https://placehold.co/200x200?text=FADCO"; // Fallback image if logo is not available
           }}

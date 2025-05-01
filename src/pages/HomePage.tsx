@@ -36,7 +36,7 @@ const HomePage = () => {
               <img
                 src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
                 alt="FADCO Logo"
-                className="w-64 mx-auto mb-8"
+                className="w-80 md:w-[400px] mx-auto mb-8"
               />
               <h1 className="text-4xl md:text-6xl font-bold text-fadco-navy mb-6">
                 Building Legacies, Delivering Homes
