@@ -1,11 +1,14 @@
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
   imageUrl: string;
+  bulletPoints: string[];
   className?: string;
 }
 
@@ -14,6 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   icon,
   imageUrl,
+  bulletPoints,
   className,
 }) => {
   return (
@@ -48,8 +52,28 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-3 text-fadco-navy text-center">{title}</h3>
-        <p className="text-gray-600 text-center">{description}</p>
+        <h3 className="text-xl font-bold mb-2 text-fadco-navy text-center">{title}</h3>
+        <p className="text-gray-600 mb-4 text-center italic text-sm">{description}</p>
+        
+        {/* Bullet Points */}
+        <ul className="space-y-2 mb-5">
+          {bulletPoints.map((point, index) => (
+            <li key={index} className="flex items-start text-sm">
+              <Check className="h-4 w-4 mr-2 mt-0.5 text-fadco-navy flex-shrink-0" />
+              <span className="text-gray-700">{point}</span>
+            </li>
+          ))}
+        </ul>
+        
+        <div className="flex justify-center mt-auto pt-2">
+          <Button 
+            className="bg-white text-fadco-navy hover:bg-fadco-navy hover:text-white border border-fadco-navy"
+            variant="outline"
+            size="sm"
+          >
+            Learn More
+          </Button>
+        </div>
       </div>
     </div>
   );
