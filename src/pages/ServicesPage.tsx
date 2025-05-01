@@ -2,39 +2,33 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
-import { Building, Construction, Home, LineChart, LayoutDashboard } from "lucide-react";
+import { Droplet, Plug, Hammer, Trees } from "lucide-react";
 
 const ServicesPage = () => {
   const serviceCards = [
     {
-      title: "General Contracting",
-      description: "Full-service contracting for residential and commercial projects, handling all aspects from pre-construction to final delivery.",
-      icon: <Building className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Plumbing & Electrical",
-      description: "Expert plumbing and electrical services for both residential and commercial properties, ensuring safety and code compliance.",
-      icon: <Construction className="h-10 w-10" />,
+      title: "Plumbing, Heating & Drainage",
+      description: "Fit-outs, sewer tie-ins, hydronic & under-floor heating, preventive maintenance.",
+      icon: <Droplet className="h-10 w-10" />,
       imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Full Renovations",
-      description: "Comprehensive renovation services to transform your existing space, from single rooms to entire properties.",
-      icon: <Home className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80"
+      title: "Electrical & Automation",
+      description: "Wiring, fixtures, LED lighting, full-home smart controls (lights, curtains, shades, AC), panel work.",
+      icon: <Plug className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1633111245062-8933671fa07c?auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Project Management",
-      description: "Experienced project managers overseeing every aspect of your construction project for efficient communication and quality control.",
-      icon: <LayoutDashboard className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80"
+      title: "Construction & Renovation",
+      description: "Project management, targeted upgrades (any room/façade), full renovations, ground-up builds—all trades supervised by Kevin.",
+      icon: <Hammer className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Real Estate Development",
-      description: "Full-service real estate development for residential and commercial properties, from concept to completion.",
-      icon: <LineChart className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80"
+      title: "Outdoor & Landscape Systems",
+      description: "Pools & water features, irrigation & drainage, hardscape & lighting, waterproofing.",
+      icon: <Trees className="h-10 w-10" />,
+      imageUrl: "https://images.unsplash.com/photo-1551241484-e58d2cfacd63?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -55,7 +49,7 @@ const ServicesPage = () => {
             center={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {serviceCards.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -79,65 +73,12 @@ const ServicesPage = () => {
           />
           
           <div className="mt-16">
-            {/* General Contracting */}
+            {/* Plumbing, Heating & Drainage */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
               <div className="order-2 lg:order-1">
-                <h3 className="text-2xl font-bold text-fadco-navy mb-4">General Contracting</h3>
+                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Plumbing, Heating & Drainage</h3>
                 <p className="text-gray-600 mb-6">
-                  As a full-service general contractor, FADCO handles all aspects of construction projects, 
-                  from pre-construction planning to final delivery. We manage every detail with precision 
-                  and care, ensuring that your project is completed on time, within budget, and to the highest 
-                  standards of quality.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Residential and commercial construction</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Project scheduling and coordination</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Subcontractor management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Budget and cost control</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <img
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
-                  alt="General Contracting"
-                  className="rounded-lg w-full h-96 object-cover shadow-lg"
-                />
-              </div>
-            </div>
-            
-            {/* Plumbing & Electrical */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
-                  alt="Plumbing & Electrical"
-                  className="rounded-lg w-full h-96 object-cover shadow-lg"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Plumbing & Electrical</h3>
-                <p className="text-gray-600 mb-6">
-                  Drawing on our origins in specialized trade work, FADCO offers expert plumbing and electrical 
+                  Drawing on our expertise in specialized trade work, FADCO offers expert plumbing, heating, and drainage 
                   services for both residential and commercial properties. Our licensed professionals ensure that 
                   all installations and repairs are completed safely and to code.
                 </p>
@@ -146,162 +87,169 @@ const ServicesPage = () => {
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>New construction plumbing and electrical systems</span>
+                    <span>Complete fit-outs for new construction</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Repairs and upgrades to existing systems</span>
+                    <span>Sewer tie-ins and drainage solutions</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Smart home electrical solutions</span>
+                    <span>Hydronic and under-floor heating systems</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Water conservation and energy-efficient solutions</span>
+                    <span>Preventive maintenance programs</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="order-1 lg:order-2">
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                  alt="Plumbing, Heating & Drainage"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
+                />
+              </div>
+            </div>
+            
+            {/* Electrical & Automation */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1633111245062-8933671fa07c?auto=format&fit=crop&w=800&q=80"
+                  alt="Electrical & Automation"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Electrical & Automation</h3>
+                <p className="text-gray-600 mb-6">
+                  FADCO offers comprehensive electrical and automation solutions that combine safety, efficiency, 
+                  and cutting-edge technology. From basic wiring to sophisticated smart home systems, our team 
+                  delivers reliable electrical installations for modern living.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Wiring and fixtures installation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>LED and accent lighting systems</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Full-home smart controls (lights, curtains, shades, AC)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Electrical panel work and upgrades</span>
                   </li>
                 </ul>
               </div>
             </div>
             
-            {/* Full Renovations */}
+            {/* Construction & Renovation */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
               <div className="order-2 lg:order-1">
-                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Full Renovations</h3>
+                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Construction & Renovation</h3>
                 <p className="text-gray-600 mb-6">
-                  Transform your existing space with FADCO's comprehensive renovation services. Whether you're 
+                  Transform your space with FADCO's comprehensive construction and renovation services. Whether you're 
                   looking to update a single room or completely reimagine your entire property, our team brings 
-                  creativity and craftsmanship to every project.
+                  creativity and craftsmanship to every project—all under Kevin's direct supervision.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Kitchen and bathroom renovations</span>
+                    <span>Project management and coordination</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Whole home remodeling</span>
+                    <span>Targeted upgrades (any room/façade)</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Commercial space renovations</span>
+                    <span>Full renovations of existing structures</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Historic property restoration</span>
+                    <span>Ground-up builds with complete trade supervision</span>
                   </li>
                 </ul>
               </div>
               <div className="order-1 lg:order-2">
                 <img
-                  src="https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80"
-                  alt="Full Renovations"
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+                  alt="Construction & Renovation"
                   className="rounded-lg w-full h-96 object-cover shadow-lg"
                 />
               </div>
             </div>
             
-            {/* Project Management */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80"
-                  alt="Project Management"
-                  className="rounded-lg w-full h-96 object-cover shadow-lg"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Project Management</h3>
-                <p className="text-gray-600 mb-6">
-                  FADCO's experienced project managers oversee every aspect of your construction project, ensuring 
-                  efficient communication, quality control, and timely completion. We serve as your advocate throughout 
-                  the building process.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Construction planning and scheduling</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Cost management and budgeting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Quality control and inspections</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Stakeholder coordination and communication</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            {/* Real Estate Development */}
+            {/* Outdoor & Landscape Systems */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Real Estate Development</h3>
+              <div>
+                <img
+                  src="https://images.unsplash.com/photo-1551241484-e58d2cfacd63?auto=format&fit=crop&w=800&q=80"
+                  alt="Outdoor & Landscape Systems"
+                  className="rounded-lg w-full h-96 object-cover shadow-lg"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-fadco-navy mb-4">Outdoor & Landscape Systems</h3>
                 <p className="text-gray-600 mb-6">
-                  As a full-service real estate developer, FADCO identifies opportunities, acquires land, 
-                  and creates residential and commercial properties that add value to communities. Our team 
-                  handles everything from concept to completion.
+                  Extend your living space outdoors with FADCO's landscape system solutions. Our integrated approach 
+                  ensures that your outdoor areas are both beautiful and functional, with carefully designed systems 
+                  that work seamlessly together.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Residential development projects</span>
+                    <span>Pools and water features</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Commercial property development</span>
+                    <span>Irrigation and drainage systems</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Land acquisition and site analysis</span>
+                    <span>Hardscape and outdoor lighting</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-6 w-6 mr-2 text-fadco-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Project feasibility and market analysis</span>
+                    <span>Waterproofing solutions</span>
                   </li>
                 </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <img
-                  src="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80"
-                  alt="Real Estate Development"
-                  className="rounded-lg w-full h-96 object-cover shadow-lg"
-                />
               </div>
             </div>
           </div>
