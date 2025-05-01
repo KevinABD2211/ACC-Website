@@ -1,6 +1,7 @@
 
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const AboutPage = () => {
   return (
@@ -18,24 +19,22 @@ const AboutPage = () => {
             <div>
               <SectionTitle 
                 title="Our Story" 
-                subtitle="From humble beginnings to industry leadership"
+                subtitle="From vision to industry leadership"
               />
               <p className="text-gray-600 mb-6">
-                Founded in 1996 by Fadi Abdallah, FADCO began as a specialized plumbing and electrical contractor 
-                serving the local community in Lebanon. Through dedication to quality and customer satisfaction, 
-                the company quickly built a reputation for excellence and reliability.
+                FADCO was born from a vision to transform the Lebanese construction industry by offering unparalleled 
+                quality and service. What began as a specialized trade service has evolved into a comprehensive 
+                construction and development company.
               </p>
               <p className="text-gray-600 mb-6">
-                As the years passed, FADCO expanded its services to include full renovations, general contracting, 
-                and eventually complete real estate development projects. Today, with over 28 years of experience, 
-                FADCO stands as a leader in the Lebanese construction industry, known for delivering outstanding 
-                results that combine traditional craftsmanship with modern techniques.
+                Our journey has been defined by our commitment to excellence, traditional craftsmanship, and embracing 
+                modern techniques. We established FADCO to create not just buildings, but lasting legacies that enhance 
+                the communities we serve.
               </p>
               <p className="text-gray-600">
                 Despite our growth, we remain true to our founding principles: integrity, quality, and a personal 
-                commitment to exceeding client expectations. The family's dedication to excellence has been passed 
-                down through generations, ensuring that every project bearing the FADCO name represents the highest 
-                standards of quality.
+                commitment to exceeding client expectations. FADCO represents the highest standards of Lebanese 
+                craftsmanship and attention to detail.
               </p>
             </div>
             <div className="space-y-6">
@@ -49,8 +48,52 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Vision & Mission Section */}
+      {/* Our Team Section */}
       <section className="py-20 px-4 md:px-6 bg-gray-50">
+        <div className="container mx-auto">
+          <SectionTitle 
+            title="Our Team" 
+            subtitle="The experts behind every successful project"
+            center={true}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto mt-12">
+            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center">
+              <Avatar className="w-32 h-32 mb-6">
+                <AvatarImage src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=200&h=200&q=80" alt="Fadi Abdallah" />
+                <AvatarFallback>FA</AvatarFallback>
+              </Avatar>
+              <h3 className="text-2xl font-bold text-fadco-navy mb-1">Fadi Abdallah</h3>
+              <p className="text-fadco-gold mb-4">Founder & Master Craftsman</p>
+              <p className="text-gray-600 text-center">
+                A master craftsman with 28 years of experience in the construction industry. Fadi's expertise spans across plumbing systems, 
+                electrical installations, and comprehensive renovations. His hands-on approach and meticulous attention to detail have 
+                established him as a trusted name in Lebanon's building sector, where his work stands as a testament to his 
+                unwavering commitment to quality.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center">
+              <Avatar className="w-32 h-32 mb-6">
+                <AvatarImage src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=200&h=200&q=80" alt="Kevin Abdallah" />
+                <AvatarFallback>KA</AvatarFallback>
+              </Avatar>
+              <h3 className="text-2xl font-bold text-fadco-navy mb-1">Kevin Abdallah</h3>
+              <p className="text-fadco-gold mb-4">Construction Coordinator</p>
+              <p className="text-gray-600 text-center">
+                As FADCO's dedicated on-site construction coordinator, Kevin brings a unique blend of practical knowledge and 
+                academic excellence to every project. With his finance background from LAU (GPA 3.98) and specialized 
+                certifications in real estate economics, he expertly manages resources, timelines, and budgets while maintaining 
+                seamless communication between clients, architects, and trade specialists. Kevin's analytical approach ensures 
+                that each project delivers maximum value without compromising on FADCO's quality standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Vision & Mission Section */}
+      <section className="py-20 px-4 md:px-6">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="bg-white p-8 rounded-lg shadow-md">
@@ -84,7 +127,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 px-4 md:px-6">
+      <section className="py-20 px-4 md:px-6 bg-gray-50">
         <div className="container mx-auto">
           <SectionTitle 
             title="Our Values" 
@@ -134,70 +177,6 @@ const AboutPage = () => {
               <h3 className="text-xl font-bold text-fadco-navy mb-2">Innovation</h3>
               <p className="text-gray-600">
                 We embrace new technologies and methods while respecting traditional craftsmanship to deliver superior results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Section */}
-      <section className="py-20 px-4 md:px-6 bg-gray-50">
-        <div className="container mx-auto">
-          <SectionTitle 
-            title="Our Leadership" 
-            subtitle="Meet the team behind FADCO's success"
-            center={true}
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="mb-6">
-                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
-                  <img 
-                    src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=200&h=200&q=80" 
-                    alt="Fadi Abdallah" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-fadco-navy mb-1">Fadi Abdallah</h3>
-              <p className="text-fadco-gold mb-4">Founder & CEO</p>
-              <p className="text-gray-600">
-                With over 30 years of experience in construction, Fadi's vision and leadership have guided FADCO 
-                from its humble beginnings to its current position as an industry leader.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="mb-6">
-                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
-                  <img 
-                    src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=200&h=200&q=80" 
-                    alt="Sarah Abdallah" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-fadco-navy mb-1">Sarah Abdallah</h3>
-              <p className="text-fadco-gold mb-4">Operations Director</p>
-              <p className="text-gray-600">
-                Bringing expertise in project management and operations, Sarah ensures that every FADCO project runs 
-                smoothly and meets our high standards of quality and efficiency.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="mb-6">
-                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto">
-                  <img 
-                    src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=200&h=200&q=80" 
-                    alt="Karim Hayek" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-fadco-navy mb-1">Karim Hayek</h3>
-              <p className="text-fadco-gold mb-4">Head Architect</p>
-              <p className="text-gray-600">
-                With a keen eye for design and a deep understanding of Lebanese architectural traditions, Karim 
-                creates spaces that are both beautiful and functional.
               </p>
             </div>
           </div>
