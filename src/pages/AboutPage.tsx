@@ -24,17 +24,19 @@ const AboutPage = () => {
         pattern="diagonal-lines"
       />
 
-      {/* History & Vision */}
+      {/* Our Story */}
       <section className="py-16 px-4 md:px-6">
         <div className="container mx-auto max-w-3xl">
           <SectionTitle 
-            title="History & Vision" 
+            title="Our Story" 
             center={true}
           />
           <p className="text-gray-700 text-lg text-center">
-            FADCO was created to build on Fadi Abdallah's 28 years of hands-on expertise—from plumbing 
-            and electrical work to full-scope renovations—and transform it into a turnkey development model 
-            that serves clients across Lebanon.
+            From humble beginnings, FADCO's story is one of passion and progress. Founder Fadi Abdallah's 
+            28 years in plumbing laid the foundation for our commitment to quality. Responding to our 
+            clients' needs, we expanded into electrical work eight years ago, and then into comprehensive 
+            renovations two years ago. Today, under the forward-thinking leadership of Kevin Abdallah, 
+            we're excited to build on our legacy and embrace a bright future.
           </p>
         </div>
       </section>
@@ -64,8 +66,8 @@ const AboutPage = () => {
               </Avatar>
               <h3 className="text-2xl font-bold text-fadco-navy mb-4">Fadi Abdallah</h3>
               <p className="text-gray-600 text-center">
-                Trade master whose career began in plumbing and electrical, now leading multi-story builds 
-                and complex renovations with a reputation for integrity and quality.
+                With 28 years of experience, Fadi Abdallah built FADCO on a foundation of plumbing expertise. 
+                Today, he leads with a commitment to quality and customer satisfaction.
               </p>
             </div>
             
@@ -85,8 +87,8 @@ const AboutPage = () => {
               </Avatar>
               <h3 className="text-2xl font-bold text-fadco-navy mb-4">Kevin Abdallah</h3>
               <p className="text-gray-600 text-center">
-                Fadi's son and finance specialist with a passion for real estate and property development, 
-                driving FADCO's strategic growth and ensuring sound financial planning.
+                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives FADCO's 
+                strategic growth, blending practical experience with financial acumen.
               </p>
             </div>
           </div>
