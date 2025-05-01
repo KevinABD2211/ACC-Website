@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -63,61 +64,54 @@ const ContactPage = () => {
               <div className="space-y-8 mt-8">
                 <div className="flex items-start">
                   <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                    <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Address</h3>
-                    <p className="text-gray-600">Lebanon</p>
+                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Office Location</h3>
+                    <p className="text-gray-600">Beirut, Lebanon</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                    <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-fadco-navy mb-1">Email</h3>
-                    <a href="mailto:info@fadco.com" className="text-gray-600 hover:text-fadco-gold">info@fadco.com</a>
+                    <a href="mailto:fadcosarl@hotmail.com" className="text-gray-600 hover:text-fadco-gold">fadcosarl@hotmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
+                    <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-fadco-navy mb-1">Phone</h3>
-                    <a href="tel:+1234567890" className="text-gray-600 hover:text-fadco-gold">+123 456 7890</a>
+                    <a href="tel:+96132552063" className="text-gray-600 hover:text-fadco-gold">+961 3 255 206</a>
                   </div>
                 </div>
-              </div>
-              
-              <div className="mt-12">
-                <h3 className="text-lg font-bold text-fadco-navy mb-4">Office Hours</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <p className="font-medium">Monday - Friday</p>
-                    <p className="text-gray-600">8:00 AM - 5:00 PM</p>
+                <div className="flex items-start">
+                  <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                    <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium">Saturday</p>
-                    <p className="text-gray-600">9:00 AM - 2:00 PM</p>
-                  </div>
-                  <div>
-                    <p className="font-medium">Sunday</p>
-                    <p className="text-gray-600">Closed</p>
+                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Office Hours</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div>
+                        <p className="font-medium">Monday - Friday</p>
+                        <p className="text-gray-600">8:00 AM - 5:00 PM</p>
+                      </div>
+                      <div>
+                        <p className="font-medium">Saturday</p>
+                        <p className="text-gray-600">9:00 AM - 2:00 PM</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
               <h3 className="text-2xl font-bold text-fadco-navy mb-6">Send Us a Message</h3>
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
@@ -154,7 +148,7 @@ const ContactPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
@@ -163,11 +157,12 @@ const ContactPage = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                      required
                     />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                      Subject *
+                      Service Interest *
                     </label>
                     <select
                       id="subject"
@@ -177,12 +172,12 @@ const ContactPage = () => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
                       required
                     >
-                      <option value="">Select a subject</option>
+                      <option value="">Select a service</option>
+                      <option value="Plumbing, Heating & Drainage">Plumbing, Heating & Drainage</option>
+                      <option value="Electrical & Automation">Electrical & Automation</option>
+                      <option value="Construction & Renovation">Construction & Renovation</option>
+                      <option value="Outdoor & Landscape Systems">Outdoor & Landscape Systems</option>
                       <option value="General Inquiry">General Inquiry</option>
-                      <option value="Project Quote">Project Quote</option>
-                      <option value="Renovation">Renovation</option>
-                      <option value="New Construction">New Construction</option>
-                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>
@@ -230,18 +225,15 @@ const ContactPage = () => {
         <div className="container mx-auto">
           <SectionTitle 
             title="Our Location" 
-            subtitle="Visit our office in Lebanon"
+            subtitle="Visit our office in Beirut"
             center={true}
           />
           <div className="mt-8 h-96 bg-gray-200 rounded-lg overflow-hidden">
-            {/* Placeholder for map */}
+            {/* Google Map placeholder */}
             <div className="w-full h-full flex items-center justify-center bg-gray-300">
               <div className="text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-fadco-navy mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <p className="text-gray-600">Map showing our location in Lebanon</p>
+                <MapPin className="h-12 w-12 text-fadco-navy mx-auto mb-2" />
+                <p className="text-gray-600">Google Map showing our Beirut office location</p>
               </div>
             </div>
           </div>
