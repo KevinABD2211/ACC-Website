@@ -54,7 +54,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				fadco: {
-					navy: "#0A2463",
+					navy: "#1A2B4C", // Updated to the exact navy-blue requested
 					gold: "#D4AF37",
 					lightgray: "#F8F9FA",
 				},

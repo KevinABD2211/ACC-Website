@@ -33,7 +33,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
               alt="FADCO Logo" 
-              className="h-20 md:h-24 w-auto" 
+              className="h-24 md:h-32 w-auto" 
             />
           </NavLink>
 

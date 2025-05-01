@@ -17,38 +17,19 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
   ];
 
   return (
-    <section className={cn("py-20 px-4 md:px-6 bg-white", className)}>
+    <section id="about" className={cn("py-20 px-4 md:px-6 bg-white", className)}>
       <div className="container mx-auto">
         <SectionTitle
-          title="About FADCO"
+          title="About Us"
           subtitle="Building Legacies, Delivering Homes."
           center={true}
         />
         
-        {/* Leadership Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+        {/* Team Section */}
+        <div className="max-w-4xl mx-auto mt-12">
           <div className="bg-fadco-lightgray p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-fadco-navy mb-4">Fadi Abdallah</h3>
-            <p className="text-gray-700 mb-4">
-              With 28 years of mastery in plumbing, electrical, and renovation, Fadi started as a tradesman 
-              and now oversees full-scale builds and renovations across Lebanon with an impeccable reputation.
-            </p>
-            <p className="text-gray-700">
-              His dedication to excellence and hands-on leadership approach has established FADCO as a trusted 
-              name in Lebanon's construction and development industry.
-            </p>
-          </div>
-          
-          <div className="bg-fadco-lightgray p-8 rounded-lg shadow-md">
-            <h3 className="text-2xl font-bold text-fadco-navy mb-4">Kevin Abdallah</h3>
-            <p className="text-gray-700 mb-4">
-              Full-time on-site construction specialist who coordinates all trades directly with engineers and architects. 
-              A finance scholar (LAU, GPA 3.98) and certified in real-estate economics and property development, 
-              Kevin drives the next generation of FADCO's turnkey expertise.
-            </p>
-            <p className="text-gray-700">
-              His blend of academic excellence and practical knowledge ensures FADCO maintains its position 
-              at the forefront of Lebanon's construction industry.
+            <p className="text-gray-700 text-lg leading-relaxed">
+              <strong>Fadi Abdallah</strong> brings 28 years of hands-on mastery in plumbing, electrical work, and full-scope renovations across Lebanon with an impeccable reputation for quality and integrity. Alongside him, <strong>Kevin Abdallah</strong> is a full-time on-site construction coordinator who works directly with engineers and architects and leverages his finance scholarship (LAU, GPA 3.98) plus certifications in real-estate economics and property development to ensure strategic planning, budget control, and turnkey excellence. Together, they embody FADCO's promise: Building Legacies, Delivering Homes.
             </p>
           </div>
         </div>

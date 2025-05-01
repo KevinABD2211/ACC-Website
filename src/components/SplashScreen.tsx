@@ -19,11 +19,11 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
   return (
     <div className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-all duration-1000 ${animationComplete ? 'opacity-0 scale-110' : 'opacity-100'}`}>
-      <div className="text-center">
+      <div className="text-center flex items-center justify-center h-screen w-screen">
         <img 
           src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
           alt="FADCO Logo" 
-          className="w-80 md:w-[500px] h-auto mx-auto animate-fade-in"
+          className="w-3/4 max-w-[600px] h-auto mx-auto animate-fade-in"
           onError={(e) => {
             e.currentTarget.src = "https://placehold.co/200x200?text=FADCO"; // Fallback image if logo is not available
           }}

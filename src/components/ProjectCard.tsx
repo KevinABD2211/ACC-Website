@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
@@ -10,39 +9,39 @@ interface ProjectCardProps {
   className?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard = ({
   title,
   category,
   description,
   imageUrl,
   className,
-}) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+}: ProjectCardProps) => {
   return (
-    <div 
+    <div
       className={cn(
-        "group relative overflow-hidden rounded-lg",
+        "bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300",
         className
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      <img 
-        src={imageUrl} 
-        alt={title} 
-        className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-      <div className={cn(
-        "absolute inset-0 bg-fadco-navy bg-opacity-80 flex flex-col justify-end p-6 transition-opacity duration-300",
-        isHovered ? "opacity-100" : "opacity-0"
-      )}>
-        <span className="text-fadco-gold text-sm font-medium mb-2">{category}</span>
-        <h3 className="text-white text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-300 text-sm line-clamp-3">{description}</p>
-        <button className="mt-4 text-white border border-white hover:bg-white hover:text-fadco-navy transition-colors py-2 px-4 inline-block rounded text-sm">
-          View Project
-        </button>
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
+        {/* Logo watermark */}
+        <div className="absolute top-2 right-2 opacity-50">
+          <img 
+            src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
+            alt="FADCO Watermark" 
+            className="h-8 w-auto"
+          />
+        </div>
+      </div>
+      <div className="p-4">
+        <span className="text-sm text-fadco-navy font-semibold block mb-1">{category}</span>
+        <h3 className="font-bold text-lg mb-2 text-gray-800">{title}</h3>
+        <p className="text-gray-600 text-sm">{description}</p>
       </div>
     </div>
   );
