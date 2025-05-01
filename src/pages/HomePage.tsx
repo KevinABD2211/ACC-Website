@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import SplashScreen from "@/components/SplashScreen";
-import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import ProjectCard from "@/components/ProjectCard";
@@ -52,18 +51,15 @@ const HomePage = () => {
                   Start Your Project
                 </NavLink>
                 <NavLink
-                  to="/about"
+                  to="/services"
                   className="border-2 border-fadco-navy text-fadco-navy px-8 py-4 rounded font-semibold hover:bg-fadco-navy hover:text-white transition-colors"
                 >
-                  Learn More
+                  Our Services
                 </NavLink>
               </div>
             </div>
           </div>
         </section>
-
-        {/* About Section */}
-        <AboutSection />
 
         {/* Services Section */}
         <ServicesSection />
@@ -123,12 +119,22 @@ const HomePage = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Contact us today to discuss your project needs and discover how FADCO can bring your vision to life.
             </p>
-            <NavLink 
-              to="/contact" 
-              className="bg-white text-fadco-navy px-8 py-4 rounded font-semibold hover:bg-fadco-gold hover:text-white transition-colors inline-block"
-            >
-              Get in Touch
-            </NavLink>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              <NavLink 
+                to="/contact" 
+                className="bg-white text-fadco-navy px-8 py-4 rounded font-semibold hover:bg-fadco-gold hover:text-white transition-colors inline-block"
+              >
+                Get in Touch
+              </NavLink>
+              <div className="flex items-center gap-6 text-lg">
+                <a href="tel:+9613255206" className="flex items-center hover:text-fadco-gold transition-colors">
+                  <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  +961 3 255 206
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </div>

@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -70,8 +71,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             className="bg-white text-fadco-navy hover:bg-fadco-navy hover:text-white border border-fadco-navy"
             variant="outline"
             size="sm"
+            asChild
           >
-            Learn More
+            <Link to="/services">Learn More</Link>
           </Button>
         </div>
       </div>
