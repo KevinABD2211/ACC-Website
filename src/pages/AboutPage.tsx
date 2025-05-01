@@ -32,11 +32,7 @@ const AboutPage = () => {
             center={true}
           />
           <p className="text-gray-700 text-lg text-center">
-            From humble beginnings, FADCO's story is one of passion and progress. Founder Fadi Abdallah's 
-            28 years in plumbing laid the foundation for our commitment to quality. Responding to our 
-            clients' needs, we expanded into electrical work eight years ago, and then into comprehensive 
-            renovations two years ago. Today, under the forward-thinking leadership of Kevin Abdallah, 
-            we're excited to build on our legacy and embrace a bright future.
+            FADCO's journey began with founder Fadi Abdallah's 28-year career in plumbing. His dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's construction sector. Eight years ago, we expanded our services to include electrical work, responding to client needs and growing our expertise. Two years ago, we further evolved to take on comprehensive renovation projects. Today, FADCO is entering an exciting new chapter under the leadership of Kevin Abdallah, who brings both hands-on experience and academic insight in finance and real estate.
           </p>
         </div>
       </section>
