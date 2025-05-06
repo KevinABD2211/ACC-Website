@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Construction, Crane } from 'lucide-react';
+import { Construction, Loader, Building2 } from 'lucide-react';
 
 interface LoadingScreenProps {
   onComplete?: () => void;
@@ -48,7 +48,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           }}
         />
         
-        {/* Building and Crane Animation */}
+        {/* Building and Construction Animation */}
         <div className="relative h-48 w-64">
           {/* Building under construction */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 flex flex-col-reverse items-center">
@@ -67,9 +67,9 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             <div className="w-full h-2 bg-fadco-gold mt-1" />
           </div>
           
-          {/* Crane */}
+          {/* Construction crane representation with available icons */}
           <div className="absolute top-0 right-0 text-fadco-navy animate-pulse">
-            <Crane size={48} />
+            <Building2 size={48} />
             {/* Moving block animation */}
             {blocksAdded < totalBlocks && (
               <div 
@@ -89,7 +89,10 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         </div>
         
         {/* Loading text */}
-        <p className="mt-8 text-fadco-navy font-medium">Building your experience...</p>
+        <p className="mt-8 text-fadco-navy font-medium">
+          Building your experience...
+          <Loader className="inline-block ml-2 animate-spin" size={16} />
+        </p>
       </div>
     </div>
   );
