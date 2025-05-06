@@ -1,17 +1,17 @@
 
-import { useState, useEffect } from 'react';
-import type { AppProps } from 'next/app';
+import { useState, useEffect, ReactNode } from 'react';
 import LoadingScreen from '../components/LoadingScreen';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+interface ExampleAppProps {
+  Component: React.ComponentType<any>;
+  pageProps: any;
+}
+
+function NextJsExample({ Component, pageProps }: ExampleAppProps) {
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Show loading screen on initial load and route changes
-    const handleStart = () => setIsLoading(true);
-    const handleComplete = () => setTimeout(() => setIsLoading(false), 500);
-    
-    // If first load, simulate initial data loading
+    // Show loading screen on initial load
     if (isLoading) {
       const timer = setTimeout(() => {
         setIsLoading(false);
@@ -19,17 +19,38 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       return () => clearTimeout(timer);
     }
     
-    // Handle route change events
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
-    
-    return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
+    // Simulate route change events with a mock router
+    const mockRouteChange = () => {
+      setIsLoading(true);
+      setTimeout(() => setIsLoading(false), 500);
     };
-  }, [router.events, isLoading]);
+    
+    // This is just for demonstration purposes in this example component
+    const mockRouter = {
+      events: {
+        on: (event: string, handler: () => void) => {
+          // Mocked event listener
+          console.log(`Added listener for ${event}`);
+          return handler;
+        },
+        off: (event: string, handler: () => void) => {
+          // Mocked event removal
+          console.log(`Removed listener for ${event}`);
+        }
+      }
+    };
+    
+    // Mock route change events
+    const handleStart = () => setIsLoading(true);
+    const handleComplete = () => setTimeout(() => setIsLoading(false), 500);
+    
+    // Register mock handlers
+    mockRouter.events.on('routeChangeStart', handleStart);
+    mockRouter.events.on('routeChangeComplete', handleComplete);
+    mockRouter.events.on('routeChangeError', handleComplete);
+    
+    // No need to clean up mock event handlers in this example
+  }, [isLoading]);
   
   return (
     <>
@@ -39,4 +60,4 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   );
 }
 
-export default MyApp;
+export default NextJsExample;
