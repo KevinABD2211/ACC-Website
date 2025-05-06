@@ -6,23 +6,26 @@ import Footer from "./Footer";
 import LoadingScreen from "./LoadingScreen";
 
 const Layout = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   
   useEffect(() => {
+    // Show loading when route changes
     setIsLoading(true);
-    // The LoadingScreen component will automatically hide itself
+    
+    // Simulate data loading or fetch actual data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Adjust timing as needed
+    
+    return () => clearTimeout(timer);
   }, [location.pathname]);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       <Navbar />
       <main className="flex-grow">
-        {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
         <Outlet />
       </main>
       <Footer />

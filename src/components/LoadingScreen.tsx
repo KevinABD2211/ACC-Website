@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Construction, Loader, Building2 } from 'lucide-react';
+import { cn } from "@/lib/utils";
 
 interface LoadingScreenProps {
   onComplete?: () => void;
@@ -27,7 +28,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       if (onComplete) {
         setTimeout(onComplete, 1000); // Give time for exit animation before removing
       }
-    }, 1500); // Show splash for 1.5 seconds (shorter than initial splash)
+    }, 2000); // Show splash for 2 seconds
 
     return () => {
       clearInterval(blockInterval);
@@ -36,7 +37,10 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-all duration-1000 ${animationComplete ? 'opacity-0 scale-110' : 'opacity-100'}`}>
+    <div className={cn(
+      "fixed inset-0 bg-white flex items-center justify-center z-50 transition-all duration-1000",
+      animationComplete ? "opacity-0 scale-110" : "opacity-100"
+    )}>
       <div className="text-center flex flex-col items-center justify-center h-screen w-screen">
         {/* FADCO Logo */}
         <img 
@@ -48,15 +52,15 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           }}
         />
         
-        {/* Building Construction Scene */}
-        <div className="relative h-60 w-80">
+        {/* Construction Scene with improved crane design */}
+        <div className="relative h-64 w-96 animate-pulse">
           {/* Building structure */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 flex flex-col-reverse items-center">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-52 flex flex-col-reverse items-center">
             {/* Building blocks being added one by one */}
             {[...Array(totalBlocks)].map((_, index) => (
               <div 
                 key={index} 
-                className={`w-full h-8 bg-fadco-navy border border-fadco-gold transition-all duration-300 ${
+                className={`w-full h-10 bg-fadco-navy border border-fadco-gold transition-all duration-300 ${
                   index < blocksAdded ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{
@@ -65,47 +69,57 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               />
             ))}
             {/* Building foundation */}
-            <div className="w-full h-4 bg-fadco-gold mt-1 rounded-b" />
+            <div className="w-full h-6 bg-fadco-gold mt-1 rounded-b" />
           </div>
           
-          {/* Construction crane - more visibly a crane structure */}
-          <div className="absolute top-2 right-8 flex flex-col items-center">
-            {/* Crane vertical tower */}
-            <div className="h-32 w-4 bg-fadco-navy"></div>
-            {/* Crane horizontal arm */}
-            <div className="absolute top-0 w-32 h-4 bg-fadco-navy -right-12"></div>
-            {/* Crane cabin */}
-            <div className="absolute top-6 -right-4 w-8 h-6 bg-fadco-gold"></div>
+          {/* Construction crane - more detailed and visibly a crane */}
+          <div className="absolute top-0 right-10 flex flex-col items-center">
+            {/* Crane base */}
+            <div className="absolute bottom-[-108px] w-12 h-8 bg-fadco-gold"></div>
             
-            {/* Moving cable and block animation */}
-            {blocksAdded < totalBlocks && (
-              <>
-                <div className="absolute w-1 bg-gray-600 animate-pulse" style={{
-                  height: `${40 + (blocksAdded * 12)}px`,
-                  right: '-28px',
-                  top: '4px'
-                }}></div>
-                <div 
-                  className="absolute w-10 h-10 bg-fadco-navy border border-fadco-gold animate-bounce"
-                  style={{
+            {/* Crane vertical tower */}
+            <div className="h-40 w-6 bg-fadco-navy border-r border-fadco-gold"></div>
+            
+            {/* Crane horizontal arm */}
+            <div className="absolute top-2 w-40 h-5 bg-fadco-navy border border-fadco-gold -right-16"></div>
+            
+            {/* Crane counterweight */}
+            <div className="absolute top-4 w-12 h-8 bg-fadco-navy border border-fadco-gold left-[-16px]"></div>
+            
+            {/* Crane cabin */}
+            <div className="absolute top-10 -right-2 w-10 h-8 bg-fadco-gold border border-fadco-navy"></div>
+            
+            {/* Moving cable and block animation - no pulse on this element */}
+            <div className="animate-none">
+              {blocksAdded < totalBlocks && (
+                <>
+                  <div className="absolute w-1 bg-gray-600" style={{
+                    height: `${48 + (blocksAdded * 14)}px`,
                     right: '-32px',
-                    top: `${40 + (blocksAdded * 12)}px`
-                  }}
-                />
-              </>
-            )}
+                    top: '5px'
+                  }}></div>
+                  <div 
+                    className="absolute w-12 h-12 bg-fadco-navy border-2 border-fadco-gold animate-bounce"
+                    style={{
+                      right: '-38px',
+                      top: `${48 + (blocksAdded * 14)}px`
+                    }}
+                  />
+                </>
+              )}
+            </div>
           </div>
           
           {/* Construction icon for decoration */}
           <div className="absolute bottom-0 left-0 text-fadco-navy">
-            <Construction size={28} />
+            <Construction size={32} />
           </div>
         </div>
         
         {/* Loading text */}
-        <p className="mt-8 text-fadco-navy font-medium">
+        <p className="mt-10 text-fadco-navy font-medium text-xl">
           Building your experience...
-          <Loader className="inline-block ml-2 animate-spin" size={16} />
+          <Loader className="inline-block ml-2 animate-spin" size={20} />
         </p>
       </div>
     </div>
