@@ -48,10 +48,11 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           }}
         />
         
-        {/* Building and Construction Animation */}
-        <div className="relative h-48 w-64">
-          {/* Building under construction */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-40 flex flex-col-reverse items-center">
+        {/* Building Construction Scene */}
+        <div className="relative h-60 w-80">
+          {/* Building structure */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 flex flex-col-reverse items-center">
+            {/* Building blocks being added one by one */}
             {[...Array(totalBlocks)].map((_, index) => (
               <div 
                 key={index} 
@@ -64,21 +65,34 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               />
             ))}
             {/* Building foundation */}
-            <div className="w-full h-2 bg-fadco-gold mt-1" />
+            <div className="w-full h-4 bg-fadco-gold mt-1 rounded-b" />
           </div>
           
-          {/* Construction crane representation with available icons */}
-          <div className="absolute top-0 right-0 text-fadco-navy animate-pulse">
-            <Building2 size={48} />
-            {/* Moving block animation */}
+          {/* Construction crane - more visibly a crane structure */}
+          <div className="absolute top-2 right-8 flex flex-col items-center">
+            {/* Crane vertical tower */}
+            <div className="h-32 w-4 bg-fadco-navy"></div>
+            {/* Crane horizontal arm */}
+            <div className="absolute top-0 w-32 h-4 bg-fadco-navy -right-12"></div>
+            {/* Crane cabin */}
+            <div className="absolute top-6 -right-4 w-8 h-6 bg-fadco-gold"></div>
+            
+            {/* Moving cable and block animation */}
             {blocksAdded < totalBlocks && (
-              <div 
-                className="absolute w-8 h-8 bg-fadco-navy border border-fadco-gold animate-bounce"
-                style={{
-                  left: '-12px',
-                  top: '48px'
-                }}
-              />
+              <>
+                <div className="absolute w-1 bg-gray-600 animate-pulse" style={{
+                  height: `${40 + (blocksAdded * 12)}px`,
+                  right: '-28px',
+                  top: '4px'
+                }}></div>
+                <div 
+                  className="absolute w-10 h-10 bg-fadco-navy border border-fadco-gold animate-bounce"
+                  style={{
+                    right: '-32px',
+                    top: `${40 + (blocksAdded * 12)}px`
+                  }}
+                />
+              </>
             )}
           </div>
           
