@@ -24,11 +24,11 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-acg-navy bg-opacity-30"></div>
         
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center pt-24 md:pt-32">
             <img 
               src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" 
               alt="ACG Logo" 
-              className="h-40 md:h-48 lg:h-56 mx-auto mb-8"
+              className="h-48 md:h-60 lg:h-72 mx-auto mb-12"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
               Building Legacies
