@@ -23,10 +23,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <div className={cn(
-      "bg-white rounded-lg shadow-md transition-all hover:shadow-xl hover:-translate-y-1 overflow-hidden relative",
+      "bg-white rounded-lg shadow-md transition-all hover:shadow-xl hover:-translate-y-1 overflow-hidden relative h-full flex flex-col",
       className
     )}>
-      <div className="h-48 overflow-hidden relative">
+      <div className="h-40 overflow-hidden relative">
         <img 
           src={imageUrl} 
           alt={title} 
@@ -41,8 +41,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           />
         </div>
       </div>
-      <div className="p-6 relative">
-        <div className="text-acg-navy mb-4 flex justify-center relative">
+      <div className="p-4 relative flex flex-col flex-grow">
+        <div className="text-acg-navy mb-3 flex justify-center relative">
           {icon}
           {/* Logo watermark in the background of the icon */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0">
@@ -53,11 +53,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 text-acg-navy text-center">{title}</h3>
-        <p className="text-gray-600 mb-4 text-center italic text-sm">{description}</p>
+        <h3 className="text-lg font-bold mb-1 text-acg-navy text-center">{title}</h3>
+        <p className="text-gray-600 mb-3 text-center italic text-sm">{description}</p>
         
         {/* Bullet Points */}
-        <ul className="space-y-2 mb-5">
+        <ul className="space-y-1 mb-4 flex-grow">
           {bulletPoints.map((point, index) => (
             <li key={index} className="flex items-start text-sm">
               <Check className="h-4 w-4 mr-2 mt-0.5 text-acg-navy flex-shrink-0" />

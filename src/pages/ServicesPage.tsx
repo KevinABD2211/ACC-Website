@@ -2,7 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
-import { Droplet, Zap, Building, Flower, Hammer, UserCog } from "lucide-react";
+import { Droplet, Zap, Building, Flower, Hammer, UserCog, ClipboardList, WrenchIcon } from "lucide-react";
 
 const ServicesPage = () => {
   const serviceCards = [
@@ -55,10 +55,10 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
-      title: "Outdoor & Landscape Systems",
-      description: "Pools, irrigation, hardscape, and more.",
+      title: "Pools & Landscape Systems",
+      description: "Complete pool installation and landscaping solutions.",
       bulletPoints: [
-        "New pools & deck waterproofing",
+        "New pool construction & installation",
         "Automated irrigation & drainage",
         "Patios, walkways & exterior lighting",
         "Landscape electrical wiring"
@@ -67,15 +67,39 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/215c69e6-f673-4263-9d10-abaf203762ad.png"
     },
     {
-      title: "Supervision & Consulting",
-      description: "Expert oversight and guidance for your projects.",
+      title: "Supervision",
+      description: "Expert oversight for construction projects.",
       bulletPoints: [
         "Construction management",
         "Quality control inspections",
-        "Technical consulting",
-        "Project feasibility studies"
+        "Site coordination",
+        "Contract administration"
       ],
       icon: <UserCog className="h-10 w-10" />,
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+    },
+    {
+      title: "Consulting",
+      description: "Professional guidance and technical expertise.",
+      bulletPoints: [
+        "Technical consulting",
+        "Project feasibility studies",
+        "Design review",
+        "Building system optimization"
+      ],
+      icon: <ClipboardList className="h-10 w-10" />,
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+    },
+    {
+      title: "Maintenance",
+      description: "Preventive and regular maintenance services.",
+      bulletPoints: [
+        "Building systems maintenance",
+        "Preventive care programs",
+        "Emergency repairs",
+        "Annual property inspections"
+      ],
+      icon: <WrenchIcon className="h-10 w-10" />,
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     }
   ];
@@ -98,7 +122,7 @@ const ServicesPage = () => {
             center={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
             {serviceCards.map((service, index) => (
               <ServiceCard
                 key={index}
