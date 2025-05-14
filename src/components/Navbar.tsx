@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500",
         isScrolled
           ? "bg-white shadow-md py-2"
           : "bg-transparent py-4"
@@ -36,16 +36,27 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center">
-            {/* Maintain consistent height and positioning for logos */}
-            <div className="h-16 flex items-center justify-center transition-all duration-300">
+          <NavLink to="/" className="flex items-center relative">
+            {/* Container with fixed dimensions to prevent layout shifts */}
+            <div className="h-16 w-32 relative flex items-center justify-center">
+              {/* White logo (visible when transparent background) */}
               <img 
-                src={shouldUseWhiteText 
-                  ? "/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" // White logo
-                  : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
-                }
-                alt="ACG Logo" 
-                className="h-16 w-auto transition-colors duration-300" 
+                src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
+                alt="ACG Logo White" 
+                className={cn(
+                  "h-16 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  shouldUseWhiteText ? "opacity-100" : "opacity-0"
+                )}
+              />
+              
+              {/* Navy blue logo (visible when white background) */}
+              <img 
+                src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+                alt="ACG Logo Navy" 
+                className={cn(
+                  "h-16 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  !shouldUseWhiteText ? "opacity-100" : "opacity-0"
+                )}
               />
             </div>
           </NavLink>
