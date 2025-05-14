@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -17,20 +18,24 @@ const Navbar = () => {
     };
   }, []);
 
+  // Determine if we're on the homepage
+  const isHomePage = window.location.pathname === "/";
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
         isScrolled
           ? "bg-white shadow-md py-2"
-          : "bg-white bg-opacity-80 py-4"
+          : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
+            {/* Show white logo on homepage when not scrolled, colored logo elsewhere */}
             <img 
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              src={isHomePage && !isScrolled ? "/lovable-uploads/b276bd71-bf85-4d3f-88e8-fd2c35e96eab.png" : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"}
               alt="ACG Logo" 
               className="h-24 md:h-32 w-auto" 
             />
@@ -39,7 +44,9 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn("md:hidden", isScrolled ? "text-acg-navy" : "text-acg-navy")}
+            className={cn("md:hidden", 
+              isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+            )}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,8 +81,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-acg-navy font-semibold" 
-                    : "text-acg-navy"
+                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -87,8 +94,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-acg-navy font-semibold" 
-                    : "text-acg-navy"
+                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -100,8 +107,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-acg-navy font-semibold" 
-                    : "text-acg-navy"
+                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -113,8 +120,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-acg-navy font-semibold" 
-                    : "text-acg-navy"
+                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -126,8 +133,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-acg-navy font-semibold" 
-                    : "text-acg-navy"
+                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
                 )
               }
             >

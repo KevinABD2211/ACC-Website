@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
             <img
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+              src="/lovable-uploads/b276bd71-bf85-4d3f-88e8-fd2c35e96eab.png"
               alt="ACG Logo"
               className="w-96 md:w-[500px] mx-auto mb-8"
             />
@@ -51,7 +51,7 @@ const HomePage = () => {
 
       {/* Services Section */}
       <ServicesSection id="services-section" />
-
+      
       {/* Projects Preview Section */}
       <section className="py-20 px-4 md:px-6 bg-white">
         <div className="container mx-auto">
