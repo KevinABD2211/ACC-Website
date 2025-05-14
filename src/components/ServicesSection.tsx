@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { Pipette, Zap, Construction, Flower } from "lucide-react";
+import { Droplet, Zap, Construction, Flower } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 import SectionTitle from "./SectionTitle";
 
@@ -28,7 +28,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Hydronic radiators & under-floor heating",
               "Preventive maintenance"
             ]}
-            icon={<Pipette className="h-10 w-10" />}
+            icon={<Droplet className="h-10 w-10" />}
             imageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
           />
           
