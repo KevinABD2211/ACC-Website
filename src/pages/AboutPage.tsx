@@ -20,7 +20,7 @@ const AboutPage = () => {
         subtitle="Our story and our people"
         imageUrl="/lovable-uploads/e5dfb67a-d9cd-48f7-9f50-9dcf3570d3d3.png"
         pattern="diagonal-lines"
-        imagePosition="bottom-center" // Changed from "bottom" to "bottom-center" to lower the image more
+        imagePosition="very-bottom" // Changed to very-bottom to position the image much lower
       />
 
       {/* Our Story - updated to use solid footer color */}
