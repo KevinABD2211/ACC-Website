@@ -180,15 +180,15 @@ const ProjectsPage = () => {
       )}
       
       {/* Call to Action */}
-      <section className="py-20 px-4 md:px-6 bg-gray-50">
+      <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-acg-navy mb-6">Ready to Build Your Dream Project?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Dream Project?</h2>
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
             Contact us today to discuss how ACG can bring your vision to life with the same quality and dedication showcased in our portfolio.
           </p>
           <a 
             href="/contact" 
-            className="bg-acg-navy text-white px-8 py-3 rounded font-semibold hover:bg-acg-gold transition-colors inline-block"
+            className="bg-white text-acg-navy px-8 py-3 rounded font-semibold hover:bg-acg-gold transition-colors inline-block"
           >
             Start Your Project
           </a>

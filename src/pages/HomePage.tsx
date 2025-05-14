@@ -66,7 +66,7 @@ const HomePage = () => {
       <ProcessSection />
 
       {/* Call to Action */}
-      <section className="py-20 px-4 md:px-6 bg-gradient-to-r from-acg-navy to-gray-900 text-white">
+      <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
