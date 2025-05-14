@@ -18,9 +18,9 @@ const AboutPage = () => {
   return (
     <div>
       <PageHeader
-        title="About FADCO"
+        title="About ACG"
         subtitle="Our story and our people"
-        imageUrl="https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=1920&q=80"
+        imageUrl="/lovable-uploads/6b701a08-beb4-4dac-84b0-b3509f898a27.png"
         pattern="diagonal-lines"
       />
 
@@ -33,7 +33,7 @@ const AboutPage = () => {
           />
           <div className="space-y-4 text-gray-700 text-lg">
             <p>
-              FADCO's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
+              Abdallah Contracting Group's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
               dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
               construction sector.
             </p>
@@ -43,7 +43,7 @@ const AboutPage = () => {
               renovation projects.
             </p>
             <p>
-              Today, FADCO is entering an exciting new chapter under the leadership of Kevin
+              Today, ACG is entering an exciting new chapter under the leadership of Kevin
               Abdallah, who is bringing his academic background in finance and specialized training in real
               estate economics from institutions like the London School of Economics to complement our
               hands-on construction expertise.
@@ -58,8 +58,12 @@ const AboutPage = () => {
       </section>
 
       {/* Our Team */}
-      <section className="py-16 px-4 md:px-6 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-16 px-4 md:px-6 bg-gray-50 relative">
+        {/* Background image */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-10" 
+             style={{ backgroundImage: `url('/lovable-uploads/b276bd71-bf85-4d3f-88e8-fd2c35e96eab.png')` }}></div>
+        
+        <div className="container mx-auto relative z-10">
           <SectionTitle 
             title="Our Team" 
             center={true}
@@ -71,18 +75,18 @@ const AboutPage = () => {
               <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
                 <img 
                   src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="FADCO Logo Watermark"
+                  alt="ACG Logo Watermark"
                   className="w-48"
                 />
               </div>
               
-              <Avatar className="w-32 h-32 mb-6 border-2 border-fadco-navy">
+              <Avatar className="w-32 h-32 mb-6 border-2 border-acg-navy">
                 <AvatarImage src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=200&h=200&q=80" alt="Fadi Abdallah" />
                 <AvatarFallback>FA</AvatarFallback>
               </Avatar>
-              <h3 className="text-2xl font-bold text-fadco-navy mb-4">Fadi Abdallah</h3>
+              <h3 className="text-2xl font-bold text-acg-navy mb-4">Fadi Abdallah</h3>
               <p className="text-gray-600 text-center">
-                With 28 years of experience, Fadi Abdallah built FADCO on a foundation of plumbing expertise. 
+                With 28 years of experience, Fadi Abdallah built Abdallah Contracting Group on a foundation of plumbing expertise. 
                 Today, he leads with a commitment to quality and customer satisfaction.
               </p>
             </div>
@@ -92,38 +96,38 @@ const AboutPage = () => {
               <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
                 <img 
                   src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="FADCO Logo Watermark"
+                  alt="ACG Logo Watermark"
                   className="w-48"
                 />
               </div>
               
-              <Avatar className="w-32 h-32 mb-6 border-2 border-fadco-navy">
+              <Avatar className="w-32 h-32 mb-6 border-2 border-acg-navy">
                 <AvatarImage src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=200&h=200&q=80" alt="Kevin Abdallah" />
                 <AvatarFallback>KA</AvatarFallback>
               </Avatar>
-              <h3 className="text-2xl font-bold text-fadco-navy mb-4">Kevin Abdallah</h3>
+              <h3 className="text-2xl font-bold text-acg-navy mb-4">Kevin Abdallah</h3>
               <p className="text-gray-600 text-center">
-                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives FADCO's 
+                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives ACG's 
                 strategic growth, blending practical experience with financial acumen.
               </p>
             </div>
           </div>
           
           <p className="text-center text-gray-700 font-medium mt-8 max-w-3xl mx-auto">
-            Together, they embody FADCO's promise: Building Legacies, Delivering Homes.
+            Together, they embody ACG's promise: Building Legacies, Delivering Homes.
           </p>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-10 bg-fadco-navy text-white">
+      <section className="py-10 bg-acg-navy text-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center">
             <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Our Core Values</h3>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 max-w-4xl text-center">
               {coreValues.map((value, index) => (
                 <div key={index} className="flex items-center">
-                  {index > 0 && <span className="hidden md:inline mx-2 text-fadco-gold">•</span>}
+                  {index > 0 && <span className="hidden md:inline mx-2 text-acg-gold">•</span>}
                   <span>{value}</span>
                 </div>
               ))}
@@ -133,11 +137,15 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 md:px-6 bg-gray-50">
-        <div className="container mx-auto text-center">
-          <h3 className="text-2xl font-bold text-fadco-navy mb-6">Discover Our Process</h3>
+      <section className="py-16 px-4 md:px-6 bg-gray-50 relative">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 bg-cover bg-bottom opacity-15"
+             style={{ backgroundImage: `url('/lovable-uploads/6b701a08-beb4-4dac-84b0-b3509f898a27.png')` }}></div>
+             
+        <div className="container mx-auto text-center relative z-10">
+          <h3 className="text-2xl font-bold text-acg-navy mb-6">Discover Our Process</h3>
           <NavLink to="/process">
-            <Button className="bg-fadco-navy text-white hover:bg-fadco-gold">
+            <Button className="bg-acg-navy text-white hover:bg-acg-gold">
               Learn More About Our Approach
             </Button>
           </NavLink>
