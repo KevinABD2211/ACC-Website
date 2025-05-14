@@ -37,10 +37,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
-            {/* Use white logo when at top of non-homepage pages or homepage */}
+            {/* Use white logo (fc62e7f3-7ff5-4b0a-b32f-67a0a10514f7.png) when at top of non-homepage pages or homepage */}
             <img 
               src={shouldUseWhiteText 
-                ? "/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png" // White logo
+                ? "/lovable-uploads/fc62e7f3-7ff5-4b0a-b32f-67a0a10514f7.png" // White logo from the uploaded image
                 : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
               }
               alt="ACG Logo" 

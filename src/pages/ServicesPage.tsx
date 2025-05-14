@@ -55,18 +55,6 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
-      title: "Supervision & Consulting",
-      description: "Expert oversight and guidance for your projects.",
-      bulletPoints: [
-        "Construction management",
-        "Quality control inspections",
-        "Technical consulting",
-        "Project feasibility studies"
-      ],
-      icon: <UserCog className="h-10 w-10" />,
-      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
-    },
-    {
       title: "Outdoor & Landscape Systems",
       description: "Pools, irrigation, hardscape, and more.",
       bulletPoints: [
@@ -77,6 +65,18 @@ const ServicesPage = () => {
       ],
       icon: <Flower className="h-10 w-10" />,
       imageUrl: "/lovable-uploads/215c69e6-f673-4263-9d10-abaf203762ad.png"
+    },
+    {
+      title: "Supervision & Consulting",
+      description: "Expert oversight and guidance for your projects.",
+      bulletPoints: [
+        "Construction management",
+        "Quality control inspections",
+        "Technical consulting",
+        "Project feasibility studies"
+      ],
+      icon: <UserCog className="h-10 w-10" />,
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     }
   ];
 
