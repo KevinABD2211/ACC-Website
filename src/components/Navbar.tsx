@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -33,16 +32,16 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500",
         isScrolled
-          ? "bg-white shadow-md py-2"
+          ? "bg-white shadow-md py-4" // Increased padding from py-2 to py-4
           : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24"> {/* Increased height from h-20 to h-24 */}
           {/* Logo container with consistent sizing */}
-          <div className="h-20 w-64 flex items-center justify-start">
+          <div className="h-24 w-64 flex items-center justify-start"> {/* Increased height from h-20 to h-24 */}
             <NavLink to="/" className="block">
-              <div className="relative h-16 w-56 flex items-center justify-center">
+              <div className="relative h-20 w-56 flex items-center justify-center"> {/* Increased height from h-16 to h-20 */}
                 {shouldUseWhiteText ? (
                   // White logo for transparent background
                   <img 
@@ -94,8 +93,8 @@ const Navbar = () => {
             </svg>
           </button>
 
-          {/* Desktop Navigation with fixed height */}
-          <nav className="hidden md:flex items-center space-x-8 h-20">
+          {/* Desktop Navigation with increased height */}
+          <nav className="hidden md:flex items-center space-x-8 h-24"> {/* Increased height from h-20 to h-24 */}
             <NavLink
               to="/about"
               className={({ isActive }) =>
