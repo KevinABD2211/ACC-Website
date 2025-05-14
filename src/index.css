@@ -107,7 +107,12 @@
   }
 }
 
-/* Add a utility class for navy blue backgrounds that will replace black */
+/* Replace navy gradient with footer color (acg-navy solid color) */
 .bg-navy-gradient {
-  @apply bg-gradient-to-b from-acg-navy via-acg-navy to-gray-900;
+  @apply bg-acg-navy text-white;
+}
+
+/* Add a new class for sections that need the footer color background with white text */
+.bg-footer-color {
+  @apply bg-acg-navy text-white;
 }

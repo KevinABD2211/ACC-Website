@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -24,10 +23,9 @@ const AboutPage = () => {
         imagePosition="bottom" // This makes the image position at the bottom
       />
 
-      {/* Our Story */}
+      {/* Our Story - updated to use solid footer color */}
       <section className="py-16 px-4 md:px-6 relative">
-        {/* Updated to navy-gradient */}
-        <div className="absolute inset-0 bg-navy-gradient opacity-95"></div>
+        <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
         
         <div className="container mx-auto relative z-10">
           <SectionTitle 
@@ -35,7 +33,7 @@ const AboutPage = () => {
             center={true}
             className="text-white"
           />
-          <div className="space-y-4 text-gray-300 text-lg">
+          <div className="space-y-4 text-white text-lg">
             <p>
               Abdallah Contracting Group's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
               dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
@@ -142,8 +140,7 @@ const AboutPage = () => {
 
       {/* Call to Action */}
       <section className="py-16 px-4 md:px-6 relative">
-        {/* Updated to navy blue instead of black */}
-        <div className="absolute inset-0 bg-acg-navy opacity-90"></div>
+        <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
              
         <div className="container mx-auto text-center relative z-10">
           <NavLink to="/process" className="text-2xl font-bold text-white mb-6 hover:text-acg-gold transition-colors inline-block">

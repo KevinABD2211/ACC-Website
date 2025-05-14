@@ -10,8 +10,8 @@ interface AboutSectionProps {
 const AboutSection = ({ className }: AboutSectionProps) => {
   return (
     <section id="about" className={cn("py-20 px-4 md:px-6 relative", className)}>
-      {/* Changed from black to navy blue gradient */}
-      <div className="absolute inset-0 bg-navy-gradient opacity-90"></div>
+      {/* Changed from navy-gradient to solid color */}
+      <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
       
       <div className="container mx-auto relative z-10">
         <SectionTitle
