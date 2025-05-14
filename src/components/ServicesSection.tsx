@@ -55,7 +55,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Heritage property restoration"
             ]}
             icon={<Hammer className="h-10 w-10" />}
-            imageUrl="/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+            imageUrl="/lovable-uploads/93d83567-97a7-4749-8e58-17e5aea99e73.png"
           />
           
           <ServiceCard
@@ -68,7 +68,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Construction supervision"
             ]}
             icon={<Building className="h-10 w-10" />}
-            imageUrl="/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+            imageUrl="/lovable-uploads/9830d81a-8416-481b-930f-420412ebdbad.png"
           />
           
           <ServiceCard
@@ -94,7 +94,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Contract administration"
             ]}
             icon={<UserCog className="h-10 w-10" />}
-            imageUrl="/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+            imageUrl="/lovable-uploads/8723e86a-dd30-4083-8dc4-f203220b9579.png"
           />
           
           <ServiceCard
@@ -107,7 +107,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Building system optimization"
             ]}
             icon={<ClipboardList className="h-10 w-10" />}
-            imageUrl="/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+            imageUrl="/lovable-uploads/63a47bed-84e6-4235-9dc2-97942d0a1683.png"
           />
           
           <ServiceCard
@@ -120,7 +120,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
               "Annual property inspections"
             ]}
             icon={<WrenchIcon className="h-10 w-10" />}
-            imageUrl="/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+            imageUrl="/lovable-uploads/bb716219-80a8-4b07-b252-6f2f3394b9db.png"
           />
         </div>
         
