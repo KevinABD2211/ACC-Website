@@ -44,7 +44,7 @@ const Navbar = () => {
                 : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
               }
               alt="ACG Logo" 
-              className="h-24 md:h-32 w-auto" 
+              className="h-16 w-auto" 
             />
           </NavLink>
 

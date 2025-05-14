@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
             <img
-              src="/lovable-uploads/97e76b82-f600-44bc-a91a-2d867fc438f3.png"
+              src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
               alt="ACG Logo"
               className="w-96 md:w-[500px] mx-auto mb-8"
             />
