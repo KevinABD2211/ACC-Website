@@ -76,9 +76,9 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
             description="Complete pool installation and landscaping solutions."
             bulletPoints={[
               "New pool construction & installation",
+              "Water proofing & pool maintenance",
               "Automated irrigation & drainage",
-              "Patios, walkways & exterior lighting",
-              "Landscape electrical wiring"
+              "Patios, walkways & exterior lighting"
             ]}
             icon={<Flower className="h-10 w-10" />}
             imageUrl="/lovable-uploads/215c69e6-f673-4263-9d10-abaf203762ad.png"
