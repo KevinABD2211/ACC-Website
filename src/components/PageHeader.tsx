@@ -8,6 +8,7 @@ export interface PageHeaderProps {
   imageUrl: string;
   pattern?: string;
   overlayOpacity?: number;
+  imagePosition?: "center" | "top" | "bottom"; // Added position property
 }
 
 const PageHeader = ({ 
@@ -15,14 +16,20 @@ const PageHeader = ({
   subtitle, 
   imageUrl, 
   pattern,
-  overlayOpacity = 70 
+  overlayOpacity = 70,
+  imagePosition = "center" // Default to center
 }: PageHeaderProps) => {
   return (
     <div className="relative">
       <AspectRatio ratio={16/6} className="relative">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${imageUrl})` }}
+          className="absolute inset-0 bg-cover"
+          style={{ 
+            backgroundImage: `url(${imageUrl})`,
+            backgroundPosition: imagePosition === "top" ? "center top" : 
+                               imagePosition === "bottom" ? "center bottom" : 
+                               "center center" 
+          }}
         />
         
         {/* Dark overlay with configurable opacity */}
