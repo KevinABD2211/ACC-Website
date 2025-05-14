@@ -42,18 +42,18 @@ const Navbar = () => {
           {/* Logo container with consistent sizing */}
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
-              <div className="relative h-16 w-56">
+              <div className="relative h-16 w-56 flex items-center justify-center">
                 {shouldUseWhiteText ? (
                   // White logo for transparent background
                   <img 
-                    src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
+                    src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png"
                     alt="ACG Logo White" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
                   />
                 ) : (
                   // Navy logo for white background
                   <img 
-                    src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+                    src="/lovable-uploads/87bdccf5-0302-4634-8aa5-4e7321aa0379.png"
                     alt="ACG Logo Navy" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
                   />
