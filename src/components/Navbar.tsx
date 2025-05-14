@@ -36,7 +36,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center">
+          <NavLink to="/" className="flex items-center h-16">
             {/* Use white logo when at top of homepage or non-scrolled pages */}
             <img 
               src={shouldUseWhiteText 
