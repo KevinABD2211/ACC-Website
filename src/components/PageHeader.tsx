@@ -8,7 +8,7 @@ export interface PageHeaderProps {
   imageUrl: string;
   pattern?: string;
   overlayOpacity?: number;
-  imagePosition?: "center" | "top" | "bottom"; // Position property
+  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center"; // Enhanced position options
 }
 
 const PageHeader = ({ 
@@ -19,6 +19,17 @@ const PageHeader = ({
   overlayOpacity = 70,
   imagePosition = "center" // Default to center
 }: PageHeaderProps) => {
+  // Function to determine background position based on imagePosition prop
+  const getBackgroundPosition = () => {
+    switch(imagePosition) {
+      case "top": return "center top";
+      case "bottom": return "center bottom";
+      case "bottom-center": return "center 80%";  // Show more of the bottom part but centered
+      case "top-center": return "center 20%";     // Show more of the top part but centered
+      default: return "center center";
+    }
+  };
+
   return (
     <div className="relative">
       <AspectRatio ratio={16/6} className="relative">
@@ -26,9 +37,7 @@ const PageHeader = ({
           className="absolute inset-0 bg-cover" 
           style={{ 
             backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: imagePosition === "top" ? "center top" : 
-                               imagePosition === "bottom" ? "center bottom" : 
-                               "center center" 
+            backgroundPosition: getBackgroundPosition()
           }}
         />
         
