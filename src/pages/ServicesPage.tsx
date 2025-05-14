@@ -16,7 +16,7 @@ const ServicesPage = () => {
         "Preventive maintenance"
       ],
       icon: <Droplet className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+      imageUrl: "/lovable-uploads/18ae3bb4-4d7e-4778-a0b8-81bb306daf3c.png"
     },
     {
       title: "Electrical & Automation",
@@ -28,7 +28,7 @@ const ServicesPage = () => {
         "Structured cabling & CCTV"
       ],
       icon: <Zap className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1633111245062-8933671fa07c?auto=format&fit=crop&w=800&q=80"
+      imageUrl: "/lovable-uploads/84371c46-a251-4c7b-b5e6-bb4f0a997fdb.png"
     },
     {
       title: "Construction & Renovation",
@@ -40,7 +40,7 @@ const ServicesPage = () => {
         "All trades supervised by Kevin Abdallah"
       ],
       icon: <Construction className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
       title: "Outdoor & Landscape Systems",
@@ -52,7 +52,7 @@ const ServicesPage = () => {
         "Landscape electrical wiring"
       ],
       icon: <Flower className="h-10 w-10" />,
-      imageUrl: "https://images.unsplash.com/photo-1551241484-e58d2cfacd63?auto=format&fit=crop&w=800&q=80"
+      imageUrl: "/lovable-uploads/215c69e6-f673-4263-9d10-abaf203762ad.png"
     }
   ];
 
