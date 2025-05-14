@@ -10,8 +10,18 @@ interface ServicesSectionProps {
 
 const ServicesSection = ({ id }: ServicesSectionProps) => {
   return (
-    <section id={id} className="py-20 px-4 md:px-6 bg-gray-50">
-      <div className="container mx-auto">
+    <section id={id} className="py-20 px-4 md:px-6 bg-gradient-to-b from-gray-50 to-white relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="w-full h-full" style={{ 
+          backgroundImage: "url('/lovable-uploads/b6516a11-05c9-4dd3-8d3a-34c88e361a7e.png')", 
+          backgroundSize: "400px",
+          backgroundRepeat: "repeat",
+          opacity: 0.05
+        }}></div>
+      </div>
+      
+      <div className="container mx-auto relative z-10">
         <SectionTitle 
           title="Our Expertise" 
           subtitle="Comprehensive building and development solutions for every aspect of your project."

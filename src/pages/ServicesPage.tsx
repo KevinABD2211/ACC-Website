@@ -114,8 +114,18 @@ const ServicesPage = () => {
       />
 
       {/* Services Cards */}
-      <section className="py-16 px-4 md:px-6">
-        <div className="container mx-auto">
+      <section className="py-16 px-4 md:px-6 bg-gradient-to-b from-white to-gray-50 relative">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="w-full h-full" style={{ 
+            backgroundImage: "url('/lovable-uploads/b6516a11-05c9-4dd3-8d3a-34c88e361a7e.png')", 
+            backgroundSize: "400px",
+            backgroundRepeat: "repeat",
+            opacity: 0.05
+          }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <SectionTitle 
             title="Our Services" 
             subtitle="From initial concept to final delivery, we provide complete solutions for all your construction needs."
