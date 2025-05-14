@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface ServiceCardProps {
   title: string;
@@ -21,16 +22,25 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   bulletPoints,
   className,
 }) => {
+  const [imgError, setImgError] = useState(false);
+  
+  // Handle image error by setting a fallback
+  const handleImageError = () => {
+    console.error(`Failed to load image: ${imageUrl}`);
+    setImgError(true);
+  };
+
   return (
     <div className={cn(
       "bg-white rounded-lg shadow-md transition-all hover:shadow-xl hover:-translate-y-1 overflow-hidden relative h-full flex flex-col",
       className
     )}>
-      <div className="h-40 overflow-hidden relative">
+      <div className="h-40 overflow-hidden relative bg-gray-200">
         <img 
-          src={imageUrl} 
+          src={imgError ? "https://placehold.co/600x400?text=ACG+Service" : imageUrl} 
           alt={title} 
           className="w-full h-full object-cover" 
+          onError={handleImageError}
         />
         {/* Logo watermark */}
         <div className="absolute bottom-2 right-2 opacity-30">

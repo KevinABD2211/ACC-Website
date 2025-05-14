@@ -127,7 +127,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
         <div className="text-center mt-12">
           <NavLink 
             to="/services" 
-            className="bg-fadco-navy text-white px-8 py-3 rounded font-semibold hover:bg-fadco-gold transition-colors inline-block"
+            className="bg-acg-navy text-white px-8 py-3 rounded font-semibold hover:bg-acg-gold transition-colors inline-block"
           >
             View All Services
           </NavLink>
