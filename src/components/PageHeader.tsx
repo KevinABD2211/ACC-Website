@@ -8,7 +8,7 @@ export interface PageHeaderProps {
   imageUrl: string;
   pattern?: string;
   overlayOpacity?: number;
-  imagePosition?: "center" | "top" | "bottom"; // Added position property
+  imagePosition?: "center" | "top" | "bottom"; // Position property
 }
 
 const PageHeader = ({ 
@@ -26,8 +26,8 @@ const PageHeader = ({
           className="absolute inset-0 bg-cover"
           style={{ 
             backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: imagePosition === "top" ? "center top" : 
-                               imagePosition === "bottom" ? "center bottom" : 
+            backgroundPosition: imagePosition === "top" ? "top center" : 
+                               imagePosition === "bottom" ? "bottom center" : 
                                "center center" 
           }}
         />
