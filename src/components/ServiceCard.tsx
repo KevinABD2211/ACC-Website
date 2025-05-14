@@ -35,32 +35,32 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         {/* Logo watermark */}
         <div className="absolute bottom-2 right-2 opacity-30">
           <img 
-            src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
-            alt="FADCO Watermark" 
+            src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+            alt="ACG Watermark" 
             className="h-8 w-auto"
           />
         </div>
       </div>
       <div className="p-6 relative">
-        <div className="text-fadco-navy mb-4 flex justify-center relative">
+        <div className="text-acg-navy mb-4 flex justify-center relative">
           {icon}
           {/* Logo watermark in the background of the icon */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0">
             <img 
-              src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
               alt="" 
               className="h-12 w-auto"
             />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2 text-fadco-navy text-center">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 text-acg-navy text-center">{title}</h3>
         <p className="text-gray-600 mb-4 text-center italic text-sm">{description}</p>
         
         {/* Bullet Points */}
         <ul className="space-y-2 mb-5">
           {bulletPoints.map((point, index) => (
             <li key={index} className="flex items-start text-sm">
-              <Check className="h-4 w-4 mr-2 mt-0.5 text-fadco-navy flex-shrink-0" />
+              <Check className="h-4 w-4 mr-2 mt-0.5 text-acg-navy flex-shrink-0" />
               <span className="text-gray-700">{point}</span>
             </li>
           ))}
@@ -68,7 +68,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         <div className="flex justify-center mt-auto pt-2">
           <Button 
-            className="bg-white text-fadco-navy hover:bg-fadco-navy hover:text-white border border-fadco-navy"
+            className="bg-white text-acg-navy hover:bg-acg-navy hover:text-white border border-acg-navy"
             variant="outline"
             size="sm"
             asChild

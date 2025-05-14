@@ -64,9 +64,9 @@ const config = {
           accent: "hsl(var(--sidebar-accent))",
           accent_foreground: "hsl(var(--sidebar-accent-foreground))",
         },
-        fadco: {
-          navy: "#0A2F55",
-          gold: "#C8A45E",
+        acg: {
+          navy: "#0A2F55",  // Using the same navy blue from the logo
+          gold: "#C8A45E",  // Keeping gold as an accent color
           lightgray: "#F5F5F5",
         }
       },

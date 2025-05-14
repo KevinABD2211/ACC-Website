@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -31,8 +30,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
-              alt="FADCO Logo" 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              alt="ACG Logo" 
               className="h-24 md:h-32 w-auto" 
             />
           </NavLink>
@@ -40,7 +39,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn("md:hidden", isScrolled ? "text-fadco-navy" : "text-fadco-navy")}
+            className={cn("md:hidden", isScrolled ? "text-acg-navy" : "text-acg-navy")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,10 +72,10 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-fadco-navy font-semibold" 
-                    : "text-fadco-navy"
+                    ? "text-acg-navy font-semibold" 
+                    : "text-acg-navy"
                 )
               }
             >
@@ -86,10 +85,10 @@ const Navbar = () => {
               to="/services"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-fadco-navy font-semibold" 
-                    : "text-fadco-navy"
+                    ? "text-acg-navy font-semibold" 
+                    : "text-acg-navy"
                 )
               }
             >
@@ -99,10 +98,10 @@ const Navbar = () => {
               to="/projects"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-fadco-navy font-semibold" 
-                    : "text-fadco-navy"
+                    ? "text-acg-navy font-semibold" 
+                    : "text-acg-navy"
                 )
               }
             >
@@ -112,10 +111,10 @@ const Navbar = () => {
               to="/process"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-fadco-navy font-semibold" 
-                    : "text-fadco-navy"
+                    ? "text-acg-navy font-semibold" 
+                    : "text-acg-navy"
                 )
               }
             >
@@ -125,10 +124,10 @@ const Navbar = () => {
               to="/contact"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-medium transition-colors hover:text-fadco-gold",
+                  "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? "text-fadco-navy font-semibold" 
-                    : "text-fadco-navy"
+                    ? "text-acg-navy font-semibold" 
+                    : "text-acg-navy"
                 )
               }
             >
@@ -148,7 +147,7 @@ const Navbar = () => {
                   cn(
                     "px-4 py-2 font-medium transition-colors",
                     isActive
-                      ? "bg-fadco-navy text-white"
+                      ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
                   )
                 }
@@ -162,7 +161,7 @@ const Navbar = () => {
                   cn(
                     "px-4 py-2 font-medium transition-colors",
                     isActive
-                      ? "bg-fadco-navy text-white"
+                      ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
                   )
                 }
@@ -176,7 +175,7 @@ const Navbar = () => {
                   cn(
                     "px-4 py-2 font-medium transition-colors",
                     isActive
-                      ? "bg-fadco-navy text-white"
+                      ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
                   )
                 }
@@ -190,7 +189,7 @@ const Navbar = () => {
                   cn(
                     "px-4 py-2 font-medium transition-colors",
                     isActive
-                      ? "bg-fadco-navy text-white"
+                      ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
                   )
                 }
@@ -204,7 +203,7 @@ const Navbar = () => {
                   cn(
                     "px-4 py-2 font-medium transition-colors",
                     isActive
-                      ? "bg-fadco-navy text-white"
+                      ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
                   )
                 }

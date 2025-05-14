@@ -32,14 +32,14 @@ const ProjectCard = ({
         {/* Logo watermark */}
         <div className="absolute top-2 right-2 opacity-50">
           <img 
-            src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
-            alt="FADCO Watermark" 
+            src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+            alt="ACG Watermark" 
             className="h-8 w-auto"
           />
         </div>
       </div>
       <div className="p-4">
-        <span className="text-sm text-fadco-navy font-semibold block mb-1">{category}</span>
+        <span className="text-sm text-acg-navy font-semibold block mb-1">{category}</span>
         <h3 className="font-bold text-lg mb-2 text-gray-800">{title}</h3>
         <p className="text-gray-600 text-sm">{description}</p>
       </div>

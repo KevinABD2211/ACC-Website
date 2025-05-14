@@ -5,16 +5,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-fadco-navy text-white py-12">
+    <footer className="bg-acg-navy text-white py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">FADCO</h3>
+            <h3 className="text-xl font-bold mb-4">ACG</h3>
             <p className="text-sm text-gray-300 mb-6">
-              Fadi Abdallah Development Company - Building on Legacy, Developing the Future.
+              Abdallah Contracting Group - Building on Legacy, Developing the Future.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-fadco-gold">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-acg-gold">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -26,7 +26,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-fadco-gold">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-acg-gold">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -38,7 +38,7 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-fadco-gold">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-acg-gold">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -57,27 +57,27 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <NavLink to="/" className="text-gray-300 hover:text-fadco-gold transition-colors">
+                <NavLink to="/" className="text-gray-300 hover:text-acg-gold transition-colors">
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className="text-gray-300 hover:text-fadco-gold transition-colors">
+                <NavLink to="/about" className="text-gray-300 hover:text-acg-gold transition-colors">
                   About Us
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/services" className="text-gray-300 hover:text-fadco-gold transition-colors">
+                <NavLink to="/services" className="text-gray-300 hover:text-acg-gold transition-colors">
                   Services
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/projects" className="text-gray-300 hover:text-fadco-gold transition-colors">
+                <NavLink to="/projects" className="text-gray-300 hover:text-acg-gold transition-colors">
                   Projects
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className="text-gray-300 hover:text-fadco-gold transition-colors">
+                <NavLink to="/contact" className="text-gray-300 hover:text-acg-gold transition-colors">
                   Contact
                 </NavLink>
               </li>
@@ -89,7 +89,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <svg
-                  className="h-5 w-5 mt-0.5 mr-3 text-fadco-gold"
+                  className="h-5 w-5 mt-0.5 mr-3 text-acg-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -114,7 +114,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start">
                 <svg
-                  className="h-5 w-5 mt-0.5 mr-3 text-fadco-gold"
+                  className="h-5 w-5 mt-0.5 mr-3 text-acg-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -127,11 +127,11 @@ const Footer = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <a href="mailto:fadcosarl@hotmail.com" className="text-gray-300 hover:text-fadco-gold">fadcosarl@hotmail.com</a>
+                <a href="mailto:info@acg-lb.com" className="text-gray-300 hover:text-acg-gold">info@acg-lb.com</a>
               </div>
               <div className="flex items-start">
                 <svg
-                  className="h-5 w-5 mt-0.5 mr-3 text-fadco-gold"
+                  className="h-5 w-5 mt-0.5 mr-3 text-acg-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <a href="tel:+9613255206" className="text-gray-300 hover:text-fadco-gold">+961 3 255 206</a>
+                <a href="tel:+9613255206" className="text-gray-300 hover:text-acg-gold">+961 3 255 206</a>
               </div>
             </div>
           </div>
@@ -152,17 +152,17 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {currentYear} FADCO. All rights reserved.
+            © {currentYear} Abdallah Contracting Group. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
               <li>
-                <a href="#" className="text-sm text-gray-400 hover:text-fadco-gold">
+                <a href="#" className="text-sm text-gray-400 hover:text-acg-gold">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-gray-400 hover:text-fadco-gold">
+                <a href="#" className="text-sm text-gray-400 hover:text-acg-gold">
                   Terms of Service
                 </a>
               </li>

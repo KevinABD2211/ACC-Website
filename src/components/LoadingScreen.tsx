@@ -42,13 +42,13 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       animationComplete ? "opacity-0 scale-110" : "opacity-100"
     )}>
       <div className="text-center flex flex-col items-center justify-center h-screen w-screen">
-        {/* FADCO Logo */}
+        {/* ACG Logo */}
         <img 
-          src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
-          alt="FADCO Logo" 
+          src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+          alt="ACG Logo" 
           className="w-3/4 max-w-[300px] h-auto mb-8"
           onError={(e) => {
-            e.currentTarget.src = "https://placehold.co/200x200?text=FADCO"; // Fallback image
+            e.currentTarget.src = "https://placehold.co/200x200?text=ACG"; // Fallback image
           }}
         />
         
@@ -60,7 +60,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
             {[...Array(totalBlocks)].map((_, index) => (
               <div 
                 key={index} 
-                className={`w-full h-10 bg-fadco-navy border border-fadco-gold transition-all duration-300 ${
+                className={`w-full h-10 bg-acg-navy border border-acg-gold transition-all duration-300 ${
                   index < blocksAdded ? 'opacity-100' : 'opacity-0'
                 }`}
                 style={{
@@ -69,25 +69,25 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               />
             ))}
             {/* Building foundation */}
-            <div className="w-full h-6 bg-fadco-gold mt-1 rounded-b" />
+            <div className="w-full h-6 bg-acg-gold mt-1 rounded-b" />
           </div>
           
           {/* Construction crane - more detailed and visibly a crane */}
           <div className="absolute top-0 right-10 flex flex-col items-center">
             {/* Crane base */}
-            <div className="absolute bottom-[-108px] w-12 h-8 bg-fadco-gold"></div>
+            <div className="absolute bottom-[-108px] w-12 h-8 bg-acg-gold"></div>
             
             {/* Crane vertical tower */}
-            <div className="h-40 w-6 bg-fadco-navy border-r border-fadco-gold"></div>
+            <div className="h-40 w-6 bg-acg-navy border-r border-acg-gold"></div>
             
             {/* Crane horizontal arm */}
-            <div className="absolute top-2 w-40 h-5 bg-fadco-navy border border-fadco-gold -right-16"></div>
+            <div className="absolute top-2 w-40 h-5 bg-acg-navy border border-acg-gold -right-16"></div>
             
             {/* Crane counterweight */}
-            <div className="absolute top-4 w-12 h-8 bg-fadco-navy border border-fadco-gold left-[-16px]"></div>
+            <div className="absolute top-4 w-12 h-8 bg-acg-navy border border-acg-gold left-[-16px]"></div>
             
             {/* Crane cabin */}
-            <div className="absolute top-10 -right-2 w-10 h-8 bg-fadco-gold border border-fadco-navy"></div>
+            <div className="absolute top-10 -right-2 w-10 h-8 bg-acg-gold border border-acg-navy"></div>
             
             {/* Moving cable and block animation - no pulse on this element */}
             <div className="animate-none">
@@ -99,7 +99,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
                     top: '5px'
                   }}></div>
                   <div 
-                    className="absolute w-12 h-12 bg-fadco-navy border-2 border-fadco-gold animate-bounce"
+                    className="absolute w-12 h-12 bg-acg-navy border-2 border-acg-gold animate-bounce"
                     style={{
                       right: '-38px',
                       top: `${48 + (blocksAdded * 14)}px`
@@ -111,13 +111,13 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           </div>
           
           {/* Construction icon for decoration */}
-          <div className="absolute bottom-0 left-0 text-fadco-navy">
+          <div className="absolute bottom-0 left-0 text-acg-navy">
             <Construction size={32} />
           </div>
         </div>
         
         {/* Loading text */}
-        <p className="mt-10 text-fadco-navy font-medium text-xl">
+        <p className="mt-10 text-acg-navy font-medium text-xl">
           Building your experience...
           <Loader className="inline-block ml-2 animate-spin" size={20} />
         </p>

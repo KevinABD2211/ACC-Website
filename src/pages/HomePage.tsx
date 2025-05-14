@@ -42,22 +42,22 @@ const HomePage = () => {
           <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
             <div className="max-w-3xl mx-auto text-center">
               <img
-                src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                alt="FADCO Logo"
+                src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+                alt="ACG Logo"
                 className="w-96 md:w-[500px] mx-auto mb-8"
               />
-              <h1 className="text-4xl md:text-6xl font-bold text-fadco-navy mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-acg-navy mb-6">
                 Building Legacies, Delivering Homes
               </h1>
               <p className="text-xl text-gray-700 mb-8">
-                Turnkey development led by Fadi & Kevin Abdallah—every trade, every detail.
+                Turnkey development led by the Abdallah family—every trade, every detail.
               </p>
               <button 
                 onClick={scrollToContent}
                 className="flex items-center justify-center mx-auto mt-8 animate-bounce"
                 aria-label="Scroll down"
               >
-                <ChevronDown className="h-10 w-10 text-fadco-navy" />
+                <ChevronDown className="h-10 w-10 text-acg-navy" />
               </button>
             </div>
           </div>
@@ -119,7 +119,7 @@ const HomePage = () => {
             <div className="text-center mt-12">
               <NavLink 
                 to="/projects" 
-                className="bg-fadco-navy text-white px-8 py-3 rounded font-semibold hover:bg-fadco-gold transition-colors inline-block"
+                className="bg-acg-navy text-white px-8 py-3 rounded font-semibold hover:bg-acg-gold transition-colors inline-block"
               >
                 View All Projects
               </NavLink>
@@ -131,31 +131,31 @@ const HomePage = () => {
         <ProcessSection />
 
         {/* Call to Action Section */}
-        <section className="py-20 px-4 md:px-6 bg-fadco-navy text-white">
+        <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss your project needs and discover how FADCO can bring your vision to life.
+              Contact us today to discuss your project needs and discover how ACG can bring your vision to life.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
               <NavLink 
                 to="/contact" 
-                className="bg-white text-fadco-navy px-8 py-4 rounded font-semibold hover:bg-fadco-gold hover:text-white transition-colors inline-block"
+                className="bg-white text-acg-navy px-8 py-4 rounded font-semibold hover:bg-acg-gold hover:text-white transition-colors inline-block"
               >
                 Contact Us
               </NavLink>
               <div className="flex flex-col sm:flex-row items-center gap-6 text-lg">
-                <a href="tel:+9613255206" className="flex items-center hover:text-fadco-gold transition-colors">
+                <a href="tel:+9613255206" className="flex items-center hover:text-acg-gold transition-colors">
                   <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   +961 3 255 206
                 </a>
-                <a href="mailto:fadcosarl@hotmail.com" className="flex items-center hover:text-fadco-gold transition-colors">
+                <a href="mailto:info@acg-lb.com" className="flex items-center hover:text-acg-gold transition-colors">
                   <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  fadcosarl@hotmail.com
+                  info@acg-lb.com
                 </a>
               </div>
             </div>
