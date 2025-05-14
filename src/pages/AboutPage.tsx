@@ -45,9 +45,10 @@ const AboutPage = () => {
       <PageHeader
         title="About ACG"
         subtitle="Our story and our people"
-        imageUrl="/lovable-uploads/e5dfb67a-d9cd-48f7-9f50-9dcf3570d3d3.png"
+        imageUrl="/lovable-uploads/d6f1e74a-b0e8-4108-b89c-0f4a0e201e73.png"
         pattern="diagonal-lines"
-        imagePosition="extreme-bottom" // Using the new extreme-bottom position
+        imagePosition="center"
+        objectFit="contain"
       />
 
       {/* Our Story - using solid footer color */}

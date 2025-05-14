@@ -8,7 +8,8 @@ export interface PageHeaderProps {
   imageUrl: string;
   pattern?: string;
   overlayOpacity?: number;
-  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center" | "very-bottom" | "extreme-bottom"; // Added extreme-bottom option
+  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center" | "very-bottom" | "extreme-bottom"; 
+  objectFit?: "cover" | "contain"; // Added objectFit property
 }
 
 const PageHeader = ({ 
@@ -17,7 +18,8 @@ const PageHeader = ({
   imageUrl, 
   pattern,
   overlayOpacity = 70,
-  imagePosition = "center" // Default to center
+  imagePosition = "center", 
+  objectFit = "cover"  // Default to cover but allow contain
 }: PageHeaderProps) => {
   // Function to determine background position based on imagePosition prop
   const getBackgroundPosition = () => {
@@ -27,7 +29,7 @@ const PageHeader = ({
       case "bottom-center": return "center 80%";
       case "top-center": return "center 20%";
       case "very-bottom": return "center 95%";
-      case "extreme-bottom": return "center 99%"; // Added new position that shows just the very bottom edge of the image
+      case "extreme-bottom": return "center 99%";
       default: return "center center";
     }
   };
@@ -36,10 +38,12 @@ const PageHeader = ({
     <div className="relative">
       <AspectRatio ratio={16/6} className="relative">
         <div 
-          className="absolute inset-0 bg-cover" 
+          className="absolute inset-0" 
           style={{ 
             backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: getBackgroundPosition()
+            backgroundPosition: getBackgroundPosition(),
+            backgroundSize: objectFit,
+            backgroundRepeat: "no-repeat"
           }}
         />
         
