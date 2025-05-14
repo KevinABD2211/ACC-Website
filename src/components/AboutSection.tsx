@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import SectionTitle from "./SectionTitle";
 import { NavLink } from "react-router-dom";
+import { Shield, Award, Target } from "lucide-react";
 
 interface AboutSectionProps {
   className?: string;
@@ -10,7 +11,7 @@ interface AboutSectionProps {
 const AboutSection = ({ className }: AboutSectionProps) => {
   return (
     <section id="about" className={cn("py-20 px-4 md:px-6 relative", className)}>
-      {/* Changed from navy-gradient to solid color */}
+      {/* Using solid color */}
       <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
       
       <div className="container mx-auto relative z-10">
@@ -39,26 +40,18 @@ const AboutSection = ({ className }: AboutSectionProps) => {
           
           <div className="text-white">
             <h3 className="text-2xl font-bold mb-4">Our Values</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <span className="text-acg-gold mr-2">•</span>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Shield className="text-acg-gold h-5 w-5 mr-3 mt-1" />
                 <span>Accountability and integrity in all our projects</span>
               </li>
-              <li className="flex items-center">
-                <span className="text-acg-gold mr-2">•</span>
+              <li className="flex items-start">
+                <Award className="text-acg-gold h-5 w-5 mr-3 mt-1" />
                 <span>Lebanese craftsmanship and attention to detail</span>
               </li>
-              <li className="flex items-center">
-                <span className="text-acg-gold mr-2">•</span>
+              <li className="flex items-start">
+                <Target className="text-acg-gold h-5 w-5 mr-3 mt-1" />
                 <span>Building legacies that stand the test of time</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-acg-gold mr-2">•</span>
-                <span>Client-first service approach</span>
-              </li>
-              <li className="flex items-center">
-                <span className="text-acg-gold mr-2">•</span>
-                <span>Expert supervisory excellence</span>
               </li>
             </ul>
           </div>

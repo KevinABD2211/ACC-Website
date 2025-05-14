@@ -8,7 +8,7 @@ export interface PageHeaderProps {
   imageUrl: string;
   pattern?: string;
   overlayOpacity?: number;
-  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center" | "very-bottom"; // Added very-bottom option
+  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center" | "very-bottom" | "extreme-bottom"; // Added extreme-bottom option
 }
 
 const PageHeader = ({ 
@@ -26,7 +26,8 @@ const PageHeader = ({
       case "bottom": return "center bottom";
       case "bottom-center": return "center 80%";
       case "top-center": return "center 20%";
-      case "very-bottom": return "center 95%"; // Added new position that shows the very bottom of the image
+      case "very-bottom": return "center 95%";
+      case "extreme-bottom": return "center 99%"; // Added new position that shows just the very bottom edge of the image
       default: return "center center";
     }
   };

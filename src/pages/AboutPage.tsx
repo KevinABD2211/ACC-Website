@@ -1,16 +1,43 @@
+
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { NavLink } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Shield, Target, Flag, Handshake, Users, Award } from "lucide-react";
 
 const AboutPage = () => {
   const coreValues = [
-    "Accountability",
-    "Heritage & Trust",
-    "Client-First Service",
-    "Seamless Integration", 
-    "Supervisory Excellence",
-    "Lebanese Pride"
+    {
+      title: "Accountability",
+      description: "We take ownership of our work and stand by our commitments, ensuring transparency and responsibility throughout every project phase.",
+      icon: <Shield className="h-8 w-8 text-acg-gold mb-2" />
+    },
+    {
+      title: "Heritage & Trust",
+      description: "Building on decades of Lebanese craftsmanship, we bring time-honored techniques into modern construction practices.",
+      icon: <Award className="h-8 w-8 text-acg-gold mb-2" />
+    },
+    {
+      title: "Client-First Service",
+      description: "Your vision drives our process. We listen intently and adapt our approach to meet your unique needs and expectations.",
+      icon: <Handshake className="h-8 w-8 text-acg-gold mb-2" />
+    },
+    {
+      title: "Seamless Integration",
+      description: "Our comprehensive approach integrates planning, design, and construction for a cohesive experience from concept to completion.",
+      icon: <Target className="h-8 w-8 text-acg-gold mb-2" />
+    }, 
+    {
+      title: "Supervisory Excellence",
+      description: "With meticulous attention to detail, our supervisory team ensures quality control at every stage of your project.",
+      icon: <Flag className="h-8 w-8 text-acg-gold mb-2" />
+    },
+    {
+      title: "Lebanese Pride",
+      description: "We proudly represent the best of Lebanese workmanship, bringing our cultural dedication to excellence into every project we undertake.",
+      icon: <Users className="h-8 w-8 text-acg-gold mb-2" />
+    }
   ];
   
   return (
@@ -20,10 +47,10 @@ const AboutPage = () => {
         subtitle="Our story and our people"
         imageUrl="/lovable-uploads/e5dfb67a-d9cd-48f7-9f50-9dcf3570d3d3.png"
         pattern="diagonal-lines"
-        imagePosition="very-bottom" // Changed to very-bottom to position the image much lower
+        imagePosition="extreme-bottom" // Using the new extreme-bottom position
       />
 
-      {/* Our Story - updated to use solid footer color */}
+      {/* Our Story - using solid footer color */}
       <section className="py-16 px-4 md:px-6 relative">
         <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
         
@@ -55,6 +82,31 @@ const AboutPage = () => {
               construction and property development services that consider both the technical aspects of
               building and the financial implications of property investment.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Core Values Section */}
+      <section className="py-16 px-4 md:px-6 bg-white">
+        <div className="container mx-auto">
+          <SectionTitle 
+            title="Our Core Values" 
+            subtitle="The principles that drive everything we do at ACG"
+            center={true}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {coreValues.map((value, index) => (
+              <Card key={index} className="border-l-4 border-acg-gold shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex flex-col items-center md:items-start">
+                    {value.icon}
+                    <h3 className="text-xl font-bold text-acg-navy mb-2">{value.title}</h3>
+                    <p className="text-gray-700 text-center md:text-left">{value.description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -118,23 +170,6 @@ const AboutPage = () => {
           <p className="text-center text-gray-700 font-medium mt-8 max-w-3xl mx-auto">
             Together, they embody ACG's promise: Building Legacies, Delivering Homes.
           </p>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-10 bg-acg-navy text-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center">
-            <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Our Core Values</h3>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 max-w-4xl text-center">
-              {coreValues.map((value, index) => (
-                <div key={index} className="flex items-center">
-                  {index > 0 && <span className="hidden md:inline mx-2 text-acg-gold">•</span>}
-                  <span>{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
