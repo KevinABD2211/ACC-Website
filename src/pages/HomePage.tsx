@@ -18,7 +18,13 @@ const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-screen bg-white flex items-center overflow-hidden">
+      <section 
+        className="relative h-screen flex items-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: "url('/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png')" }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-acg-navy bg-opacity-30"></div>
+        
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
             <img
@@ -26,10 +32,10 @@ const HomePage = () => {
               alt="ACG Logo"
               className="w-96 md:w-[500px] mx-auto mb-8"
             />
-            <h1 className="text-4xl md:text-6xl font-bold text-acg-navy mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Building Legacies, Delivering Homes
             </h1>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="text-xl text-gray-100 mb-8">
               Turnkey development led by the Abdallah family—every trade, every detail.
             </p>
             <button 
@@ -37,7 +43,7 @@ const HomePage = () => {
               className="flex items-center justify-center mx-auto mt-8 animate-bounce"
               aria-label="Scroll down"
             >
-              <ChevronDown className="h-10 w-10 text-acg-navy" />
+              <ChevronDown className="h-10 w-10 text-white" />
             </button>
           </div>
         </div>

@@ -6,16 +6,23 @@ export interface PageHeaderProps {
   subtitle: string;
   imageUrl: string;
   pattern?: string;
+  overlayOpacity?: number;
 }
 
-const PageHeader = ({ title, subtitle, imageUrl, pattern }: PageHeaderProps) => {
+const PageHeader = ({ 
+  title, 
+  subtitle, 
+  imageUrl, 
+  pattern,
+  overlayOpacity = 70 
+}: PageHeaderProps) => {
   return (
     <header 
       className="relative bg-cover bg-center h-64 md:h-96 flex items-center justify-center"
       style={{ backgroundImage: `url(${imageUrl})` }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-fadco-navy bg-opacity-70"></div>
+      {/* Dark overlay with configurable opacity */}
+      <div className={`absolute inset-0 bg-acg-navy`} style={{ opacity: overlayOpacity / 100 }}></div>
       
       {/* Pattern overlay if provided */}
       {pattern && (
