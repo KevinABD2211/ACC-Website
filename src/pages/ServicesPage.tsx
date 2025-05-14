@@ -118,7 +118,7 @@ const ServicesPage = () => {
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="w-full h-full" style={{ 
-            backgroundImage: "url('/lovable-uploads/5902f93e-fa93-421a-a4c4-8166cf16755c.png')", 
+            backgroundImage: "url('/lovable-uploads/f1c763ee-cee9-44d6-91a7-e095251c0df9.png')", 
             backgroundSize: "400px",
             backgroundRepeat: "repeat",
             opacity: 0.05
