@@ -1,9 +1,6 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { NavLink } from "react-router-dom";
 
 const AboutPage = () => {
   const coreValues = [
@@ -144,16 +141,9 @@ const AboutPage = () => {
       <section className="py-16 px-4 md:px-6 relative">
         {/* Background with dark overlay and logo */}
         <div className="absolute inset-0 bg-black opacity-90"></div>
-        <div className="absolute inset-0 bg-cover bg-center opacity-20"
-             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
              
         <div className="container mx-auto text-center relative z-10">
           <h3 className="text-2xl font-bold text-white mb-6">Discover Our Process</h3>
-          <NavLink to="/process">
-            <Button className="bg-acg-gold text-acg-navy hover:bg-white">
-              Learn More About Our Approach
-            </Button>
-          </NavLink>
         </div>
       </section>
     </div>
