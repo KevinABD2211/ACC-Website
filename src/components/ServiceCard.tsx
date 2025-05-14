@@ -36,23 +36,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       "bg-white rounded-lg shadow-md transition-all hover:shadow-xl hover:-translate-y-1 overflow-hidden relative h-full flex flex-col",
       className
     )}>
-      <div className="relative bg-gray-200">
+      <div className="relative w-full overflow-hidden">
         <AspectRatio ratio={16/9}>
-          <div className="w-full h-full">
+          {imgError ? (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-600">ACG Service</span>
+            </div>
+          ) : (
             <img 
-              src={imgError ? "https://placehold.co/600x400?text=ACG+Service" : imageUrl} 
+              src={imageUrl} 
               alt={title} 
               className="w-full h-full object-cover" 
               onError={handleImageError}
+              style={{ objectPosition: "center" }}
             />
-            {/* Logo watermark */}
-            <div className="absolute bottom-2 right-2 opacity-30">
-              <img 
-                src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
-                alt="ACG Watermark" 
-                className="h-8 w-auto"
-              />
-            </div>
+          )}
+          
+          {/* Logo watermark */}
+          <div className="absolute bottom-2 right-2 opacity-30">
+            <img 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              alt="ACG Watermark" 
+              className="h-8 w-auto"
+            />
           </div>
         </AspectRatio>
       </div>
