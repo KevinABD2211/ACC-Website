@@ -1,11 +1,12 @@
 
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +20,10 @@ const Navbar = () => {
   }, []);
 
   // Determine if we're on the homepage
-  const isHomePage = window.location.pathname === "/";
+  const isHomePage = location.pathname === "/";
+  
+  // Determine text and logo color based on page and scroll position
+  const shouldUseWhiteText = (!isScrolled && !isHomePage) || (!isScrolled && isHomePage);
 
   return (
     <header
@@ -33,9 +37,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
-            {/* Always use the navy blue logo in the navbar */}
+            {/* Use white logo when at top of non-homepage pages or homepage */}
             <img 
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+              src={shouldUseWhiteText 
+                ? "/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png" // White logo
+                : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
+              }
               alt="ACG Logo" 
               className="h-24 md:h-32 w-auto" 
             />
@@ -45,7 +52,7 @@ const Navbar = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={cn("md:hidden", 
-              isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+              shouldUseWhiteText ? "text-white" : "text-acg-navy"
             )}
           >
             <svg
@@ -81,8 +88,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
-                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+                    ? shouldUseWhiteText ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -94,8 +101,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
-                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+                    ? shouldUseWhiteText ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -107,8 +114,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
-                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+                    ? shouldUseWhiteText ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -120,8 +127,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
-                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+                    ? shouldUseWhiteText ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
                 )
               }
             >
@@ -133,8 +140,8 @@ const Navbar = () => {
                 cn(
                   "font-opensans font-medium transition-colors hover:text-acg-gold",
                   isActive 
-                    ? isHomePage && !isScrolled ? "text-white font-semibold" : "text-acg-navy font-semibold" 
-                    : isHomePage && !isScrolled ? "text-white" : "text-acg-navy"
+                    ? shouldUseWhiteText ? "text-white font-semibold" : "text-acg-navy font-semibold" 
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
                 )
               }
             >
