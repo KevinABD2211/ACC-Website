@@ -33,9 +33,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
-            {/* Show white logo on homepage when not scrolled, colored logo elsewhere */}
+            {/* Always use the navy blue logo in the navbar */}
             <img 
-              src={isHomePage && !isScrolled ? "/lovable-uploads/97e76b82-f600-44bc-a91a-2d867fc438f3.png" : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"}
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
               alt="ACG Logo" 
               className="h-24 md:h-32 w-auto" 
             />
