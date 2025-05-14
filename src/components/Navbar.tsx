@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -37,10 +36,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center">
-            {/* Use white logo (fc62e7f3-7ff5-4b0a-b32f-67a0a10514f7.png) when at top of non-homepage pages or homepage */}
+            {/* Use white logo when at top of homepage or non-scrolled pages */}
             <img 
               src={shouldUseWhiteText 
-                ? "/lovable-uploads/fc62e7f3-7ff5-4b0a-b32f-67a0a10514f7.png" // White logo from the uploaded image
+                ? "/lovable-uploads/97e76b82-f600-44bc-a91a-2d867fc438f3.png" // White logo
                 : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
               }
               alt="ACG Logo" 
