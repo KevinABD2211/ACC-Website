@@ -21,10 +21,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className }) => {
       {/* New elegant dark background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-90"></div>
       
-      {/* ACG logo background */}
-      <div className="absolute inset-0 bg-cover bg-center opacity-15" 
-           style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
-      
       <div className="container mx-auto relative z-10">
         <SectionTitle
           title="About Us"

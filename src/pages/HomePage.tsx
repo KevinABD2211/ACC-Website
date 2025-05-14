@@ -17,8 +17,12 @@ const HomePage = () => {
     <>
       {/* Hero Section */}
       <section 
-        className="relative h-screen flex items-center overflow-hidden bg-acg-navy"
+        className="relative h-screen flex items-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: "url('/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png')" }}
       >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-acg-navy bg-opacity-30"></div>
+        
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center pt-24 md:pt-32">
             <img 
