@@ -39,10 +39,10 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo container */}
-          <div className="h-20 flex items-center">
+          {/* Logo container - fixed width to prevent shifting */}
+          <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
-              <div className="h-16 w-auto relative">
+              <div className="h-16 flex items-center justify-center">
                 {shouldUseWhiteText ? (
                   // White logo for transparent background
                   <img 
