@@ -26,8 +26,8 @@ const AboutPage = () => {
 
       {/* Our Story */}
       <section className="py-16 px-4 md:px-6 relative">
-        {/* New elegant dark background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-95"></div>
+        {/* Updated to navy-gradient */}
+        <div className="absolute inset-0 bg-navy-gradient opacity-95"></div>
         
         <div className="container mx-auto relative z-10">
           <SectionTitle 
@@ -142,8 +142,8 @@ const AboutPage = () => {
 
       {/* Call to Action */}
       <section className="py-16 px-4 md:px-6 relative">
-        {/* Background with dark overlay and logo */}
-        <div className="absolute inset-0 bg-black opacity-90"></div>
+        {/* Updated to navy blue instead of black */}
+        <div className="absolute inset-0 bg-acg-navy opacity-90"></div>
              
         <div className="container mx-auto text-center relative z-10">
           <NavLink to="/process" className="text-2xl font-bold text-white mb-6 hover:text-acg-gold transition-colors inline-block">

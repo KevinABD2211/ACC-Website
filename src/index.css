@@ -106,3 +106,8 @@
     @apply font-playfair;
   }
 }
+
+/* Add a utility class for navy blue backgrounds that will replace black */
+.bg-navy-gradient {
+  @apply bg-gradient-to-b from-acg-navy via-acg-navy to-gray-900;
+}

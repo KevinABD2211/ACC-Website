@@ -63,38 +63,38 @@ const ContactPage = () => {
               
               <div className="space-y-8 mt-8">
                 <div className="flex items-start">
-                  <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                  <div className="bg-acg-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Office Location</h3>
+                    <h3 className="text-lg font-bold text-acg-navy mb-1">Office Location</h3>
                     <p className="text-gray-600">Beirut, Lebanon</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                  <div className="bg-acg-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Email</h3>
-                    <a href="mailto:fadcosarl@hotmail.com" className="text-gray-600 hover:text-fadco-gold">fadcosarl@hotmail.com</a>
+                    <h3 className="text-lg font-bold text-acg-navy mb-1">Email</h3>
+                    <a href="mailto:fadcosarl@hotmail.com" className="text-gray-600 hover:text-acg-gold">fadcosarl@hotmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                  <div className="bg-acg-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Phone</h3>
-                    <a href="tel:+96132552063" className="text-gray-600 hover:text-fadco-gold">+961 3 255 206</a>
+                    <h3 className="text-lg font-bold text-acg-navy mb-1">Phone</h3>
+                    <a href="tel:+96132552063" className="text-gray-600 hover:text-acg-gold">+961 3 255 206</a>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="bg-fadco-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                  <div className="bg-acg-navy rounded-full w-12 h-12 flex items-center justify-center mr-4">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-fadco-navy mb-1">Office Hours</h3>
+                    <h3 className="text-lg font-bold text-acg-navy mb-1">Office Hours</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
                         <p className="font-medium">Monday - Friday</p>
@@ -112,7 +112,7 @@ const ContactPage = () => {
             
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
-              <h3 className="text-2xl font-bold text-fadco-navy mb-6">Send Us a Message</h3>
+              <h3 className="text-2xl font-bold text-acg-navy mb-6">Send Us a Message</h3>
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                   <div>
@@ -125,7 +125,7 @@ const ContactPage = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-acg-navy focus:border-transparent"
                       required
                     />
                   </div>
@@ -139,7 +139,7 @@ const ContactPage = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-acg-navy focus:border-transparent"
                       required
                     />
                   </div>
@@ -156,7 +156,7 @@ const ContactPage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-acg-navy focus:border-transparent"
                       required
                     />
                   </div>
@@ -169,7 +169,7 @@ const ContactPage = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-acg-navy focus:border-transparent"
                       required
                     >
                       <option value="">Select a service</option>
@@ -192,7 +192,7 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-fadco-navy focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-acg-navy focus:border-transparent"
                     required
                   />
                 </div>
@@ -200,7 +200,7 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-fadco-navy text-white py-3 rounded-md font-medium hover:bg-fadco-gold transition-colors flex items-center justify-center"
+                  className="w-full bg-acg-navy text-white py-3 rounded-md font-medium hover:bg-acg-gold transition-colors flex items-center justify-center"
                 >
                   {loading ? (
                     <>
@@ -232,7 +232,7 @@ const ContactPage = () => {
             {/* Google Map placeholder */}
             <div className="w-full h-full flex items-center justify-center bg-gray-300">
               <div className="text-center">
-                <MapPin className="h-12 w-12 text-fadco-navy mx-auto mb-2" />
+                <MapPin className="h-12 w-12 text-acg-navy mx-auto mb-2" />
                 <p className="text-gray-600">Google Map showing our Beirut office location</p>
               </div>
             </div>
