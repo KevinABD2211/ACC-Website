@@ -56,14 +56,14 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <ServicesSection id="services" />
+      {/* Services Section - Minimized */}
+      <ServicesSection id="services" minimized={true} />
 
-      {/* About Section */}
-      <AboutSection />
+      {/* About Section - Summarized */}
+      <AboutSection summarized={true} />
 
-      {/* Process Section */}
-      <ProcessSection />
+      {/* Process Section - Summarized */}
+      <ProcessSection summarized={true} />
 
       {/* Call to Action */}
       <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
