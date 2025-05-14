@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -23,7 +22,7 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
   
   // Determine text and logo color based on page and scroll position
-  const shouldUseWhiteText = (!isScrolled && !isHomePage) || (!isScrolled && isHomePage);
+  const shouldUseWhiteText = isHomePage && !isScrolled;
 
   // For debugging
   console.log("Logo visibility state:", { isScrolled, isHomePage, shouldUseWhiteText });
@@ -39,28 +38,24 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo container with fixed dimensions */}
-          <div className="flex items-center justify-start h-20 w-48">
-            <NavLink to="/" className="block relative h-16 w-auto">
-              {/* White logo */}
-              <img 
-                src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
-                alt="ACG Logo White" 
-                className={cn(
-                  "h-16 w-auto transition-opacity duration-500",
-                  shouldUseWhiteText ? "opacity-100" : "opacity-0"
-                )}
-              />
-              
-              {/* Navy blue logo */}
-              <img 
-                src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
-                alt="ACG Logo Navy" 
-                className={cn(
-                  "h-16 w-auto absolute top-0 left-0 transition-opacity duration-500",
-                  !shouldUseWhiteText ? "opacity-100" : "opacity-0"
-                )}
-              />
+          {/* Logo container */}
+          <div className="h-20 flex items-center">
+            <NavLink to="/" className="block">
+              {shouldUseWhiteText ? (
+                // White logo for transparent background
+                <img 
+                  src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
+                  alt="ACG Logo White" 
+                  className="h-16 w-auto"
+                />
+              ) : (
+                // Navy logo for white background
+                <img 
+                  src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
+                  alt="ACG Logo Navy" 
+                  className="h-16 w-auto"
+                />
+              )}
             </NavLink>
           </div>
 
