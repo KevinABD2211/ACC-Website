@@ -109,7 +109,7 @@ const ServicesPage = () => {
       <PageHeader
         title="Our Services"
         subtitle="Comprehensive construction and development solutions"
-        imageUrl="/lovable-uploads/0790bacc-f79f-4562-8576-b41ae44f5725.png"
+        imageUrl="/lovable-uploads/df2cd27a-a856-4c9b-a730-22760024804c.png"
         pattern="diagonal-lines"
       />
 
