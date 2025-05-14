@@ -1,8 +1,6 @@
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -87,17 +85,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </li>
           ))}
         </ul>
-        
-        <div className="flex justify-center mt-auto pt-2">
-          <Button 
-            className="bg-white text-acg-navy hover:bg-acg-navy hover:text-white border border-acg-navy"
-            variant="outline"
-            size="sm"
-            asChild
-          >
-            <Link to="/services">Learn More</Link>
-          </Button>
-        </div>
       </div>
     </div>
   );
