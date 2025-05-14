@@ -25,13 +25,17 @@ const AboutPage = () => {
       />
 
       {/* Our Story */}
-      <section className="py-16 px-4 md:px-6">
-        <div className="container mx-auto max-w-3xl">
+      <section className="py-16 px-4 md:px-6 relative">
+        {/* New elegant dark background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-95"></div>
+        
+        <div className="container mx-auto relative z-10">
           <SectionTitle 
             title="Our Story" 
             center={true}
+            className="text-white"
           />
-          <div className="space-y-4 text-gray-700 text-lg">
+          <div className="space-y-4 text-gray-300 text-lg">
             <p>
               Abdallah Contracting Group's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
               dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
@@ -59,9 +63,9 @@ const AboutPage = () => {
 
       {/* Our Team */}
       <section className="py-16 px-4 md:px-6 bg-gray-50 relative">
-        {/* Background image */}
+        {/* Background image with the ACG logo */}
         <div className="absolute inset-0 bg-cover bg-center opacity-10" 
-             style={{ backgroundImage: `url('/lovable-uploads/b276bd71-bf85-4d3f-88e8-fd2c35e96eab.png')` }}></div>
+             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
         
         <div className="container mx-auto relative z-10">
           <SectionTitle 
@@ -137,15 +141,16 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 md:px-6 bg-gray-50 relative">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 bg-cover bg-bottom opacity-15"
-             style={{ backgroundImage: `url('/lovable-uploads/6b701a08-beb4-4dac-84b0-b3509f898a27.png')` }}></div>
+      <section className="py-16 px-4 md:px-6 relative">
+        {/* Background with dark overlay and logo */}
+        <div className="absolute inset-0 bg-black opacity-90"></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-20"
+             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
              
         <div className="container mx-auto text-center relative z-10">
-          <h3 className="text-2xl font-bold text-acg-navy mb-6">Discover Our Process</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">Discover Our Process</h3>
           <NavLink to="/process">
-            <Button className="bg-acg-navy text-white hover:bg-acg-gold">
+            <Button className="bg-acg-gold text-acg-navy hover:bg-white">
               Learn More About Our Approach
             </Button>
           </NavLink>
