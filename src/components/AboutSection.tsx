@@ -27,6 +27,7 @@ const AboutSection = ({ className, summarized = false, sectionTitle = "About ACG
           title={sectionTitle} 
           subtitle={sectionSubtitle || defaultSubtitle}
           className="text-white"
+          center={true}
         />
         
         {!summarized ? (
