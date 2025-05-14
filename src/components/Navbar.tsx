@@ -36,15 +36,15 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo container with fixed dimensions */}
-          <div className="h-20 w-48 flex items-center justify-start">
-            <NavLink to="/" className="relative block h-20 w-48">
+          {/* Logo container with absolutely fixed positioning and dimensions */}
+          <div className="w-48 h-20 relative">
+            <NavLink to="/" className="block absolute inset-0">
               {/* White logo (visible when transparent background) */}
               <img 
                 src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
                 alt="ACG Logo White" 
                 className={cn(
-                  "h-20 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  "absolute top-0 left-0 h-20 w-auto transition-opacity duration-500",
                   shouldUseWhiteText ? "opacity-100" : "opacity-0"
                 )}
               />
@@ -54,7 +54,7 @@ const Navbar = () => {
                 src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
                 alt="ACG Logo Navy" 
                 className={cn(
-                  "h-20 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  "absolute top-0 left-0 h-20 w-auto transition-opacity duration-500",
                   !shouldUseWhiteText ? "opacity-100" : "opacity-0"
                 )}
               />
