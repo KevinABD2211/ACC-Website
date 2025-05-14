@@ -35,7 +35,7 @@ const Navbar = () => {
           <NavLink to="/" className="flex items-center">
             {/* Show white logo on homepage when not scrolled, colored logo elsewhere */}
             <img 
-              src={isHomePage && !isScrolled ? "/lovable-uploads/b276bd71-bf85-4d3f-88e8-fd2c35e96eab.png" : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"}
+              src={isHomePage && !isScrolled ? "/lovable-uploads/97e76b82-f600-44bc-a91a-2d867fc438f3.png" : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"}
               alt="ACG Logo" 
               className="h-24 md:h-32 w-auto" 
             />
