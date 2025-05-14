@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -42,7 +41,8 @@ const Navbar = () => {
           {/* Logo container - fixed width to prevent shifting */}
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
-              <div className="h-16 flex items-center justify-center">
+              {/* Fixed size container for logo with consistent dimensions */}
+              <div className="h-16 w-56 flex items-center">
                 {shouldUseWhiteText ? (
                   // White logo for transparent background
                   <img 
