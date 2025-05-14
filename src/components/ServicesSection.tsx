@@ -7,9 +7,11 @@ import SectionTitle from "./SectionTitle";
 interface ServicesSectionProps {
   id?: string;
   minimized?: boolean;
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
-const ServicesSection = ({ id, minimized = false }: ServicesSectionProps) => {
+const ServicesSection = ({ id, minimized = false, sectionTitle = "Our Expertise", sectionSubtitle }: ServicesSectionProps) => {
   // Featured services to show when minimized
   const featuredServices = [
     {
@@ -116,6 +118,11 @@ const ServicesSection = ({ id, minimized = false }: ServicesSectionProps) => {
 
   // Use either featured services or all services based on minimized prop
   const servicesToShow = minimized ? featuredServices : allServices;
+  
+  // Default subtitle if not provided
+  const defaultSubtitle = minimized 
+    ? "Our key services that set us apart in the construction industry." 
+    : "Comprehensive building and development solutions for every aspect of your project.";
 
   return (
     <section id={id} className="py-20 px-4 md:px-6 bg-gradient-to-b from-gray-50 to-white relative">
@@ -131,10 +138,8 @@ const ServicesSection = ({ id, minimized = false }: ServicesSectionProps) => {
       
       <div className="container mx-auto relative z-10">
         <SectionTitle 
-          title="Our Expertise" 
-          subtitle={minimized 
-            ? "Our key services that set us apart in the construction industry." 
-            : "Comprehensive building and development solutions for every aspect of your project."}
+          title={sectionTitle} 
+          subtitle={sectionSubtitle || defaultSubtitle}
           center={true}
         />
         

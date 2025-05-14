@@ -7,9 +7,16 @@ import { Shield, Award, Target } from "lucide-react";
 interface AboutSectionProps {
   className?: string;
   summarized?: boolean;
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
-const AboutSection = ({ className, summarized = false }: AboutSectionProps) => {
+const AboutSection = ({ className, summarized = false, sectionTitle = "About ACG", sectionSubtitle }: AboutSectionProps) => {
+  // Default subtitle based on whether the section is summarized or not
+  const defaultSubtitle = summarized 
+    ? "Building on decades of Lebanese craftsmanship and expertise." 
+    : "Learn more about our company, our values, and our mission.";
+
   return (
     <section id="about" className={cn("py-20 px-4 md:px-6 relative", className)}>
       {/* Using solid color */}
@@ -17,10 +24,8 @@ const AboutSection = ({ className, summarized = false }: AboutSectionProps) => {
       
       <div className="container mx-auto relative z-10">
         <SectionTitle
-          title="About ACG" 
-          subtitle={summarized 
-            ? "Building on decades of Lebanese craftsmanship and expertise." 
-            : "Learn more about our company, our values, and our mission."}
+          title={sectionTitle} 
+          subtitle={sectionSubtitle || defaultSubtitle}
           className="text-white"
         />
         

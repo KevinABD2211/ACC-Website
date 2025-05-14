@@ -5,6 +5,8 @@ import SectionTitle from "./SectionTitle";
 
 interface ProcessSectionProps {
   summarized?: boolean;
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
 interface ProcessStepProps {
@@ -27,7 +29,7 @@ const ProcessStep = ({ icon, title, description }: ProcessStepProps) => {
   );
 };
 
-const ProcessSection = ({ summarized = false }: ProcessSectionProps) => {
+const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sectionSubtitle }: ProcessSectionProps) => {
   // Full process steps
   const allSteps = [
     {
@@ -86,10 +88,10 @@ const ProcessSection = ({ summarized = false }: ProcessSectionProps) => {
     <section className="py-20 px-4 md:px-6 bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Process</h2>
-          {summarized && (
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">{sectionTitle}</h2>
+          {summarized && sectionSubtitle && (
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-              From consultation to construction and beyond
+              {sectionSubtitle}
             </p>
           )}
         </div>

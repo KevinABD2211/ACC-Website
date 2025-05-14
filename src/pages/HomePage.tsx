@@ -57,13 +57,13 @@ const HomePage = () => {
       </section>
 
       {/* Services Section - Minimized */}
-      <ServicesSection id="services" minimized={true} />
+      <ServicesSection id="services" minimized={true} sectionTitle="Our Expertise" sectionSubtitle="Professional services crafted with excellence" />
 
       {/* About Section - Summarized */}
-      <AboutSection summarized={true} />
+      <AboutSection summarized={true} sectionTitle="About ACG" sectionSubtitle="A legacy of craftsmanship and quality" />
 
       {/* Process Section - Summarized */}
-      <ProcessSection summarized={true} />
+      <ProcessSection summarized={true} sectionTitle="Our Process" sectionSubtitle="From consultation to construction and beyond" />
 
       {/* Call to Action */}
       <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
