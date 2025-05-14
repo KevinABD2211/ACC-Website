@@ -1,17 +1,15 @@
 
+import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
+import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
-import ProjectCard from "@/components/ProjectCard";
-import SectionTitle from "@/components/SectionTitle";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ChevronDown } from "lucide-react";
 
 const HomePage = () => {
-  const scrollToContent = () => {
-    const servicesElement = document.getElementById("services-section");
-    if (servicesElement) {
-      servicesElement.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -19,134 +17,67 @@ const HomePage = () => {
     <>
       {/* Hero Section */}
       <section 
-        className="relative h-screen flex items-center overflow-hidden"
+        className="relative h-screen flex items-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: "url('/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png')" }}
       >
-        {/* Background with gradient and pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-95"></div>
-        
-        {/* ACG logo background */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" 
-             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-acg-navy bg-opacity-30"></div>
         
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
-            <img
-              src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
-              alt="ACG Logo"
-              className="w-96 md:w-[500px] mx-auto mb-8"
+            <img 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              alt="ACG Logo" 
+              className="h-32 mx-auto mb-8"
             />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Building Legacies, Delivering Homes
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
+              Building Legacies
             </h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Turnkey development led by the Abdallah family—every trade, every detail.
+            <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
+              Expert construction and development services with Lebanese craftsmanship and attention to detail.
             </p>
-            <button 
-              onClick={scrollToContent}
-              className="flex items-center justify-center mx-auto mt-8 animate-bounce"
-              aria-label="Scroll down"
-            >
-              <ChevronDown className="h-10 w-10 text-white" />
-            </button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                className="bg-acg-gold text-acg-navy hover:bg-white px-6 py-6 text-lg"
+                onClick={() => scrollToSection('services')}
+              >
+                Our Services
+              </Button>
+              <NavLink to="/projects">
+                <Button 
+                  variant="outline" 
+                  className="bg-transparent text-white border-white hover:bg-white hover:text-acg-navy px-6 py-6 text-lg"
+                >
+                  View Projects
+                </Button>
+              </NavLink>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <ServicesSection id="services-section" />
-      
-      {/* Projects Preview Section */}
-      <section className="py-20 px-4 md:px-6 bg-white">
-        <div className="container mx-auto">
-          <SectionTitle 
-            title="Featured Projects" 
-            subtitle="Showcasing our dedication to quality and craftsmanship."
-            center={true}
-          />
-          
-          <div className="mt-12 relative px-8">
-            <Carousel className="w-full">
-              <CarouselContent>
-                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <ProjectCard 
-                    title="Beirut Villa Under-floor Heating"
-                    category="Plumbing, Heating & Drainage"
-                    description="Complete hydronic under-floor heating system for a luxury villa in Beirut."
-                    imageUrl="https://images.unsplash.com/photo-1606946184955-83addcd9ab33?auto=format&fit=crop&w=600&q=80"
-                  />
-                </CarouselItem>
-                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <ProjectCard 
-                    title="Downtown Office LED Retrofit"
-                    category="Electrical & Automation"
-                    description="Complete LED lighting retrofit with smart controls for a corporate office building."
-                    imageUrl="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=600&q=80"
-                  />
-                </CarouselItem>
-                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <ProjectCard 
-                    title="Gemmayze Heritage Façade Restoration"
-                    category="Construction & Renovation"
-                    description="Careful restoration of a heritage building façade in the historic Gemmayze district."
-                    imageUrl="https://images.unsplash.com/photo-1614191663576-57a4ff3feb8c?auto=format&fit=crop&w=600&q=80"
-                  />
-                </CarouselItem>
-                <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                  <ProjectCard 
-                    title="Seaside Pool & Deck Waterproofing"
-                    category="Outdoor & Landscape Systems"
-                    description="Comprehensive waterproofing solution for a beachfront pool and deck area."
-                    imageUrl="https://images.unsplash.com/photo-1551041456-04c0fe8dfec6?auto=format&fit=crop&w=600&q=80"
-                  />
-                </CarouselItem>
-              </CarouselContent>
-              <CarouselPrevious className="left-0 lg:-left-12" />
-              <CarouselNext className="right-0 lg:-right-12" />
-            </Carousel>
-          </div>
-          
-          <div className="text-center mt-12">
-            <NavLink 
-              to="/projects" 
-              className="bg-acg-navy text-white px-8 py-3 rounded font-semibold hover:bg-acg-gold transition-colors inline-block"
-            >
-              View All Projects
-            </NavLink>
-          </div>
-        </div>
-      </section>
+      <ServicesSection id="services" />
+
+      {/* About Section */}
+      <AboutSection />
 
       {/* Process Section */}
       <ProcessSection />
 
-      {/* Call to Action Section */}
-      <section className="py-20 px-4 md:px-6 bg-acg-navy text-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss your project needs and discover how ACG can bring your vision to life.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <NavLink 
-              to="/contact" 
-              className="bg-white text-acg-navy px-8 py-4 rounded font-semibold hover:bg-acg-gold hover:text-white transition-colors inline-block"
-            >
-              Contact Us
+      {/* Call to Action */}
+      <section className="py-20 px-4 md:px-6 bg-gradient-to-r from-acg-navy to-gray-900 text-white">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
+            <p className="text-lg md:text-xl mb-8 text-gray-200">
+              Contact us today for a consultation and discover how ACG can bring your vision to life with our expertise.
+            </p>
+            <NavLink to="/contact">
+              <Button className="bg-acg-gold text-acg-navy hover:bg-white px-8 py-6 text-lg font-semibold">
+                Get in Touch
+              </Button>
             </NavLink>
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-lg">
-              <a href="tel:+9613255206" className="flex items-center hover:text-acg-gold transition-colors">
-                <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                +961 3 255 206
-              </a>
-              <a href="mailto:info@acg-lb.com" className="flex items-center hover:text-acg-gold transition-colors">
-                <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                info@acg-lb.com
-              </a>
-            </div>
           </div>
         </div>
       </section>
