@@ -23,7 +23,7 @@ const PageHeader = ({
     <div className="relative">
       <AspectRatio ratio={16/6} className="relative">
         <div 
-          className="absolute inset-0 bg-cover"
+          className="absolute inset-0 bg-cover bg-center" // Added bg-center here to ensure centering
           style={{ 
             backgroundImage: `url(${imageUrl})`,
             backgroundPosition: imagePosition === "top" ? "top center" : 
