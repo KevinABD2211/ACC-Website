@@ -69,7 +69,7 @@ const ProjectsPage = () => {
       <PageHeader
         title="Our Projects"
         subtitle="Showcasing our portfolio of excellence"
-        imageUrl="https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=1920&q=80"
+        imageUrl="/lovable-uploads/85fd7224-bac7-4b6a-a1c0-71ffc29aff09.png"
       />
 
       {/* Projects Gallery */}

@@ -18,7 +18,7 @@ const AboutPage = () => {
       <PageHeader
         title="About ACG"
         subtitle="Our story and our people"
-        imageUrl="/lovable-uploads/70fe1c77-24d9-4eb7-8446-eb085e0cc956.png"
+        imageUrl="/lovable-uploads/e5dfb67a-d9cd-48f7-9f50-9dcf3570d3d3.png"
         pattern="diagonal-lines"
       />
 
