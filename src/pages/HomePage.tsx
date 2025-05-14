@@ -26,9 +26,9 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
             <img 
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" 
               alt="ACG Logo" 
-              className="h-32 mx-auto mb-8"
+              className="h-40 md:h-48 lg:h-56 mx-auto mb-8"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
               Building Legacies
