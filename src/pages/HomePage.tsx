@@ -28,7 +28,7 @@ const HomePage = () => {
             <img 
               src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png" 
               alt="ACG Logo" 
-              className="h-60 md:h-80 lg:h-[22rem] mx-auto mb-12" // Reduced from h-72/h-96/h-[26rem] to h-60/h-80/h-[22rem]
+              className="h-72 md:h-96 lg:h-[26rem] mx-auto mb-12"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
               Building Legacies
