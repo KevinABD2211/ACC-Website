@@ -90,14 +90,14 @@ const ServicesPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-14 px-4 md:px-6 bg-fadco-navy text-white">
+      <section className="py-14 px-4 md:px-6 bg-acg-navy text-white">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="md:max-w-2xl mb-6 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to get started? Contact us today.</h2>
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <a 
                 href="tel:+9613255206" 
-                className="flex items-center text-lg hover:text-fadco-gold transition-colors"
+                className="flex items-center text-lg hover:text-acg-gold transition-colors"
               >
                 <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -105,26 +105,26 @@ const ServicesPage = () => {
                 +961 3 255 206
               </a>
               <a 
-                href="mailto:fadcosarl@hotmail.com" 
-                className="flex items-center text-lg hover:text-fadco-gold transition-colors"
+                href="mailto:info@acg-lb.com" 
+                className="flex items-center text-lg hover:text-acg-gold transition-colors"
               >
                 <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                fadcosarl@hotmail.com
+                info@acg-lb.com
               </a>
             </div>
           </div>
           <div className="relative">
             <a 
               href="/contact" 
-              className="bg-white text-fadco-navy px-8 py-3 rounded font-semibold hover:bg-fadco-gold hover:text-white transition-colors inline-block"
+              className="bg-white text-acg-navy px-8 py-3 rounded font-semibold hover:bg-acg-gold hover:text-white transition-colors inline-block"
             >
               Get a Free Consultation
             </a>
             <img 
               src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
-              alt="FADCO Logo" 
+              alt="ACG Logo" 
               className="h-10 w-auto ml-4 hidden md:inline-block opacity-50"
             />
           </div>
