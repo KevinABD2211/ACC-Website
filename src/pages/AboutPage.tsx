@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -21,7 +20,7 @@ const AboutPage = () => {
         subtitle="Our story and our people"
         imageUrl="/lovable-uploads/e5dfb67a-d9cd-48f7-9f50-9dcf3570d3d3.png"
         pattern="diagonal-lines"
-        imagePosition="bottom" // Set image position to bottom
+        imagePosition="center" // Changed from "bottom" to "center"
       />
 
       {/* Our Story */}
