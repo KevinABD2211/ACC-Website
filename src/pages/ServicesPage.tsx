@@ -2,7 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
-import { Droplet, Zap, Building, Flower, Hammer } from "lucide-react";
+import { Droplet, Zap, Building, Flower, Hammer, UserCog } from "lucide-react";
 
 const ServicesPage = () => {
   const serviceCards = [
@@ -31,6 +31,18 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/84371c46-a251-4c7b-b5e6-bb4f0a997fdb.png"
     },
     {
+      title: "Renovation",
+      description: "Transform existing spaces with expert renovation.",
+      bulletPoints: [
+        "Partial renovations (any room/façade)",
+        "Full-scope overhauls",
+        "Kitchen and bathroom remodeling",
+        "Heritage property restoration"
+      ],
+      icon: <Hammer className="h-10 w-10" />,
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+    },
+    {
       title: "General Contracting",
       description: "From concept to completion, full construction services.",
       bulletPoints: [
@@ -43,15 +55,15 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
-      title: "Renovation",
-      description: "Transform existing spaces with expert renovation.",
+      title: "Supervision & Consulting",
+      description: "Expert oversight and guidance for your projects.",
       bulletPoints: [
-        "Partial renovations (any room/façade)",
-        "Full-scope overhauls",
-        "Kitchen and bathroom remodeling",
-        "Heritage property restoration"
+        "Construction management",
+        "Quality control inspections",
+        "Technical consulting",
+        "Project feasibility studies"
       ],
-      icon: <Hammer className="h-10 w-10" />,
+      icon: <UserCog className="h-10 w-10" />,
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
@@ -86,7 +98,7 @@ const ServicesPage = () => {
             center={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8 mt-12">
             {serviceCards.map((service, index) => (
               <ServiceCard
                 key={index}
