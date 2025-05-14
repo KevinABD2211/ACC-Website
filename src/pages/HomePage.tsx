@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
 import AboutSection from "@/components/AboutSection";
@@ -27,7 +28,7 @@ const HomePage = () => {
             <img 
               src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" 
               alt="ACG Logo" 
-              className="h-48 md:h-60 lg:h-72 mx-auto mb-12"
+              className="h-64 md:h-80 lg:h-96 mx-auto mb-12"
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-md">
               Building Legacies

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -38,24 +39,23 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo container - fixed width to prevent shifting */}
+          {/* Logo container with consistent sizing */}
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
-              {/* Fixed size container for logo with consistent dimensions */}
-              <div className="h-16 w-56 flex items-center">
+              <div className="relative h-16 w-56">
                 {shouldUseWhiteText ? (
                   // White logo for transparent background
                   <img 
                     src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
                     alt="ACG Logo White" 
-                    className="h-16 w-auto object-contain"
+                    className="absolute top-0 left-0 h-full w-auto object-contain"
                   />
                 ) : (
                   // Navy logo for white background
                   <img 
                     src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
                     alt="ACG Logo Navy" 
-                    className="h-16 w-auto object-contain"
+                    className="absolute top-0 left-0 h-full w-auto object-contain"
                   />
                 )}
               </div>
