@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -39,7 +40,7 @@ const Navbar = () => {
             {/* Use white logo when at top of homepage or non-scrolled pages */}
             <img 
               src={shouldUseWhiteText 
-                ? "/lovable-uploads/97e76b82-f600-44bc-a91a-2d867fc438f3.png" // White logo
+                ? "/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" // New high quality white logo
                 : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
               }
               alt="ACG Logo" 
