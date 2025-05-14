@@ -85,13 +85,14 @@ const ProcessSection = ({ summarized = false }: ProcessSectionProps) => {
   return (
     <section className="py-20 px-4 md:px-6 bg-gray-50">
       <div className="container mx-auto">
-        <SectionTitle 
-          title="Our Process" 
-          subtitle={summarized 
-            ? "From consultation to construction and beyond"
-            : "A systematic approach to construction and development"}
-          center={true}
-        />
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Process</h2>
+          {summarized && (
+            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+              From consultation to construction and beyond
+            </p>
+          )}
+        </div>
         
         {summarized ? (
           // Summarized version
