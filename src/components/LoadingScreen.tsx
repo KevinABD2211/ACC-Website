@@ -42,11 +42,11 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       animationComplete ? "opacity-0 scale-110" : "opacity-100"
     )}>
       <div className="text-center flex flex-col items-center justify-center h-screen w-screen">
-        {/* ACG Logo */}
+        {/* ACG Logo - Made larger to match the splash screen */}
         <img 
           src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
           alt="ACG Logo" 
-          className="w-3/4 max-w-[300px] h-auto mb-8"
+          className="w-3/4 max-w-[400px] h-auto mb-10"
           onError={(e) => {
             e.currentTarget.src = "https://placehold.co/200x200?text=ACG"; // Fallback image
           }}

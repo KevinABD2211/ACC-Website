@@ -18,10 +18,10 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 bg-white flex items-center justify-center z-50 transition-all duration-1000 ${animationComplete ? 'opacity-0 scale-110' : 'opacity-100'}`}>
+    <div className={`fixed inset-0 bg-acg-navy flex items-center justify-center z-50 transition-all duration-1000 ${animationComplete ? 'opacity-0 scale-110' : 'opacity-100'}`}>
       <div className="text-center flex items-center justify-center h-screen w-screen">
         <img 
-          src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+          src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" 
           alt="ACG Logo" 
           className="w-3/4 max-w-[600px] h-auto mx-auto animate-fade-in"
           onError={(e) => {

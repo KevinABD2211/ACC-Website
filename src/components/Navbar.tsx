@@ -36,16 +36,18 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center h-16">
-            {/* Use white logo when at top of homepage or non-scrolled pages */}
-            <img 
-              src={shouldUseWhiteText 
-                ? "/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" // New high quality white logo
-                : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
-              }
-              alt="ACG Logo" 
-              className="h-16 w-auto" 
-            />
+          <NavLink to="/" className="flex items-center">
+            {/* Maintain consistent height and positioning for logos */}
+            <div className="h-16 flex items-center justify-center transition-all duration-300">
+              <img 
+                src={shouldUseWhiteText 
+                  ? "/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" // White logo
+                  : "/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" // Navy blue logo
+                }
+                alt="ACG Logo" 
+                className="h-16 w-auto transition-colors duration-300" 
+              />
+            </div>
           </NavLink>
 
           {/* Mobile menu button */}
