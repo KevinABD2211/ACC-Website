@@ -46,7 +46,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         <img 
           src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
           alt="ACG Logo" 
-          className="w-3/4 max-w-[400px] h-auto mb-10"
+          className="w-[60%] max-w-[500px] h-auto mb-10"
           onError={(e) => {
             e.currentTarget.src = "https://placehold.co/200x200?text=ACG"; // Fallback image
           }}

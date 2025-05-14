@@ -23,7 +23,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         <img 
           src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png" 
           alt="ACG Logo" 
-          className="w-3/4 max-w-[600px] h-auto mx-auto animate-fade-in"
+          className="w-[75%] max-w-[700px] h-auto mx-auto animate-fade-in"
           onError={(e) => {
             e.currentTarget.src = "https://placehold.co/200x200?text=ACG"; // Fallback image if logo is not available
           }}

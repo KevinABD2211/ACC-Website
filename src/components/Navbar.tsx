@@ -38,13 +38,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center relative">
             {/* Container with fixed dimensions to prevent layout shifts */}
-            <div className="h-16 w-32 relative flex items-center justify-center">
+            <div className="h-20 w-48 relative flex items-center justify-center">
               {/* White logo (visible when transparent background) */}
               <img 
                 src="/lovable-uploads/b5b43ba2-52ac-492b-bac6-3ef59bd2539e.png"
                 alt="ACG Logo White" 
                 className={cn(
-                  "h-16 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  "h-20 w-auto absolute top-0 left-0 transition-opacity duration-500",
                   shouldUseWhiteText ? "opacity-100" : "opacity-0"
                 )}
               />
@@ -54,7 +54,7 @@ const Navbar = () => {
                 src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png"
                 alt="ACG Logo Navy" 
                 className={cn(
-                  "h-16 w-auto absolute top-0 left-0 transition-opacity duration-500",
+                  "h-20 w-auto absolute top-0 left-0 transition-opacity duration-500",
                   !shouldUseWhiteText ? "opacity-100" : "opacity-0"
                 )}
               />
