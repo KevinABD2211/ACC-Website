@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { NavLink } from "react-router-dom";
 
 const AboutPage = () => {
   const coreValues = [
@@ -143,7 +144,9 @@ const AboutPage = () => {
         <div className="absolute inset-0 bg-black opacity-90"></div>
              
         <div className="container mx-auto text-center relative z-10">
-          <h3 className="text-2xl font-bold text-white mb-6">Discover Our Process</h3>
+          <NavLink to="/process" className="text-2xl font-bold text-white mb-6 hover:text-acg-gold transition-colors inline-block">
+            Discover Our Process
+          </NavLink>
         </div>
       </section>
     </div>
