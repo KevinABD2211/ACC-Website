@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface ServiceCardProps {
   title: string;
@@ -36,21 +37,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       className
     )}>
       <div className="h-40 overflow-hidden relative bg-gray-200">
-        <img 
-          src={imgError ? "https://placehold.co/600x400?text=ACG+Service" : imageUrl} 
-          alt={title} 
-          className="w-full h-full object-cover" 
-          onError={handleImageError}
-        />
-        {/* Logo watermark */}
-        <div className="absolute bottom-2 right-2 opacity-30">
+        <AspectRatio ratio={16/9} className="h-full w-full">
           <img 
-            src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
-            alt="ACG Watermark" 
-            className="h-8 w-auto"
+            src={imgError ? "https://placehold.co/600x400?text=ACG+Service" : imageUrl} 
+            alt={title} 
+            className="w-full h-full object-cover" 
+            onError={handleImageError}
           />
-        </div>
+          {/* Logo watermark */}
+          <div className="absolute bottom-2 right-2 opacity-30">
+            <img 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              alt="ACG Watermark" 
+              className="h-8 w-auto"
+            />
+          </div>
+        </AspectRatio>
       </div>
+      
       <div className="p-4 relative flex flex-col flex-grow">
         <div className="text-acg-navy mb-3 flex justify-center relative">
           {icon}
