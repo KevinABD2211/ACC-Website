@@ -14,7 +14,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="w-full h-full" style={{ 
-          backgroundImage: "url('/lovable-uploads/b6516a11-05c9-4dd3-8d3a-34c88e361a7e.png')", 
+          backgroundImage: "url('/lovable-uploads/5902f93e-fa93-421a-a4c4-8166cf16755c.png')", 
           backgroundSize: "400px",
           backgroundRepeat: "repeat",
           opacity: 0.05
