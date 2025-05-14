@@ -2,7 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
-import { Droplet, Zap, Construction, Flower } from "lucide-react";
+import { Droplet, Zap, Building, Flower, Hammer } from "lucide-react";
 
 const ServicesPage = () => {
   const serviceCards = [
@@ -31,15 +31,27 @@ const ServicesPage = () => {
       imageUrl: "/lovable-uploads/84371c46-a251-4c7b-b5e6-bb4f0a997fdb.png"
     },
     {
-      title: "Construction & Renovation",
-      description: "From targeted upgrades to ground-up builds.",
+      title: "General Contracting",
+      description: "From concept to completion, full construction services.",
+      bulletPoints: [
+        "New residential construction",
+        "Commercial building projects",
+        "Project management",
+        "Construction supervision"
+      ],
+      icon: <Building className="h-10 w-10" />,
+      imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
+    },
+    {
+      title: "Renovation",
+      description: "Transform existing spaces with expert renovation.",
       bulletPoints: [
         "Partial renovations (any room/façade)",
         "Full-scope overhauls",
-        "New residential/commercial construction",
-        "All trades supervised by Kevin Abdallah"
+        "Kitchen and bathroom remodeling",
+        "Heritage property restoration"
       ],
-      icon: <Construction className="h-10 w-10" />,
+      icon: <Hammer className="h-10 w-10" />,
       imageUrl: "/lovable-uploads/20b3dc76-9128-43f3-9700-10bdf91d67cc.png"
     },
     {
@@ -74,7 +86,7 @@ const ServicesPage = () => {
             center={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-12">
             {serviceCards.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -123,7 +135,7 @@ const ServicesPage = () => {
               Get a Free Consultation
             </a>
             <img 
-              src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png" 
+              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
               alt="ACG Logo" 
               className="h-10 w-auto ml-4 hidden md:inline-block opacity-50"
             />
