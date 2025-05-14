@@ -1,3 +1,4 @@
+
 import { NavLink } from "react-router-dom";
 import { Droplet, Zap, Building, Flower, Hammer, UserCog, ClipboardList, WrenchIcon } from "lucide-react";
 import ServiceCard from "./ServiceCard";
@@ -13,7 +14,7 @@ const ServicesSection = ({ id }: ServicesSectionProps) => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="w-full h-full" style={{ 
-          backgroundImage: "url('/lovable-uploads/f1c763ee-cee9-44d6-91a7-e095251c0df9.png')", 
+          backgroundImage: "url('/lovable-uploads/76ce3cde-dc0b-4e0c-85d0-68be36fed0fe.png')", 
           backgroundSize: "400px",
           backgroundRepeat: "repeat",
           opacity: 0.05

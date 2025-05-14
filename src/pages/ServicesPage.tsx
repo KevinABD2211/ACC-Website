@@ -109,7 +109,7 @@ const ServicesPage = () => {
       <PageHeader
         title="Our Services"
         subtitle="Comprehensive construction and development solutions"
-        imageUrl="/lovable-uploads/df2cd27a-a856-4c9b-a730-22760024804c.png"
+        imageUrl="/lovable-uploads/76ce3cde-dc0b-4e0c-85d0-68be36fed0fe.png"
         pattern="diagonal-lines"
       />
 
@@ -118,7 +118,7 @@ const ServicesPage = () => {
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="w-full h-full" style={{ 
-            backgroundImage: "url('/lovable-uploads/f1c763ee-cee9-44d6-91a7-e095251c0df9.png')", 
+            backgroundImage: "url('/lovable-uploads/76ce3cde-dc0b-4e0c-85d0-68be36fed0fe.png')", 
             backgroundSize: "400px",
             backgroundRepeat: "repeat",
             opacity: 0.05
