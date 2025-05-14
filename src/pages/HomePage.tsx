@@ -19,11 +19,14 @@ const HomePage = () => {
     <>
       {/* Hero Section */}
       <section 
-        className="relative h-screen flex items-center overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/lovable-uploads/f8936eb2-9f9b-4e9c-9cf2-6ed98915c4a6.png')" }}
+        className="relative h-screen flex items-center overflow-hidden"
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-acg-navy bg-opacity-30"></div>
+        {/* Background with gradient and pattern */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-gray-800 opacity-95"></div>
+        
+        {/* ACG logo background */}
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" 
+             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
         
         <div className="container mx-auto px-4 md:px-6 z-10 animate-fade-in">
           <div className="max-w-3xl mx-auto text-center">
