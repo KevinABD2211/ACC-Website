@@ -49,6 +49,7 @@ const Navbar = () => {
                     src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png"
                     alt="ACG Logo White" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
+                    loading="eager"
                   />
                 ) : (
                   // Navy logo for white background
@@ -56,6 +57,7 @@ const Navbar = () => {
                     src="/lovable-uploads/87bdccf5-0302-4634-8aa5-4e7321aa0379.png"
                     alt="ACG Logo Navy" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
+                    loading="eager"
                   />
                 )}
               </div>
@@ -155,7 +157,8 @@ const Navbar = () => {
                   "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
-                    : shouldUseWhiteText ? "text-white" : "text-acg-navy"
+                    : shouldUseWhiteText ? "text-white" : "text-acg-navy",
+                  !shouldUseWhiteText && isActive ? "bg-transparent" : ""
                 )
               }
             >
