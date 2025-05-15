@@ -100,7 +100,7 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", // Increased font weight and size
+                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
                     : shouldUseWhiteText ? "text-white" : "text-acg-navy"
@@ -113,7 +113,7 @@ const Navbar = () => {
               to="/services"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", // Increased font weight and size
+                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
                     : shouldUseWhiteText ? "text-white" : "text-acg-navy"
@@ -126,7 +126,7 @@ const Navbar = () => {
               to="/projects"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", // Increased font weight and size
+                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
                     : shouldUseWhiteText ? "text-white" : "text-acg-navy"
@@ -139,7 +139,7 @@ const Navbar = () => {
               to="/process"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", // Increased font weight and size
+                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
                     : shouldUseWhiteText ? "text-white" : "text-acg-navy"
@@ -152,7 +152,7 @@ const Navbar = () => {
               to="/contact"
               className={({ isActive }) =>
                 cn(
-                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", // Increased font weight and size
+                  "font-opensans font-semibold text-lg transition-colors hover:text-acg-gold", 
                   isActive 
                     ? shouldUseWhiteText ? "text-white font-bold" : "text-acg-navy font-bold" 
                     : shouldUseWhiteText ? "text-white" : "text-acg-navy"
@@ -164,7 +164,7 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - fixed to ensure correct background */}
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 bg-white rounded-lg mt-2 shadow-lg">
             <div className="flex flex-col space-y-4">
@@ -173,7 +173,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "px-4 py-2 font-semibold text-lg transition-colors", // Increased font weight and size
+                    "px-4 py-2 font-semibold text-lg transition-colors", 
                     isActive
                       ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
@@ -187,7 +187,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "px-4 py-2 font-semibold text-lg transition-colors", // Increased font weight and size
+                    "px-4 py-2 font-semibold text-lg transition-colors", 
                     isActive
                       ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
@@ -201,7 +201,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "px-4 py-2 font-semibold text-lg transition-colors", // Increased font weight and size
+                    "px-4 py-2 font-semibold text-lg transition-colors", 
                     isActive
                       ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
@@ -215,7 +215,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "px-4 py-2 font-semibold text-lg transition-colors", // Increased font weight and size
+                    "px-4 py-2 font-semibold text-lg transition-colors", 
                     isActive
                       ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
@@ -229,7 +229,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "px-4 py-2 font-semibold text-lg transition-colors", // Increased font weight and size
+                    "px-4 py-2 font-semibold text-lg transition-colors", 
                     isActive
                       ? "bg-acg-navy text-white"
                       : "text-gray-600 hover:bg-gray-100"
