@@ -1,6 +1,5 @@
-
 import { NavLink } from "react-router-dom";
-import { MessageSquare, PenTool, FileText, Toolbox, Hammer, Valve, CheckSquare, HeartHandshake } from "lucide-react";
+import { MessageSquare, PenTool, FileText, Construction, Hammer, LandPlot, CheckSquare, Building } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 
 interface ProcessSectionProps {
@@ -33,7 +32,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
   // Full process steps
   const allSteps = [
     {
-      icon: <MessageSquare className="h-6 w-6 text-acg-navy" />,
+      icon: <LandPlot className="h-6 w-6 text-acg-navy" />,
       title: "Consultation",
       description: "Initial meeting to discuss your project needs and vision."
     },
@@ -48,7 +47,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Managing all necessary permits and regulatory approvals."
     },
     {
-      icon: <Toolbox className="h-6 w-6 text-acg-navy" />,
+      icon: <Construction className="h-6 w-6 text-acg-navy" />,
       title: "Procurement",
       description: "Sourcing high-quality materials for timely delivery."
     },
@@ -58,7 +57,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Professional execution with direct supervision."
     },
     {
-      icon: <Valve className="h-6 w-6 text-acg-navy" />,
+      icon: <Construction className="h-6 w-6 text-acg-navy" />,
       title: "Integration",
       description: "Seamless integration of plumbing, electrical, and automation systems."
     },
@@ -68,7 +67,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Final touches, quality assurance, and client walkthrough."
     },
     {
-      icon: <HeartHandshake className="h-6 w-6 text-acg-navy" />,
+      icon: <Building className="h-6 w-6 text-acg-navy" />,
       title: "Aftercare",
       description: "Ongoing support and warranty services to ensure lasting quality."
     }
@@ -76,10 +75,10 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
   
   // Key steps for the summarized version
   const keySteps = [
-    allSteps[0], // Consultation
-    allSteps[2], // Permitting
-    allSteps[4], // Construction
-    allSteps[7]  // Aftercare
+    allSteps[0], // Consultation (Land)
+    allSteps[2], // Permitting (Document)
+    allSteps[4], // Construction (Hammer)
+    allSteps[7]  // Aftercare (Building)
   ];
   
   const stepsToShow = summarized ? keySteps : allSteps;

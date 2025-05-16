@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
@@ -6,11 +5,11 @@ import {
   MessageSquare, 
   PenTool, 
   FileText, 
-  Toolbox, 
+  Construction, 
   Hammer, 
-  Valve, 
+  LandPlot, 
   CheckSquare, 
-  HeartHandshake 
+  Building 
 } from "lucide-react";
 
 const ProcessPage = () => {
@@ -19,7 +18,7 @@ const ProcessPage = () => {
       id: 1,
       title: "Consultation",
       description: "Initial meeting to discuss your project needs and vision, assessing feasibility and scope.",
-      icon: <MessageSquare className="h-6 w-6 text-acg-navy" />
+      icon: <LandPlot className="h-6 w-6 text-acg-navy" />
     },
     {
       id: 2,
@@ -37,7 +36,7 @@ const ProcessPage = () => {
       id: 4,
       title: "Procurement",
       description: "Sourcing high-quality materials and managing logistics for timely delivery.",
-      icon: <Toolbox className="h-6 w-6 text-acg-navy" />
+      icon: <Construction className="h-6 w-6 text-acg-navy" />
     },
     {
       id: 5,
@@ -49,7 +48,7 @@ const ProcessPage = () => {
       id: 6,
       title: "Systems Integration",
       description: "Seamless integration of plumbing, electrical, and automation systems.",
-      icon: <Valve className="h-6 w-6 text-acg-navy" />
+      icon: <Construction className="h-6 w-6 text-acg-navy" />
     },
     {
       id: 7,
@@ -61,7 +60,7 @@ const ProcessPage = () => {
       id: 8,
       title: "Aftercare & Warranty",
       description: "Ongoing support and warranty services to ensure lasting quality.",
-      icon: <HeartHandshake className="h-6 w-6 text-acg-navy" />
+      icon: <Building className="h-6 w-6 text-acg-navy" />
     }
   ];
 
