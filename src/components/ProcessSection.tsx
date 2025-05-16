@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { MessageSquare, PenTool, FileText, ShoppingBag, Hammer, Layers, CheckSquare, HeartHandshake } from "lucide-react";
+import { MessageSquare, PenTool, FileText, Toolbox, Hammer, Valve, CheckSquare, HeartHandshake } from "lucide-react";
 import SectionTitle from "./SectionTitle";
 
 interface ProcessSectionProps {
@@ -22,7 +22,7 @@ const ProcessStep = ({ icon, title, description }: ProcessStepProps) => {
         {icon}
       </div>
       <div>
-        <h3 className="text-xl font-bold text-acg-navy mb-2">{title}</h3>
+        <h3 className="text-xl font-bold text-acg-navy mb-2 font-playfair">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
     </div>
@@ -48,7 +48,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Managing all necessary permits and regulatory approvals."
     },
     {
-      icon: <ShoppingBag className="h-6 w-6 text-acg-navy" />,
+      icon: <Toolbox className="h-6 w-6 text-acg-navy" />,
       title: "Procurement",
       description: "Sourcing high-quality materials for timely delivery."
     },
@@ -58,7 +58,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Professional execution with direct supervision."
     },
     {
-      icon: <Layers className="h-6 w-6 text-acg-navy" />,
+      icon: <Valve className="h-6 w-6 text-acg-navy" />,
       title: "Integration",
       description: "Seamless integration of plumbing, electrical, and automation systems."
     },
@@ -88,7 +88,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
     <section className="py-20 px-4 md:px-6 bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">{sectionTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 font-playfair">{sectionTitle}</h2>
           {summarized && sectionSubtitle && (
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
               {sectionSubtitle}
