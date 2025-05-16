@@ -1,3 +1,4 @@
+
 import { NavLink } from "react-router-dom";
 import { MessageSquare, PenTool, FileText, Construction, Hammer, LandPlot, CheckSquare, Building } from "lucide-react";
 import SectionTitle from "./SectionTitle";
@@ -57,7 +58,7 @@ const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sect
       description: "Professional execution with direct supervision."
     },
     {
-      icon: <Construction className="h-6 w-6 text-acg-navy" />,
+      icon: <MessageSquare className="h-6 w-6 text-acg-navy" />,
       title: "Integration",
       description: "Seamless integration of plumbing, electrical, and automation systems."
     },

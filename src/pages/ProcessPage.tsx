@@ -1,3 +1,4 @@
+
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
@@ -48,7 +49,7 @@ const ProcessPage = () => {
       id: 6,
       title: "Systems Integration",
       description: "Seamless integration of plumbing, electrical, and automation systems.",
-      icon: <Construction className="h-6 w-6 text-acg-navy" />
+      icon: <MessageSquare className="h-6 w-6 text-acg-navy" />
     },
     {
       id: 7,
