@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">ACG</h3>
+            <h3 className="text-xl font-bold mb-4">ACC</h3>
             <p className="text-sm text-gray-300 mb-6">
-              Abdallah Contracting Group - Building on Legacy, Developing the Future.
+              Abdallah Contracting Company - Building on Legacy, Developing the Future.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-acg-gold">
@@ -152,7 +152,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {currentYear} Abdallah Contracting Group. All rights reserved.
+            © {currentYear} Abdallah Contracting Company. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">

@@ -67,7 +67,7 @@ const HomePage = () => {
       {/* About Section - Summarized */}
       <AboutSection 
         summarized={true} 
-        sectionTitle="About ACG" 
+        sectionTitle="About ACC" 
         sectionSubtitle="A legacy of craftsmanship and quality" 
       />
 
@@ -84,7 +84,7 @@ const HomePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
             <p className="text-lg md:text-xl mb-8 text-gray-200">
-              Contact us today for a consultation and discover how ACG can bring your vision to life with our expertise.
+              Contact us today for a consultation and discover how ACC can bring your vision to life with our expertise.
             </p>
             <NavLink to="/contact">
               <Button className="bg-acg-gold text-acg-navy hover:bg-white px-8 py-6 text-lg font-semibold">
