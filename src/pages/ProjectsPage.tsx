@@ -184,7 +184,7 @@ const ProjectsPage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Dream Project?</h2>
           <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how ACG can bring your vision to life with the same quality and dedication showcased in our portfolio.
+            Contact us today to discuss how ACC can bring your vision to life with the same quality and dedication showcased in our portfolio.
           </p>
           <a 
             href="/contact" 

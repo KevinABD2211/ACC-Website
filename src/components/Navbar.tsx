@@ -47,7 +47,7 @@ const Navbar = () => {
                   // White logo for transparent background
                   <img 
                     src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png"
-                    alt="ACG Logo White" 
+                    alt="ACC Logo White" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
                     loading="eager"
                   />
@@ -55,7 +55,7 @@ const Navbar = () => {
                   // Navy logo for white background
                   <img 
                     src="/lovable-uploads/87bdccf5-0302-4634-8aa5-4e7321aa0379.png"
-                    alt="ACG Logo Navy" 
+                    alt="ACC Logo Navy" 
                     className="absolute top-0 left-0 h-full w-auto object-contain"
                     loading="eager"
                   />

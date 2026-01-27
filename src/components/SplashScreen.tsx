@@ -22,10 +22,10 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       <div className="text-center flex items-center justify-center h-screen w-screen">
         <img 
           src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png" 
-          alt="ACG Logo" 
+          alt="ACC Logo" 
           className="w-[35%] max-w-[300px] h-auto mx-auto animate-fade-in" 
           onError={(e) => {
-            e.currentTarget.src = "https://placehold.co/200x200?text=ACG"; // Fallback image if logo is not available
+            e.currentTarget.src = "https://placehold.co/200x200?text=ACC"; // Fallback image if logo is not available
           }}
         />
       </div>

@@ -126,7 +126,7 @@ const ProcessPage = () => {
           <div className="mt-20 bg-acg-lightgray p-8 rounded-lg">
             <h3 className="text-2xl font-bold text-acg-navy mb-4 text-center font-playfair">Our Turnkey Promise</h3>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto text-center">
-              At Abdallah Contracting Group, we take full responsibility for every aspect of your project, from initial consultation 
+              At Abdallah Contracting Company, we take full responsibility for every aspect of your project, from initial consultation 
               through final delivery and beyond. Our commitment to turnkey excellence means you can trust us with 
               the entire process, knowing that every detail will be expertly managed by our team of specialists.
             </p>

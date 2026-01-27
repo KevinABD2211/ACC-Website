@@ -11,7 +11,7 @@ interface AboutSectionProps {
   sectionSubtitle?: string;
 }
 
-const AboutSection = ({ className, summarized = false, sectionTitle = "About ACG", sectionSubtitle }: AboutSectionProps) => {
+const AboutSection = ({ className, summarized = false, sectionTitle = "About ACC", sectionSubtitle }: AboutSectionProps) => {
   // Default subtitle based on whether the section is summarized or not
   const defaultSubtitle = summarized 
     ? "Building on decades of Lebanese craftsmanship and expertise." 
@@ -37,12 +37,12 @@ const AboutSection = ({ className, summarized = false, sectionTitle = "About ACG
               <h3 className="text-2xl font-bold mb-4">Our Story</h3>
               <div className="space-y-4">
                 <p>
-                  Abdallah Contracting Group's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
+                  Abdallah Contracting Company's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
                   dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
                   construction sector.
                 </p>
                 <p>
-                  Eight years ago, we expanded our services to include electrical work and more. Today, ACG is
+                  Eight years ago, we expanded our services to include electrical work and more. Today, ACC is
                   entering an exciting new chapter under the leadership of Kevin
                   Abdallah, bringing comprehensive construction and property development services.
                 </p>
@@ -71,7 +71,7 @@ const AboutSection = ({ className, summarized = false, sectionTitle = "About ACG
           // Summarized content for homepage
           <div className="mt-8 text-white max-w-3xl mx-auto text-center">
             <p className="text-lg mb-6">
-              With over 28 years of Lebanese craftsmanship excellence, ACG has evolved from plumbing specialists into a comprehensive construction and development group, committed to quality, integrity, and building legacies that last.
+              With over 28 years of Lebanese craftsmanship excellence, ACC has evolved from plumbing specialists into a comprehensive construction and development company, committed to quality, integrity, and building legacies that last.
             </p>
             <div className="flex justify-center gap-6 mt-8">
               <div className="flex items-center">

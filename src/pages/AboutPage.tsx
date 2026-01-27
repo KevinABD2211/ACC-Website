@@ -43,7 +43,7 @@ const AboutPage = () => {
   return (
     <div>
       <PageHeader
-        title="About ACG"
+        title="About ACC"
         subtitle="Our story and our people"
         imageUrl="/lovable-uploads/d6f1e74a-b0e8-4108-b89c-0f4a0e201e73.png"
         pattern="diagonal-lines"
@@ -63,7 +63,7 @@ const AboutPage = () => {
           />
           <div className="space-y-4 text-white text-lg">
             <p>
-              Abdallah Contracting Group's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
+              Abdallah Contracting Company's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
               dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
               construction sector.
             </p>
@@ -73,7 +73,7 @@ const AboutPage = () => {
               renovation projects.
             </p>
             <p>
-              Today, ACG is entering an exciting new chapter under the leadership of Kevin
+              Today, ACC is entering an exciting new chapter under the leadership of Kevin
               Abdallah, who is bringing his academic background in finance and specialized training in real
               estate economics from institutions like the London School of Economics to complement our
               hands-on construction expertise.
@@ -130,7 +130,7 @@ const AboutPage = () => {
               <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
                 <img 
                   src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="ACG Logo Watermark"
+                  alt="ACC Logo Watermark"
                   className="w-48"
                 />
               </div>
@@ -141,7 +141,7 @@ const AboutPage = () => {
               </Avatar>
               <h3 className="text-2xl font-bold text-acg-navy mb-4">Fadi Abdallah</h3>
               <p className="text-gray-600 text-center">
-                With 28 years of experience, Fadi Abdallah built Abdallah Contracting Group on a foundation of plumbing expertise. 
+                With 28 years of experience, Fadi Abdallah built Abdallah Contracting Company on a foundation of plumbing expertise. 
                 Today, he leads with a commitment to quality and customer satisfaction.
               </p>
             </div>
@@ -151,7 +151,7 @@ const AboutPage = () => {
               <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
                 <img 
                   src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="ACG Logo Watermark"
+                  alt="ACC Logo Watermark"
                   className="w-48"
                 />
               </div>
@@ -162,14 +162,14 @@ const AboutPage = () => {
               </Avatar>
               <h3 className="text-2xl font-bold text-acg-navy mb-4">Kevin Abdallah</h3>
               <p className="text-gray-600 text-center">
-                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives ACG's 
+                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives ACC's 
                 strategic growth, blending practical experience with financial acumen.
               </p>
             </div>
           </div>
           
           <p className="text-center text-gray-700 font-medium mt-8 max-w-3xl mx-auto">
-            Together, they embody ACG's promise: Building Legacies, Delivering Homes.
+            Together, they embody ACC's promise: Building Legacies, Delivering Homes.
           </p>
         </div>
       </section>
