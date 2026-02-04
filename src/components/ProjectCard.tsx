@@ -32,8 +32,8 @@ const ProjectCard = ({
         {/* Logo watermark */}
         <div className="absolute top-2 right-2 opacity-50">
           <img 
-            src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
-            alt="ACG Watermark" 
+            src="/acc-logo.png" 
+            alt="ACC Watermark" 
             className="h-8 w-auto"
           />
         </div>

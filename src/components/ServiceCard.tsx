@@ -38,7 +38,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <AspectRatio ratio={16/9}>
           {imgError ? (
             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-600">ACG Service</span>
+              <span className="text-gray-600">ACC Service</span>
             </div>
           ) : (
             <img 
@@ -53,8 +53,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {/* Logo watermark */}
           <div className="absolute bottom-2 right-2 opacity-30">
             <img 
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
-              alt="ACG Watermark" 
+              src="/acc-logo.png" 
+              alt="ACC Watermark" 
               className="h-8 w-auto"
             />
           </div>
@@ -67,7 +67,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {/* Logo watermark in the background of the icon */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0">
             <img 
-              src="/lovable-uploads/54dd3a12-2705-45bd-a534-f01222dc4d2a.png" 
+              src="/acc-logo.png" 
               alt="" 
               className="h-12 w-auto"
             />
