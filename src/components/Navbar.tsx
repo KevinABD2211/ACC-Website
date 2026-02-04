@@ -42,24 +42,13 @@ const Navbar = () => {
           {/* Logo container with consistent sizing */}
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
-              <div className="relative h-20 w-56 flex items-center justify-center"> {/* Increased logo container height */}
-                {shouldUseWhiteText ? (
-                  // White logo for transparent background
-                  <img 
-                    src="/lovable-uploads/76dd445d-23f5-411b-83a0-41e914b946cc.png"
-                    alt="ACC Logo White" 
-                    className="absolute top-0 left-0 h-full w-auto object-contain"
-                    loading="eager"
-                  />
-                ) : (
-                  // Navy logo for white background
-                  <img 
-                    src="/lovable-uploads/87bdccf5-0302-4634-8aa5-4e7321aa0379.png"
-                    alt="ACC Logo Navy" 
-                    className="absolute top-0 left-0 h-full w-auto object-contain"
-                    loading="eager"
-                  />
-                )}
+              <div className="relative h-20 w-56 flex items-center justify-center">
+                <img 
+                  src="/acc-logo.png"
+                  alt="ACC - Abdallah Contracting Company Logo" 
+                  className="absolute top-0 left-0 h-full w-auto object-contain"
+                  loading="eager"
+                />
               </div>
             </NavLink>
           </div>
