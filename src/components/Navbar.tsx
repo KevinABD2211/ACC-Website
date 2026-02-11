@@ -25,7 +25,6 @@ const Navbar = () => {
   // Determine text and logo color based on page and scroll position
   const shouldUseWhiteText = isHomePage && !isScrolled;
 
-
   return (
     <header
       className={cn(

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { useProjects } from "@/hooks/useProjects";
@@ -52,7 +53,6 @@ const ProjectsPage = () => {
       </div>
     );
   }
-  
   return (
     <div>
       <PageHeader
@@ -69,6 +69,15 @@ const ProjectsPage = () => {
             subtitle="Explore our portfolio of residential and commercial construction projects."
             center={true}
           />
+
+          <div className="flex justify-center mb-6">
+            <Link
+              to="/admin"
+              className="inline-flex items-center rounded-md bg-acg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-acg-gold hover:text-acg-navy transition-colors"
+            >
+              Manage Projects
+            </Link>
+          </div>
           
           {/* Filter Tabs */}
           <div className="flex justify-center mb-12">
@@ -111,6 +120,12 @@ const ProjectsPage = () => {
               </div>
             ))}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <p className="text-center text-gray-500 mt-8">
+              No projects found for this category yet.
+            </p>
+          )}
         </div>
       </section>
       
