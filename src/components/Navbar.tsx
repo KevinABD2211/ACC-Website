@@ -25,8 +25,6 @@ const Navbar = () => {
   // Determine text and logo color based on page and scroll position
   const shouldUseWhiteText = isHomePage && !isScrolled;
 
-  // For debugging
-  console.log("Logo visibility state:", { isScrolled, isHomePage, shouldUseWhiteText });
 
   return (
     <header
@@ -44,7 +42,7 @@ const Navbar = () => {
             <NavLink to="/" className="block">
               <div className="relative h-20 w-56 flex items-center justify-center">
                 <img 
-                  src="/acc-logo.png"
+                  src={shouldUseWhiteText ? "/acc-logo-white.png" : "/acc-logo.png"}
                   alt="ACC - Abdallah Contracting Company Logo" 
                   className="absolute top-0 left-0 h-full w-auto object-contain"
                   loading="eager"

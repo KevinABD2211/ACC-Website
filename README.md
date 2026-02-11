@@ -50,6 +50,20 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Managing Projects (No Code Required)
+
+Visit **/admin** to add, edit, or remove projects without touching code:
+
+1. Go to `/admin` (or click "Admin" in the footer)
+2. Use **Add Project** to create new entries
+3. Use **Edit** (pencil) or **Delete** (trash) on each project
+4. Changes are saved in your browser; to make them permanent:
+   - Click **Export** to download `projects.json`
+   - Replace `public/projects.json` with the exported file
+   - Commit and push to GitHub
+
+You can also **Import** a JSON file to bulk-load projects.
+
 ## What technologies are used for this project?
 
 This project is built with:
