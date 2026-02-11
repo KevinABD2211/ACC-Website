@@ -43,8 +43,9 @@ const Navbar = () => {
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
               <div className="relative h-20 w-56 flex items-center justify-center">
+                {/* White logo for dark/transparent navbar, regular logo for scrolled state */}
                 <img 
-                  src="/acc-logo.png"
+                  src={shouldUseWhiteText ? "/acc-white-logo.png" : "/acc-logo.png"}
                   alt="ACC - Abdallah Contracting Company Logo" 
                   className="absolute top-0 left-0 h-full w-auto object-contain"
                   loading="eager"
