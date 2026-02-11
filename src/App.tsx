@@ -13,6 +13,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ProcessPage from "./pages/ProcessPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
+import AdminPage from "./pages/AdminPage";
 import SplashScreen from "./components/SplashScreen";
 import LoadingScreen from "./components/LoadingScreen";
 
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path="/process" element={<ProcessPage />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Route>
+              <Route path="/admin" element={<AdminPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

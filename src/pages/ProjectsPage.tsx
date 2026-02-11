@@ -1,64 +1,18 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
-
-// Project data
-const projects = [
-  {
-    id: 1,
-    title: "Marina Towers",
-    category: "Residential",
-    description: "A luxury residential tower with sea views, featuring premium finishes and world-class amenities.",
-    imageUrl: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80",
-    year: "2022"
-  },
-  {
-    id: 2,
-    title: "Cedar Heights Villa",
-    category: "Residential",
-    description: "A bespoke villa nestled in the mountains with panoramic views and custom crafted details.",
-    imageUrl: "https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&w=800&q=80",
-    year: "2021"
-  },
-  {
-    id: 3,
-    title: "Beirut Business Center",
-    category: "Commercial",
-    description: "A modern office complex designed for efficiency and flexibility, featuring sustainable building practices.",
-    imageUrl: "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80",
-    year: "2020"
-  },
-  {
-    id: 4,
-    title: "Hamra Residences",
-    category: "Residential",
-    description: "Urban apartment complex with modern amenities and thoughtful design in a prime location.",
-    imageUrl: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=800&q=80",
-    year: "2019"
-  },
-  {
-    id: 5,
-    title: "Mediterranean Plaza",
-    category: "Commercial",
-    description: "A mixed-use development featuring retail spaces, offices, and restaurants in a vibrant central location.",
-    imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=800&q=80",
-    year: "2018"
-  },
-  {
-    id: 6,
-    title: "Batroun Beach House",
-    category: "Residential",
-    description: "Contemporary beachfront residence with floor-to-ceiling windows and seamless indoor-outdoor living.",
-    imageUrl: "https://images.unsplash.com/photo-1551038247-3d9af20df552?auto=format&fit=crop&w=800&q=80",
-    year: "2020"
-  },
-];
+import { getProjects, type Project } from "@/lib/projectsData";
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState("All");
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    setProjects(getProjects());
+  }, []);
   
   const filteredProjects = filter === "All" 
     ? projects 
@@ -158,7 +112,7 @@ const ProjectsPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <p className="font-medium text-gray-700">Location</p>
-                    <p className="text-gray-600">Lebanon</p>
+                    <p className="text-gray-600">{selectedProject.location || "Lebanon"}</p>
                   </div>
                   <div>
                     <p className="font-medium text-gray-700">Project Type</p>
@@ -170,7 +124,7 @@ const ProjectsPage = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-700">Services Provided</p>
-                    <p className="text-gray-600">Design, Construction, Project Management</p>
+                    <p className="text-gray-600">{selectedProject.services || "Design, Construction, Project Management"}</p>
                   </div>
                 </div>
               </div>
