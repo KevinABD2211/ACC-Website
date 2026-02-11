@@ -58,5 +58,45 @@
     "year": 2020,
     "location": "Batroun, Lebanon",
     "services": "Design, Construction, Interior Finishing"
+  },
+  {
+    "id": 7,
+    "title": "Hardin - Sunset 1345",
+    "category": "Residential",
+    "description": "Residential construction project by ACC.",
+    "imageUrl": "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=800&q=80",
+    "year": 2023,
+    "location": "Lebanon",
+    "services": "Design, Construction, Project Management"
+  },
+  {
+    "id": 8,
+    "title": "Maroun Maroun Building Basbina",
+    "category": "Residential",
+    "description": "Residential building project in Basbina.",
+    "imageUrl": "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800&q=80",
+    "year": 2023,
+    "location": "Basbina, Lebanon",
+    "services": "Design, Construction, Project Management"
+  },
+  {
+    "id": 9,
+    "title": "Tony Bnasr Building Basbina",
+    "category": "Residential",
+    "description": "Residential building project in Basbina.",
+    "imageUrl": "https://images.unsplash.com/photo-1486718448742-163732cd1544?auto=format&fit=crop&w=800&q=80",
+    "year": 2023,
+    "location": "Basbina, Lebanon",
+    "services": "Design, Construction, Project Management"
+  },
+  {
+    "id": 10,
+    "title": "Attieh Center Batroun",
+    "category": "Commercial",
+    "description": "Commercial center in Batroun.",
+    "imageUrl": "https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?auto=format&fit=crop&w=800&q=80",
+    "year": 2023,
+    "location": "Batroun, Lebanon",
+    "services": "Design-Build, Project Management"
   }
 ]

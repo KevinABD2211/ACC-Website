@@ -186,7 +186,7 @@ const ServicesPage = () => {
               Get a Free Consultation
             </a>
             <img 
-              src="/acc-logo.png" 
+              src="/acc-logo-white.png" 
               alt="ACC - Abdallah Contracting Company Logo" 
               className="h-10 w-auto ml-4 hidden md:inline-block opacity-50"
             />
