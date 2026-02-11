@@ -1,6 +1,7 @@
 
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
+import SEO from "@/components/SEO";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { NavLink } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -42,6 +43,10 @@ const AboutPage = () => {
   
   return (
     <div>
+      <SEO
+        title="About Abdallah Contracting Company"
+        description="Learn about Abdallah Contracting Company's heritage, leadership, and values, combining Lebanese craftsmanship with financial and real estate expertise."
+      />
       <PageHeader
         title="About ACC"
         subtitle="Our story and our people"

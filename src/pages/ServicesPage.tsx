@@ -2,6 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import ServiceCard from "@/components/ServiceCard";
+import SEO from "@/components/SEO";
 import { Droplet, Zap, Building, Flower, Hammer, UserCog, ClipboardList, WrenchIcon } from "lucide-react";
 
 const ServicesPage = () => {
@@ -106,6 +107,10 @@ const ServicesPage = () => {
 
   return (
     <div>
+      <SEO
+        title="Construction Services in Beirut & Lebanon"
+        description="Explore ACC's full range of services including plumbing, electrical & automation, renovation, general contracting, pools & landscape systems, supervision, consulting, and maintenance."
+      />
       <PageHeader
         title="Our Services"
         subtitle="Comprehensive construction and development solutions"

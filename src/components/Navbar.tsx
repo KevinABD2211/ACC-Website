@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -24,6 +23,7 @@ const Navbar = () => {
   
   // Determine text and logo color based on page and scroll position
   const shouldUseWhiteText = isHomePage && !isScrolled;
+  const logoSrc = shouldUseWhiteText ? "/acc-logo-white.png" : "/acc-logo.png";
 
   return (
     <header
@@ -35,13 +35,13 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-20"> {/* Same height for both states */}
+        <div className="flex items-center justify-between h-20">
           {/* Logo container with consistent sizing */}
           <div className="h-20 w-64 flex items-center justify-start">
             <NavLink to="/" className="block">
               <div className="relative h-20 w-56 flex items-center justify-center">
                 <img 
-                  src={shouldUseWhiteText ? "/acc-logo-white.png" : "/acc-logo.png"}
+                  src={logoSrc}
                   alt="ACC - Abdallah Contracting Company Logo" 
                   className="absolute top-0 left-0 h-full w-auto object-contain"
                   loading="eager"
@@ -236,3 +236,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

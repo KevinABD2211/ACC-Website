@@ -1,10 +1,10 @@
 
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import LoadingScreen from '../components/LoadingScreen';
 
-interface ExampleAppProps {
-  Component: React.ComponentType<any>;
-  pageProps: any;
+interface ExampleAppProps<TProps = Record<string, unknown>> {
+  Component: React.ComponentType<TProps>;
+  pageProps: TProps;
 }
 
 function NextJsExample({ Component, pageProps }: ExampleAppProps) {

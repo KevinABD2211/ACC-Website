@@ -1,65 +1,52 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
-import { useProjects } from "@/hooks/useProjects";
 import { cn } from "@/lib/utils";
+import SEO from "@/components/SEO";
+import { useProjects } from "@/hooks/use-projects";
+import { Button } from "@/components/ui/button";
+import type { Project } from "@/context/ProjectsContext";
 
 const ProjectsPage = () => {
-  const { projects, loading, error } = useProjects();
   const [filter, setFilter] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-
-  const filteredProjects = filter === "All"
-    ? projects
-    : projects.filter((project) => project.category === filter);
-
-  if (loading) {
-    return (
-      <div>
-        <PageHeader
-          title="Our Projects"
-          subtitle="Showcasing our portfolio of excellence"
-          imageUrl="/lovable-uploads/85fd7224-bac7-4b6a-a1c0-71ffc29aff09.png"
-        />
-        <section className="py-20 px-4 md:px-6">
-          <div className="container mx-auto text-center">
-            <p className="text-gray-600">Loading projects...</p>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div>
-        <PageHeader
-          title="Our Projects"
-          subtitle="Showcasing our portfolio of excellence"
-          imageUrl="/lovable-uploads/85fd7224-bac7-4b6a-a1c0-71ffc29aff09.png"
-        />
-        <section className="py-20 px-4 md:px-6">
-          <div className="container mx-auto text-center">
-            <p className="text-red-600 mb-4">{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="text-acg-navy underline"
-            >
-              Retry
-            </button>
-          </div>
-        </section>
-      </div>
-    );
-  }
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { projects, loading, error } = useProjects();
+  
+  const filteredProjects =
+    filter === "All"
+      ? projects
+      : projects.filter((project) => project.category === filter);
+  
   return (
     <div>
+      <SEO
+        title="Construction Projects Portfolio"
+        description="Discover ACC's portfolio of residential and commercial projects across Lebanon, showcasing quality construction and turnkey delivery."
+      />
       <PageHeader
         title="Our Projects"
         subtitle="Showcasing our portfolio of excellence"
         imageUrl="/lovable-uploads/85fd7224-bac7-4b6a-a1c0-71ffc29aff09.png"
       />
+
+      <section className="pt-6 px-4 md:px-6">
+        <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="text-sm text-gray-600 max-w-2xl">
+            Browse a curated selection of ACC projects across residential and
+            commercial sectors. Data on this page is powered by{" "}
+            <code className="px-1 py-0.5 bg-gray-100 rounded text-xs">
+              public/projects.json
+            </code>
+            .
+          </p>
+          <NavLink to="/admin">
+            <Button variant="outline" size="sm">
+              Manage Projects
+            </Button>
+          </NavLink>
+        </div>
+      </section>
 
       {/* Projects Gallery */}
       <section className="py-20 px-4 md:px-6">
@@ -70,61 +57,60 @@ const ProjectsPage = () => {
             center={true}
           />
 
-          <div className="flex justify-center mb-6">
-            <Link
-              to="/admin"
-              className="inline-flex items-center rounded-md bg-acg-navy px-4 py-2 text-sm font-semibold text-white hover:bg-acg-gold hover:text-acg-navy transition-colors"
-            >
-              Manage Projects
-            </Link>
-          </div>
+          {error && (
+            <p className="text-center text-red-600 mt-2">
+              {error}
+            </p>
+          )}
           
-          {/* Filter Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex items-center rounded-md border border-gray-200 bg-white">
-              {["All", "Residential", "Commercial"].map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setFilter(category)}
-                  className={cn(
-                    "px-4 py-2 text-sm font-medium transition-colors",
-                    filter === category
-                      ? "bg-acg-navy text-white"
-                      : "text-gray-600 hover:bg-gray-100"
-                  )}
+          {loading ? (
+            <p className="text-center text-gray-500 mt-8">
+              Loading projects…
+            </p>
+          ) : (
+          <>
+            {/* Filter Tabs */}
+            <div className="flex justify-center mb-12">
+              <div className="inline-flex items-center rounded-md border border-gray-200 bg-white">
+                {["All", "Residential", "Commercial"].map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setFilter(category)}
+                    className={cn(
+                      "px-4 py-2 text-sm font-medium transition-colors",
+                      filter === category
+                        ? "bg-acg-navy text-white"
+                        : "text-gray-600 hover:bg-gray-100"
+                    )}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            {/* Projects Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project) => (
+                <div 
+                  key={project.id} 
+                  className="group relative overflow-hidden rounded-lg cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
                 >
-                  {category}
-                </button>
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-acg-navy bg-opacity-60 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    <span className="text-acg-gold text-sm font-medium mb-2">{project.category}</span>
+                    <h3 className="text-white text-xl font-bold mb-1">{project.title}</h3>
+                    <p className="text-gray-200 text-sm">{project.year}</p>
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
-          
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <div 
-                key={project.id} 
-                className="group relative overflow-hidden rounded-lg cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
-                  className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-acg-navy bg-opacity-60 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                  <span className="text-acg-gold text-sm font-medium mb-2">{project.category}</span>
-                  <h3 className="text-white text-xl font-bold mb-1">{project.title}</h3>
-                  <p className="text-gray-200 text-sm">{project.year}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {filteredProjects.length === 0 && (
-            <p className="text-center text-gray-500 mt-8">
-              No projects found for this category yet.
-            </p>
+          </>
           )}
         </div>
       </section>
@@ -160,10 +146,14 @@ const ProjectsPage = () => {
               <div className="border-t border-gray-200 pt-4">
                 <h4 className="text-lg font-bold text-acg-navy mb-3">Project Details</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="font-medium text-gray-700">Location</p>
-                    <p className="text-gray-600">Lebanon</p>
-                  </div>
+                  {selectedProject.location && (
+                    <div>
+                      <p className="font-medium text-gray-700">Location</p>
+                      <p className="text-gray-600">
+                        {selectedProject.location}
+                      </p>
+                    </div>
+                  )}
                   <div>
                     <p className="font-medium text-gray-700">Project Type</p>
                     <p className="text-gray-600">{selectedProject.category}</p>
@@ -172,10 +162,16 @@ const ProjectsPage = () => {
                     <p className="font-medium text-gray-700">Year Completed</p>
                     <p className="text-gray-600">{selectedProject.year}</p>
                   </div>
-                  <div>
-                    <p className="font-medium text-gray-700">Services Provided</p>
-                    <p className="text-gray-600">Design, Construction, Project Management</p>
-                  </div>
+                  {selectedProject.services && (
+                    <div>
+                      <p className="font-medium text-gray-700">
+                        Services Provided
+                      </p>
+                      <p className="text-gray-600">
+                        {selectedProject.services}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -203,3 +199,4 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
+

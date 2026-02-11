@@ -1,407 +1,397 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useProjects, type Project } from "@/hooks/useProjects";
+import { useState, useRef, FormEvent } from "react";
+import SEO from "@/components/SEO";
+import { useProjects } from "@/hooks/use-projects";
+import { Project } from "@/context/ProjectsContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { toast } from "sonner";
-import { Pencil, Trash2, Plus, ArrowLeft, Download, Upload, RotateCcw } from "lucide-react";
+
+type ProjectFormState = Omit<Project, "id">;
+
+const emptyForm: ProjectFormState = {
+  title: "",
+  category: "",
+  description: "",
+  imageUrl: "",
+  year: new Date().getFullYear(),
+  location: "",
+  services: "",
+};
 
 const AdminPage = () => {
   const {
     projects,
     loading,
     error,
-    source,
     addProject,
     updateProject,
     deleteProject,
-    saveProjects,
-    resetToFile,
+    resetToDefaults,
+    importProjects,
   } = useProjects();
 
-  const [editingProject, setEditingProject] = useState<Project | null>(null);
-  const [isAddOpen, setIsAddOpen] = useState(false);
-  const [deleteId, setDeleteId] = useState<number | null>(null);
-  const [formData, setFormData] = useState<Partial<Project>>({
-    title: "",
-    category: "Residential",
-    description: "",
-    imageUrl: "",
-    year: new Date().getFullYear().toString(),
-  });
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [form, setForm] = useState<ProjectFormState>(emptyForm);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const resetForm = () => {
-    setFormData({
-      title: "",
-      category: "Residential",
-      description: "",
-      imageUrl: "",
-      year: new Date().getFullYear().toString(),
+  const handleEdit = (project: Project) => {
+    setEditingId(project.id);
+    setForm({
+      title: project.title,
+      category: project.category,
+      description: project.description,
+      imageUrl: project.imageUrl,
+      year: project.year,
+      location: project.location ?? "",
+      services: project.services ?? "",
     });
   };
 
-  const handleSaveEdit = () => {
-    if (!editingProject) return;
-    const { title, category, description, imageUrl, year } = formData;
-    if (!title?.trim()) {
-      toast.error("Title is required");
-      return;
-    }
-    updateProject(editingProject.id, {
-      title: title.trim(),
-      category: category ?? "Residential",
-      description: description ?? "",
-      imageUrl: imageUrl ?? "",
-      year: year ?? "",
-    });
-    toast.success("Project updated");
-    setEditingProject(null);
-    resetForm();
-  };
-
-  const handleAdd = () => {
-    const { title, category, description, imageUrl, year } = formData;
-    if (!title?.trim()) {
-      toast.error("Title is required");
-      return;
-    }
-    addProject({
-      title: title.trim(),
-      category: category ?? "Residential",
-      description: description ?? "",
-      imageUrl: imageUrl ?? "",
-      year: year ?? "",
-    });
-    toast.success("Project added");
-    setIsAddOpen(false);
-    resetForm();
-  };
-
-  const handleDelete = () => {
-    if (deleteId !== null) {
-      deleteProject(deleteId);
-      toast.success("Project removed");
-      setDeleteId(null);
-    }
-  };
-
-  const handleExport = () => {
-    const blob = new Blob(
-      [JSON.stringify({ projects }, null, 2)],
-      { type: "application/json" }
-    );
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "projects.json";
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success("Exported projects.json");
-  };
-
-  const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const data = JSON.parse(reader.result as string);
-        const list = data.projects ?? data;
-        if (!Array.isArray(list)) throw new Error("Invalid format");
-        const mapped = list.map((p: Record<string, unknown>, i: number) => ({
-          id: typeof p.id === "number" ? p.id : i + 1,
-          title: String(p.title ?? ""),
-          category: String(p.category ?? "Residential"),
-          description: String(p.description ?? ""),
-          imageUrl: String(p.imageUrl ?? ""),
-          year: String(p.year ?? ""),
-        }));
-        saveProjects(mapped);
-        toast.success(`Imported ${mapped.length} projects`);
-      } catch {
-        toast.error("Invalid JSON file");
+  const handleDelete = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this project?")) {
+      deleteProject(id);
+      if (editingId === id) {
+        setEditingId(null);
+        setForm(emptyForm);
       }
-    };
-    reader.readAsText(file);
-    e.target.value = "";
+    }
   };
 
   const handleReset = async () => {
-    await resetToFile();
-    toast.success("Reset to projects.json");
+    if (
+      window.confirm(
+        "This will discard local changes and reload the default projects.json. Continue?"
+      )
+    ) {
+      await resetToDefaults();
+      setEditingId(null);
+      setForm(emptyForm);
+    }
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <p className="text-gray-600">Loading projects...</p>
-      </div>
-    );
-  }
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="text-center">
-          <p className="text-red-600 mb-4">{error}</p>
-          <Button onClick={() => window.location.reload()}>Retry</Button>
-        </div>
-      </div>
-    );
-  }
+    const payload: ProjectFormState = {
+      ...form,
+      year:
+        typeof form.year === "string"
+          ? Number.isNaN(Number(form.year))
+            ? form.year
+            : Number(form.year)
+          : form.year,
+      location: form.location?.trim() || "",
+      services: form.services?.trim() || "",
+    };
+
+    if (editingId !== null) {
+      updateProject(editingId, payload);
+    } else {
+      addProject(payload);
+    }
+
+    setEditingId(null);
+    setForm(emptyForm);
+  };
+
+  const handleExport = () => {
+    const blob = new Blob([JSON.stringify(projects, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "projects.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const text = e.target?.result as string;
+        const data = JSON.parse(text);
+        if (!Array.isArray(data)) {
+          throw new Error("Imported JSON must be an array of projects.");
+        }
+        importProjects(data as Project[]);
+        setEditingId(null);
+        setForm(emptyForm);
+      } catch (err) {
+        console.error(err);
+        window.alert(
+          "Unable to import projects. Please ensure the file is a valid projects.json."
+        );
+      } finally {
+        event.target.value = "";
+      }
+    };
+    reader.readAsText(file);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-acg-navy text-white py-4 px-4 md:px-6">
-        <div className="container mx-auto flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <Link to="/">
-              <Button variant="ghost" className="text-white hover:bg-white/20">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Site
+    <div className="pb-16">
+      <SEO
+        title="Admin - Manage Projects"
+        description="Admin panel to visually manage ACC projects without code."
+      />
+      <section className="py-12 px-4 md:px-6 bg-slate-50 border-b border-slate-200">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-bold text-acg-navy">
+                Projects Admin
+              </h1>
+              <p className="text-slate-600 mt-1">
+                Manage public projects visually. Changes are stored in your
+                browser and can be exported as{" "}
+                <code className="px-1 py-0.5 bg-slate-100 rounded text-xs">
+                  projects.json
+                </code>
+                .
+              </p>
+              {error && (
+                <p className="text-sm text-red-600 mt-2">
+                  {error}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                type="button"
+                onClick={handleReset}
+              >
+                Reset to Default
               </Button>
-            </Link>
-            <h1 className="text-xl font-bold">Project Manager</h1>
-            <span className="text-sm text-white/80">
-              {source === "local" ? "Editing local copy" : "Using projects.json"}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={handleReset}
-              disabled={source === "file"}
-            >
-              <RotateCcw className="w-4 h-4 mr-1" />
-              Reset
-            </Button>
-            <Button variant="secondary" size="sm" onClick={handleExport}>
-              <Download className="w-4 h-4 mr-1" />
-              Export
-            </Button>
-            <label>
+              <Button
+                variant="outline"
+                type="button"
+                onClick={handleImportClick}
+              >
+                Import JSON
+              </Button>
+              <Button type="button" onClick={handleExport}>
+                Export projects.json
+              </Button>
               <input
+                ref={fileInputRef}
                 type="file"
-                accept=".json"
+                accept="application/json"
                 className="hidden"
-                onChange={handleImport}
+                onChange={handleFileChange}
               />
-              <Button variant="secondary" size="sm" asChild>
-                <span>
-                  <Upload className="w-4 h-4 mr-1" />
-                  Import
-                </span>
-              </Button>
-            </label>
-            <Button onClick={() => setIsAddOpen(true)}>
-              <Plus className="w-4 h-4 mr-2" />
-              Add Project
-            </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto py-8 px-4 md:px-6">
-        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800">
-          <strong>Tip:</strong> Changes are saved in your browser. To persist across devices, export the JSON and replace <code className="bg-amber-100 px-1 rounded">public/projects.json</code>, then commit and push to GitHub.
-        </div>
-
-        <div className="grid gap-4">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-lg shadow p-4 flex flex-col md:flex-row md:items-center gap-4"
-            >
-              <div className="w-full md:w-48 h-32 flex-shrink-0 rounded overflow-hidden bg-gray-100">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
+      <section className="py-10 px-4 md:px-6">
+        <div className="container mx-auto grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)]">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-acg-navy">
+                Current Projects
+              </h2>
+              {loading && (
+                <span className="text-sm text-slate-500">Loading…</span>
+              )}
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+              <div className="hidden md:grid grid-cols-[2fr_1fr_1fr_auto] gap-4 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 bg-slate-50 border-b border-slate-200">
+                <span>Title</span>
+                <span>Category</span>
+                <span>Year</span>
+                <span className="text-right">Actions</span>
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-acg-navy">{project.title}</h3>
-                <p className="text-sm text-gray-600">{project.category} · {project.year}</p>
-                <p className="text-sm text-gray-500 line-clamp-2 mt-1">{project.description}</p>
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    setEditingProject(project);
-                    setFormData({
-                      title: project.title,
-                      category: project.category,
-                      description: project.description,
-                      imageUrl: project.imageUrl,
-                      year: project.year,
-                    });
-                  }}
-                >
-                  <Pencil className="w-4 h-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-red-600 hover:bg-red-50"
-                  onClick={() => setDeleteId(project.id)}
-                >
-                  <Trash2 className="w-4 h-4" />
-                </Button>
+              <div>
+                {projects.length === 0 && !loading ? (
+                  <div className="px-4 py-6 text-sm text-slate-500">
+                    No projects found. Use the form on the right to add your
+                    first project.
+                  </div>
+                ) : (
+                  projects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="border-t border-slate-100 px-4 py-3 flex flex-col md:grid md:grid-cols-[2fr_1fr_1fr_auto] md:items-center gap-2 md:gap-4"
+                    >
+                      <div>
+                        <p className="font-medium text-slate-900">
+                          {project.title}
+                        </p>
+                        <p className="text-xs text-slate-500 line-clamp-2">
+                          {project.description}
+                        </p>
+                      </div>
+                      <p className="text-sm text-slate-700">
+                        {project.category}
+                      </p>
+                      <p className="text-sm text-slate-700">
+                        {project.year}
+                      </p>
+                      <div className="flex justify-end gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          type="button"
+                          onClick={() => handleEdit(project)}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          type="button"
+                          className="text-red-600 border-red-200 hover:bg-red-50"
+                          onClick={() => handleDelete(project.id)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
-          ))}
-        </div>
-
-        {projects.length === 0 && (
-          <div className="text-center py-12 text-gray-500">
-            <p>No projects yet. Click &quot;Add Project&quot; to get started.</p>
           </div>
-        )}
-      </div>
 
-      {/* Edit Dialog */}
-      <Dialog open={!!editingProject} onOpenChange={(o) => !o && setEditingProject(null)}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Edit Project</DialogTitle>
-          </DialogHeader>
-          <ProjectForm formData={formData} setFormData={setFormData} />
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setEditingProject(null)}>Cancel</Button>
-            <Button onClick={handleSaveEdit}>Save</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Add Dialog */}
-      <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Add Project</DialogTitle>
-          </DialogHeader>
-          <ProjectForm formData={formData} setFormData={setFormData} />
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsAddOpen(false)}>Cancel</Button>
-            <Button onClick={handleAdd}>Add</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Delete confirmation */}
-      <AlertDialog open={deleteId !== null} onOpenChange={(o) => !o && setDeleteId(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Remove project?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This will remove the project from your list. You can export before deleting to keep a backup.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700">
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+          <div>
+            <h2 className="text-xl font-semibold text-acg-navy mb-4">
+              {editingId ? "Edit Project" : "Add Project"}
+            </h2>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-lg shadow-sm border border-slate-200 p-5 space-y-4"
+            >
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-slate-700">
+                  Title
+                </label>
+                <Input
+                  value={form.title}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, title: e.target.value }))
+                  }
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-slate-700">
+                  Category
+                </label>
+                <Input
+                  value={form.category}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, category: e.target.value }))
+                  }
+                  placeholder="e.g. Residential, Commercial"
+                  required
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-sm font-medium text-slate-700">
+                    Year
+                  </label>
+                  <Input
+                    value={form.year}
+                    onChange={(e) =>
+                      setForm((prev) => ({ ...prev, year: e.target.value }))
+                    }
+                    type="number"
+                    min={1900}
+                    max={3000}
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-medium text-slate-700">
+                    Location
+                  </label>
+                  <Input
+                    value={form.location ?? ""}
+                    onChange={(e) =>
+                      setForm((prev) => ({ ...prev, location: e.target.value }))
+                    }
+                    placeholder="Optional"
+                  />
+                </div>
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-slate-700">
+                  Image URL
+                </label>
+                <Input
+                  value={form.imageUrl}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, imageUrl: e.target.value }))
+                  }
+                  placeholder="https://…"
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-slate-700">
+                  Description
+                </label>
+                <Textarea
+                  value={form.description}
+                  onChange={(e) =>
+                    setForm((prev) => ({
+                      ...prev,
+                      description: e.target.value,
+                    }))
+                  }
+                  rows={4}
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-slate-700">
+                  Services
+                </label>
+                <Input
+                  value={form.services ?? ""}
+                  onChange={(e) =>
+                    setForm((prev) => ({ ...prev, services: e.target.value }))
+                  }
+                  placeholder="Optional (e.g. Design, Construction, Project Management)"
+                />
+              </div>
+              <div className="flex justify-between items-center pt-2">
+                <Button type="submit">
+                  {editingId ? "Save changes" : "Add project"}
+                </Button>
+                {editingId && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      setEditingId(null);
+                      setForm(emptyForm);
+                    }}
+                  >
+                    Cancel edit
+                  </Button>
+                )}
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
-function ProjectForm({
-  formData,
-  setFormData,
-}: {
-  formData: Partial<Project>;
-  setFormData: React.Dispatch<React.SetStateAction<Partial<Project>>>>;
-}) {
-  return (
-    <div className="grid gap-4 py-2">
-      <div>
-        <Label htmlFor="title">Title *</Label>
-        <Input
-          id="title"
-          value={formData.title ?? ""}
-          onChange={(e) => setFormData((p) => ({ ...p, title: e.target.value }))}
-          placeholder="Project name"
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <Label htmlFor="category">Category</Label>
-          <Select
-            value={formData.category ?? "Residential"}
-            onValueChange={(v) => setFormData((p) => ({ ...p, category: v }))}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Residential">Residential</SelectItem>
-              <SelectItem value="Commercial">Commercial</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div>
-          <Label htmlFor="year">Year</Label>
-          <Input
-            id="year"
-            value={formData.year ?? ""}
-            onChange={(e) => setFormData((p) => ({ ...p, year: e.target.value }))}
-            placeholder="2024"
-          />
-        </div>
-      </div>
-      <div>
-        <Label htmlFor="description">Description</Label>
-        <Textarea
-          id="description"
-          value={formData.description ?? ""}
-          onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
-          placeholder="Brief project description"
-          rows={3}
-        />
-      </div>
-      <div>
-        <Label htmlFor="imageUrl">Image URL</Label>
-        <Input
-          id="imageUrl"
-          value={formData.imageUrl ?? ""}
-          onChange={(e) => setFormData((p) => ({ ...p, imageUrl: e.target.value }))}
-          placeholder="https://..."
-        />
-      </div>
-    </div>
-  );
-}
-
 export default AdminPage;
+

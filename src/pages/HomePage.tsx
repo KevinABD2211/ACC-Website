@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
+import SEO from "@/components/SEO";
 
 const HomePage = () => {
   const scrollToSection = (sectionId: string) => {
@@ -15,6 +16,10 @@ const HomePage = () => {
 
   return (
     <>
+      <SEO
+        title="Construction & Contracting in Beirut"
+        description="Abdallah Contracting Company (ACC) delivers expert construction, renovation, and building services in Beirut and across Lebanon."
+      />
       {/* Hero Section */}
       <section 
         className="relative h-screen flex items-center overflow-hidden bg-cover bg-center"

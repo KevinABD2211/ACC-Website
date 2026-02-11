@@ -2,6 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
+import SEO from "@/components/SEO";
 import { 
   MessageSquare, 
   PenTool, 
@@ -67,6 +68,10 @@ const ProcessPage = () => {
 
   return (
     <div>
+      <SEO
+        title="Turnkey Construction Process"
+        description="See how ACC manages your project from consultation and design coordination through construction, handover, and aftercare with a turnkey approach."
+      />
       <PageHeader
         title="Our Process"
         subtitle="A comprehensive, turnkey approach to construction and development"

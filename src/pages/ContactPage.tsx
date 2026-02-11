@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
+import SEO from "@/components/SEO";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const ContactPage = () => {
@@ -21,13 +22,32 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setLoading(false);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@acg-lb.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: "New inquiry from ACC website",
+          _template: "table",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit contact form");
+      }
+
       toast({
         title: "Message Sent!",
         description: "We've received your inquiry and will get back to you soon.",
@@ -39,11 +59,23 @@ const ContactPage = () => {
         subject: "",
         message: "",
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      toast({
+        title: "Something went wrong",
+        description: "We couldn't send your message. Please try again or call us directly.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div>
+      <SEO
+        title="Contact Abdallah Contracting Company"
+        description="Get in touch with ACC's team in Beirut to discuss your construction, renovation, or development project, or request a consultation."
+      />
       <PageHeader
         title="Contact Us"
         subtitle="Get in touch with our team"
@@ -77,7 +109,9 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-acg-navy mb-1">Email</h3>
-                    <a href="mailto:fadcosarl@hotmail.com" className="text-gray-600 hover:text-acg-gold">fadcosarl@hotmail.com</a>
+                    <a href="mailto:info@acg-lb.com" className="text-gray-600 hover:text-acg-gold">
+                      info@acg-lb.com
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -86,7 +120,9 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-acg-navy mb-1">Phone</h3>
-                    <a href="tel:+96132552063" className="text-gray-600 hover:text-acg-gold">+961 3 255 206</a>
+                    <a href="tel:+9613255206" className="text-gray-600 hover:text-acg-gold">
+                      +961 3 255 206
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -175,8 +211,12 @@ const ContactPage = () => {
                       <option value="">Select a service</option>
                       <option value="Plumbing, Heating & Drainage">Plumbing, Heating & Drainage</option>
                       <option value="Electrical & Automation">Electrical & Automation</option>
-                      <option value="Construction & Renovation">Construction & Renovation</option>
-                      <option value="Outdoor & Landscape Systems">Outdoor & Landscape Systems</option>
+                      <option value="Renovation">Renovation</option>
+                      <option value="General Contracting">General Contracting</option>
+                      <option value="Pools & Landscape Systems">Pools & Landscape Systems</option>
+                      <option value="Supervision">Supervision</option>
+                      <option value="Consulting">Consulting</option>
+                      <option value="Maintenance">Maintenance</option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
                   </div>
@@ -229,13 +269,16 @@ const ContactPage = () => {
             center={true}
           />
           <div className="mt-8 h-96 bg-gray-200 rounded-lg overflow-hidden">
-            {/* Google Map placeholder */}
-            <div className="w-full h-full flex items-center justify-center bg-gray-300">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-acg-navy mx-auto mb-2" />
-                <p className="text-gray-600">Google Map showing our Beirut office location</p>
-              </div>
-            </div>
+            <iframe
+              title="ACC Beirut Office Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6672.009912451387!2d35.485!3d33.8938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f172158f1e3e3%3A0x4f9c8e8f3c6c31e1!2sBeirut%2C%20Lebanon!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+            />
           </div>
         </div>
       </section>

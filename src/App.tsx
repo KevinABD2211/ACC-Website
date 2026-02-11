@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -16,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import AdminPage from "./pages/AdminPage";
 import SplashScreen from "./components/SplashScreen";
 import LoadingScreen from "./components/LoadingScreen";
+import { ProjectsProvider } from "./context/ProjectsContext";
 
 const queryClient = new QueryClient();
 
@@ -47,26 +47,28 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        
+
         {showSplash ? (
           <SplashScreen onComplete={handleSplashComplete} />
         ) : isLoading ? (
           <LoadingScreen onComplete={handleLoadingComplete} />
         ) : (
-          <BrowserRouter>
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/process" element={<ProcessPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-              </Route>
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
+          <ProjectsProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/services" element={<ServicesPage />} />
+                  <Route path="/projects" element={<ProjectsPage />} />
+                  <Route path="/process" element={<ProcessPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/admin" element={<AdminPage />} />
+                </Route>
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </ProjectsProvider>
         )}
       </TooltipProvider>
     </QueryClientProvider>
@@ -74,3 +76,4 @@ const App = () => {
 };
 
 export default App;
+
