@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,34 +12,13 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ProcessPage from "./pages/ProcessPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
-import SplashScreen from "./components/SplashScreen";
 import LoadingScreen from "./components/LoadingScreen";
 import { ProjectsProvider } from "./context/ProjectsContext";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Hide splash screen after 3 seconds
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // When splash completes, show loading screen
-  const handleSplashComplete = () => {
-    setIsLoading(true);
-  };
-
-  // When loading completes, show main app
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -47,10 +26,8 @@ const App = () => {
         <Toaster />
         <Sonner />
 
-        {showSplash ? (
-          <SplashScreen onComplete={handleSplashComplete} />
-        ) : isLoading ? (
-          <LoadingScreen onComplete={handleLoadingComplete} />
+        {isLoading ? (
+          <LoadingScreen onComplete={() => setIsLoading(false)} />
         ) : (
           <ProjectsProvider>
             <BrowserRouter>
