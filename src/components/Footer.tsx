@@ -81,11 +81,6 @@ const Footer = () => {
                   Contact
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/admin" className="text-gray-400 hover:text-acg-gold transition-colors text-sm">
-                  Admin
-                </NavLink>
-              </li>
             </ul>
           </div>
 

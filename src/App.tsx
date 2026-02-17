@@ -12,7 +12,6 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ProcessPage from "./pages/ProcessPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
-import AdminPage from "./pages/AdminPage";
 import SplashScreen from "./components/SplashScreen";
 import LoadingScreen from "./components/LoadingScreen";
 import { ProjectsProvider } from "./context/ProjectsContext";
@@ -63,7 +62,6 @@ const App = () => {
                   <Route path="/projects" element={<ProjectsPage />} />
                   <Route path="/process" element={<ProcessPage />} />
                   <Route path="/contact" element={<ContactPage />} />
-                  <Route path="/admin" element={<AdminPage />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>

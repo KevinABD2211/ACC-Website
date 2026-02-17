@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
+import AdminSection from "@/components/AdminSection";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
 import SEO from "@/components/SEO";
 import { useProjects } from "@/hooks/use-projects";
-import { Button } from "@/components/ui/button";
 import type { Project } from "@/context/ProjectsContext";
 
 const ProjectsPage = () => {
@@ -31,7 +30,7 @@ const ProjectsPage = () => {
       />
 
       <section className="pt-6 px-4 md:px-6">
-        <div className="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="container mx-auto">
           <p className="text-sm text-gray-600 max-w-2xl">
             Browse a curated selection of ACC projects across residential and
             commercial sectors. Data on this page is powered by{" "}
@@ -40,11 +39,6 @@ const ProjectsPage = () => {
             </code>
             .
           </p>
-          <NavLink to="/admin">
-            <Button variant="outline" size="sm">
-              Manage Projects
-            </Button>
-          </NavLink>
         </div>
       </section>
 
@@ -194,6 +188,9 @@ const ProjectsPage = () => {
           </a>
         </div>
       </section>
+
+      {/* Admin section - username/email required */}
+      <AdminSection />
     </div>
   );
 };
