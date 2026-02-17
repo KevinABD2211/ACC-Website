@@ -23,7 +23,7 @@ const Navbar = () => {
   
   // Determine text and logo color based on page and scroll position
   const shouldUseWhiteText = isHomePage && !isScrolled;
-  const logoSrc = shouldUseWhiteText ? "/acc-logo-white.png" : "/acc-logo.png";
+  const logoSrc = "/acc-logo.png";
 
   return (
     <header
