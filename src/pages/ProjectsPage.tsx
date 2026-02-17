@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
-import AdminSection from "@/components/AdminSection";
 import SectionTitle from "@/components/SectionTitle";
 import { cn } from "@/lib/utils";
 import SEO from "@/components/SEO";
@@ -28,19 +27,6 @@ const ProjectsPage = () => {
         subtitle="Showcasing our portfolio of excellence"
         imageUrl="/lovable-uploads/85fd7224-bac7-4b6a-a1c0-71ffc29aff09.png"
       />
-
-      <section className="pt-6 px-4 md:px-6">
-        <div className="container mx-auto">
-          <p className="text-sm text-gray-600 max-w-2xl">
-            Browse a curated selection of ACC projects across residential and
-            commercial sectors. Data on this page is powered by{" "}
-            <code className="px-1 py-0.5 bg-gray-100 rounded text-xs">
-              public/projects.json
-            </code>
-            .
-          </p>
-        </div>
-      </section>
 
       {/* Projects Gallery */}
       <section className="py-20 px-4 md:px-6">
@@ -188,9 +174,6 @@ const ProjectsPage = () => {
           </a>
         </div>
       </section>
-
-      {/* Admin section - username/email required */}
-      <AdminSection />
     </div>
   );
 };

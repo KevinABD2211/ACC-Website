@@ -1,5 +1,5 @@
-
 import { NavLink } from "react-router-dom";
+import AdminSection from "@/components/AdminSection";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -155,7 +155,7 @@ const Footer = () => {
             © {currentYear} Abdallah Contracting Company. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
-            <ul className="flex space-x-6">
+            <ul className="flex items-center space-x-6">
               <li>
                 <a href="#" className="text-sm text-gray-400 hover:text-acg-gold">
                   Privacy Policy
@@ -165,6 +165,9 @@ const Footer = () => {
                 <a href="#" className="text-sm text-gray-400 hover:text-acg-gold">
                   Terms of Service
                 </a>
+              </li>
+              <li>
+                <AdminSection triggerClassName="text-gray-400 hover:text-acg-gold p-0" />
               </li>
             </ul>
           </div>

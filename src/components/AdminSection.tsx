@@ -4,7 +4,13 @@ import type { Project } from "@/context/ProjectsContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Lock, LogOut } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const ADMIN_STORAGE_KEY = "acc-admin-authenticated";
 
@@ -34,13 +40,18 @@ const emptyForm: ProjectFormState = {
   services: "",
 };
 
-const AdminSection = () => {
+type AdminSectionProps = {
+  /** Optional class for the lock trigger button (e.g. footer styling) */
+  triggerClassName?: string;
+};
+
+const AdminSection = ({ triggerClassName }: AdminSectionProps) => {
+  const [open, setOpen] = useState(false);
   const [auth, setAuth] = useState(isAuthenticated);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
-  const [expanded, setExpanded] = useState(false);
 
   const {
     projects,
@@ -70,6 +81,7 @@ const AdminSection = () => {
       setUsername("");
       setEmail("");
       setPassword("");
+      setOpen(true);
     } else {
       setAuthError("Invalid username, email, or password.");
     }
@@ -168,66 +180,43 @@ const AdminSection = () => {
     reader.readAsText(file);
   };
 
-  if (!auth) {
-    return (
-      <section className="py-12 px-4 md:px-6 border-t border-gray-200 bg-gray-50">
-        <div className="container mx-auto max-w-md">
-          <div
-            className="flex items-center justify-between cursor-pointer"
-            onClick={() => setExpanded(!expanded)}
-          >
-            <div className="flex items-center gap-2 text-gray-600">
-              <Lock className="h-4 w-4" />
-              <span className="text-sm font-medium">Admin access</span>
-            </div>
-            <span className="text-xs text-gray-400">
-              {expanded ? "Collapse" : "Expand"}
-            </span>
-          </div>
-          {expanded && (
-            <form
-              onSubmit={handleLogin}
-              className="mt-4 p-4 bg-white rounded-lg border border-gray-200 space-y-3"
-            >
-              <Input
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="text-sm"
-              />
-              <Input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="text-sm"
-              />
-              <Input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="text-sm"
-              />
-              {authError && (
-                <p className="text-sm text-red-600">{authError}</p>
-              )}
-              <Button type="submit" size="sm">
-                Sign in
-              </Button>
-            </form>
-          )}
-        </div>
-      </section>
-    );
-  }
+  const loginForm = (
+    <div>
+      <h3 className="text-lg font-semibold text-acg-navy mb-4">Admin access</h3>
+      <form onSubmit={handleLogin} className="space-y-3">
+      <Input
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+        className="text-sm"
+      />
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        className="text-sm"
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        className="text-sm"
+      />
+      {authError && <p className="text-sm text-red-600">{authError}</p>}
+      <Button type="submit" size="sm">
+        Sign in
+      </Button>
+    </form>
+    </div>
+  );
 
-  return (
-    <section className="py-12 px-4 md:px-6 border-t border-gray-200 bg-slate-50">
-      <div className="container mx-auto max-w-4xl">
+  const adminContent = auth ? (
+      <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-acg-navy">
             Manage Projects
@@ -385,7 +374,33 @@ const AdminSection = () => {
           </form>
         </div>
       </div>
-    </section>
+  ) : (
+    loginForm
+  );
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className={cn(
+            "inline-flex items-center justify-center rounded hover:text-acg-gold transition-colors focus:outline-none focus:ring-2 focus:ring-acg-gold/50",
+            triggerClassName ?? "text-gray-400 p-1"
+          )}
+          aria-label="Admin access"
+        >
+          <Lock className="h-4 w-4" />
+        </button>
+      </DialogTrigger>
+      <DialogContent
+        className={cn(
+          "max-h-[90vh] overflow-y-auto",
+          auth && "max-w-4xl"
+        )}
+      >
+        {adminContent}
+      </DialogContent>
+    </Dialog>
   );
 };
 
