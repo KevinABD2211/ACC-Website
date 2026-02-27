@@ -2,7 +2,8 @@
 import { cn } from "@/lib/utils";
 import SectionTitle from "./SectionTitle";
 import { NavLink } from "react-router-dom";
-import { Shield, Award, Target } from "lucide-react";
+import { ArrowRight, Shield, Award, Target } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 interface AboutSectionProps {
   className?: string;
@@ -11,88 +12,71 @@ interface AboutSectionProps {
   sectionSubtitle?: string;
 }
 
-const AboutSection = ({ className, summarized = false, sectionTitle = "About ACC", sectionSubtitle }: AboutSectionProps) => {
-  // Default subtitle based on whether the section is summarized or not
-  const defaultSubtitle = summarized 
-    ? "Building on decades of Lebanese craftsmanship and expertise." 
-    : "Learn more about our company, our values, and our mission.";
+const AboutSection = ({ className, summarized = false, sectionTitle = "Who We Are", sectionSubtitle }: AboutSectionProps) => {
+  const content = useScrollReveal<HTMLDivElement>(0.2);
 
   return (
-    <section id="about" className={cn("py-20 px-4 md:px-6 relative", className)}>
-      {/* Using solid color */}
-      <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
-      
-      <div className="container mx-auto relative z-10">
+    <section id="about" className={cn("py-28 md:py-36 relative bg-acg-navy", className)}>
+      <div className="max-w-[1200px] mx-auto px-8 relative z-10">
         <SectionTitle
           title={sectionTitle} 
-          subtitle={sectionSubtitle || defaultSubtitle}
-          className="text-white"
+          subtitle={sectionSubtitle}
+          className="[&_h2]:text-white [&_p]:text-white/30"
           center={true}
         />
         
         {!summarized ? (
-          // Full content for the about page
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-white">
-              <h3 className="text-2xl font-bold mb-4">Our Story</h3>
-              <div className="space-y-4">
-                <p>
-                  Abdallah Contracting Company's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
-                  dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
-                  construction sector.
-                </p>
-                <p>
-                  Eight years ago, we expanded our services to include electrical work and more. Today, ACC is
-                  entering an exciting new chapter under the leadership of Kevin
-                  Abdallah, bringing comprehensive construction and property development services.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+              <h3 className="text-xl font-display text-white mb-5">Our Story</h3>
+              <div className="space-y-4 text-white/35 leading-relaxed">
+                <p>ACC began with Fadi Abdallah's 30-year career in plumbing and hands-on execution, building a reputation for excellence across Lebanon.</p>
+                <p>Today, the next generation—Kevin Abdallah—brings finance and real estate expertise from LSE, McKinsey, and UCT, combining institutional analysis with trade mastery.</p>
               </div>
             </div>
-            
-            <div className="text-white">
-              <h3 className="text-2xl font-bold mb-4">Our Values</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <Shield className="text-acg-gold h-5 w-5 mr-3 mt-1" />
-                  <span>Accountability and integrity in all our projects</span>
-                </li>
-                <li className="flex items-start">
-                  <Award className="text-acg-gold h-5 w-5 mr-3 mt-1" />
-                  <span>Lebanese craftsmanship and attention to detail</span>
-                </li>
-                <li className="flex items-start">
-                  <Target className="text-acg-gold h-5 w-5 mr-3 mt-1" />
-                  <span>Building legacies that stand the test of time</span>
-                </li>
+            <div>
+              <h3 className="text-xl font-display text-white mb-5">Our Values</h3>
+              <ul className="space-y-6">
+                {[
+                  { icon: Shield, text: "Accountability and integrity in every project" },
+                  { icon: Award, text: "Lebanese craftsmanship with meticulous detail" },
+                  { icon: Target, text: "Building legacies that stand the test of time" },
+                ].map(({ icon: Icon, text }) => (
+                  <li key={text} className="flex items-start gap-4 text-white/35">
+                    <Icon className="text-acg-gold h-4 w-4 mt-1 flex-shrink-0 opacity-60" />
+                    <span>{text}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         ) : (
-          // Summarized content for homepage
-          <div className="mt-8 text-white max-w-3xl mx-auto text-center">
-            <p className="text-lg mb-6">
-              With over 28 years of Lebanese craftsmanship excellence, ACC has evolved from plumbing specialists into a comprehensive construction and development company, committed to quality, integrity, and building legacies that last.
+          <div ref={content.ref} className={`reveal ${content.isVisible ? "visible" : ""} max-w-xl mx-auto text-center`}>
+            <p className="text-white/35 mb-14 leading-relaxed">
+              Over 30 years of Lebanese craftsmanship, evolved from specialist trades into full-scope construction and development. Quality, integrity, and legacies that last.
             </p>
-            <div className="flex justify-center gap-6 mt-8">
-              <div className="flex items-center">
-                <Shield className="text-acg-gold h-6 w-6 mr-2" />
-                <span>Integrity</span>
-              </div>
-              <div className="flex items-center">
-                <Award className="text-acg-gold h-6 w-6 mr-2" />
-                <span>Craftsmanship</span>
-              </div>
-              <div className="flex items-center">
-                <Target className="text-acg-gold h-6 w-6 mr-2" />
-                <span>Excellence</span>
-              </div>
+            <div className="flex justify-center gap-14">
+              {[
+                { icon: Shield, label: "Integrity" },
+                { icon: Award, label: "Craft" },
+                { icon: Target, label: "Excellence" },
+              ].map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <Icon className="text-acg-gold h-3.5 w-3.5 opacity-60" />
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-white/35">{label}</span>
+                </div>
+              ))}
             </div>
           </div>
         )}
         
-        <div className="mt-10 text-center">
-          <NavLink to="/about" className="inline-block bg-acg-gold text-acg-navy px-6 py-3 rounded font-semibold hover:bg-white transition-colors">
-            {summarized ? "About Our Company" : "Learn More About Us"}
+        <div className="mt-20 text-center">
+          <NavLink
+            to="/about"
+            className="group inline-flex items-center gap-3 border border-acg-gold/30 text-acg-gold px-10 py-4 text-[12px] tracking-[0.15em] uppercase font-bold hover:bg-acg-gold hover:text-acg-navy transition-all duration-500"
+          >
+            {summarized ? "About Us" : "Learn More"}
+            <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
           </NavLink>
         </div>
       </div>

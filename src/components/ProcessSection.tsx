@@ -1,7 +1,8 @@
 
 import { NavLink } from "react-router-dom";
-import { MessageSquare, PenTool, FileText, Construction, Hammer, LandPlot, CheckSquare, Building } from "lucide-react";
+import { ArrowRight, MessageSquare, PenTool, FileText, Construction, Hammer, LandPlot, CheckSquare, Building } from "lucide-react";
 import SectionTitle from "./SectionTitle";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 interface ProcessSectionProps {
   summarized?: boolean;
@@ -9,138 +10,51 @@ interface ProcessSectionProps {
   sectionSubtitle?: string;
 }
 
-interface ProcessStepProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
+const ProcessSection = ({ summarized = false, sectionTitle = "How We Work", sectionSubtitle }: ProcessSectionProps) => {
+  const grid = useScrollReveal<HTMLDivElement>(0.1);
 
-const ProcessStep = ({ icon, title, description }: ProcessStepProps) => {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-start">
-      <div className="bg-acg-navy bg-opacity-10 rounded-full p-3 mr-4 flex-shrink-0">
-        {icon}
-      </div>
-      <div>
-        <h3 className="text-xl font-bold text-acg-navy mb-2 font-playfair">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </div>
-    </div>
-  );
-};
-
-const ProcessSection = ({ summarized = false, sectionTitle = "Our Process", sectionSubtitle }: ProcessSectionProps) => {
-  // Full process steps
   const allSteps = [
-    {
-      icon: <LandPlot className="h-6 w-6 text-acg-navy" />,
-      title: "Consultation",
-      description: "Initial meeting to discuss your project needs and vision."
-    },
-    {
-      icon: <PenTool className="h-6 w-6 text-acg-navy" />,
-      title: "Design",
-      description: "Working with architects to ensure technical aspects are properly planned."
-    },
-    {
-      icon: <FileText className="h-6 w-6 text-acg-navy" />,
-      title: "Permitting",
-      description: "Managing all necessary permits and regulatory approvals."
-    },
-    {
-      icon: <Construction className="h-6 w-6 text-acg-navy" />,
-      title: "Procurement",
-      description: "Sourcing high-quality materials for timely delivery."
-    },
-    {
-      icon: <Hammer className="h-6 w-6 text-acg-navy" />,
-      title: "Construction",
-      description: "Professional execution with direct supervision."
-    },
-    {
-      icon: <MessageSquare className="h-6 w-6 text-acg-navy" />,
-      title: "Integration",
-      description: "Seamless integration of plumbing, electrical, and automation systems."
-    },
-    {
-      icon: <CheckSquare className="h-6 w-6 text-acg-navy" />,
-      title: "Handover",
-      description: "Final touches, quality assurance, and client walkthrough."
-    },
-    {
-      icon: <Building className="h-6 w-6 text-acg-navy" />,
-      title: "Aftercare",
-      description: "Ongoing support and warranty services to ensure lasting quality."
-    }
+    { icon: <LandPlot className="h-4 w-4" />, title: "Consultation", description: "We discuss your vision and provide design guidance based on experience." },
+    { icon: <FileText className="h-4 w-4" />, title: "Land & Permits", description: "You choose the land; we handle due diligence and regulatory approvals." },
+    { icon: <PenTool className="h-4 w-4" />, title: "Design & Planning", description: "Scope definition, architect coordination, and detailed planning." },
+    { icon: <Construction className="h-4 w-4" />, title: "Procurement", description: "All supplier sourcing and materials—every aspect handled." },
+    { icon: <Hammer className="h-4 w-4" />, title: "Construction", description: "Professional execution with direct supervision and one accountable lead." },
+    { icon: <MessageSquare className="h-4 w-4" />, title: "Integration", description: "Seamless integration of plumbing, electrical, and automation." },
+    { icon: <CheckSquare className="h-4 w-4" />, title: "Handover", description: "Quality assurance, final walkthrough, and comprehensive documentation." },
+    { icon: <Building className="h-4 w-4" />, title: "Aftercare", description: "Ongoing support, warranty, and optional property care—including abroad." },
   ];
-  
-  // Key steps for the summarized version
-  const keySteps = [
-    allSteps[0], // Consultation (Land)
-    allSteps[2], // Permitting (Document)
-    allSteps[4], // Construction (Hammer)
-    allSteps[7]  // Aftercare (Building)
-  ];
-  
+
+  const keySteps = [allSteps[0], allSteps[1], allSteps[3], allSteps[7]];
   const stepsToShow = summarized ? keySteps : allSteps;
   
   return (
-    <section className="py-20 px-4 md:px-6 bg-gray-50">
-      <div className="container mx-auto">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 font-playfair">{sectionTitle}</h2>
-          {summarized && sectionSubtitle && (
-            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-              {sectionSubtitle}
-            </p>
-          )}
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-8">
+        <SectionTitle title={sectionTitle} subtitle={sectionSubtitle} center={true} className="mb-10 md:mb-12" />
+        
+        <div
+          ref={grid.ref}
+          className={`stagger-children ${grid.isVisible ? "visible" : ""} grid grid-cols-1 md:grid-cols-2 ${summarized ? 'lg:grid-cols-4' : 'lg:grid-cols-4'} gap-0`}
+        >
+          {stepsToShow.map((step, index) => (
+            <div key={index} className="border border-slate-100 p-6 md:p-8 -ml-px -mt-px">
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-acg-gold opacity-60">{step.icon}</div>
+                <span className="text-[10px] tracking-[0.3em] text-slate-200 uppercase">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 className="font-display text-acg-navy mb-2">{step.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
+            </div>
+          ))}
         </div>
         
-        {summarized ? (
-          // Summarized version
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stepsToShow.map((step, index) => (
-              <ProcessStep 
-                key={index}
-                icon={step.icon}
-                title={step.title}
-                description={step.description}
-              />
-            ))}
-          </div>
-        ) : (
-          // Full version
-          <>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {allSteps.slice(0, 4).map((step, index) => (
-                <ProcessStep 
-                  key={index}
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                />
-              ))}
-            </div>
-            
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {allSteps.slice(4, 8).map((step, index) => (
-                <ProcessStep 
-                  key={index + 4}
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                />
-              ))}
-            </div>
-          </>
-        )}
-        
         <div className="mt-12 text-center">
-          <NavLink 
-            to="/process" 
-            className="inline-block bg-acg-navy text-white px-6 py-3 rounded font-semibold hover:bg-acg-gold transition-colors"
+          <NavLink
+            to="/process"
+            className="group inline-flex items-center gap-3 border border-acg-navy/20 text-acg-navy px-10 py-4 text-[12px] tracking-[0.15em] uppercase font-bold hover:bg-acg-navy hover:text-white transition-all duration-500"
           >
-            {summarized ? "Explore Our Full Process" : "Learn More About Our Process"}
+            {summarized ? "Full Process" : "Learn More"}
+            <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
           </NavLink>
         </div>
       </div>

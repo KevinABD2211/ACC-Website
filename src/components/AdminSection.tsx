@@ -9,6 +9,13 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Lock, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +36,12 @@ const setAuthenticated = (value: boolean) =>
     : sessionStorage.removeItem(ADMIN_STORAGE_KEY);
 
 type ProjectFormState = Omit<Project, "id">;
+
+const CATEGORY_OPTIONS = [
+  { value: "Residential", label: "Residential" },
+  { value: "Commercial", label: "Commercial" },
+  { value: "Mixed", label: "Mixed (Residential & Commercial)" },
+] as const;
 
 const emptyForm: ProjectFormState = {
   title: "",
@@ -310,13 +323,21 @@ const AdminSection = ({ triggerClassName }: AdminSectionProps) => {
               required
               className="text-sm"
             />
-            <Input
-              placeholder="Category (e.g. Residential, Commercial)"
-              value={form.category}
-              onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
-              required
-              className="text-sm"
-            />
+            <Select
+              value={form.category || undefined}
+              onValueChange={(value) => setForm((prev) => ({ ...prev, category: value }))}
+            >
+              <SelectTrigger className="text-sm h-9">
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent>
+                {CATEGORY_OPTIONS.map((opt) => (
+                  <SelectItem key={opt.value} value={opt.value} className="text-sm">
+                    {opt.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             <div className="grid grid-cols-2 gap-2">
               <Input
                 placeholder="Year"

@@ -22,13 +22,13 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       });
     }, 300);
 
-    // Complete the animation after blocks are added
+    // Complete the animation after blocks are added, then show app quickly
     const timer = setTimeout(() => {
       setAnimationComplete(true);
       if (onComplete) {
-        setTimeout(onComplete, 1000); // Give time for exit animation before removing
+        onComplete(); // Show app immediately; no extra 1s delay
       }
-    }, 2000); // Show splash for 2 seconds
+    }, 1500); // Shorter: 1.5 seconds
 
     return () => {
       clearInterval(blockInterval);

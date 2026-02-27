@@ -5,6 +5,19 @@ import { Project } from "@/context/ProjectsContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const CATEGORY_OPTIONS = [
+  { value: "Residential", label: "Residential" },
+  { value: "Commercial", label: "Commercial" },
+  { value: "Mixed", label: "Mixed (Residential & Commercial)" },
+] as const;
 
 type ProjectFormState = Omit<Project, "id">;
 
@@ -290,14 +303,24 @@ const AdminPage = () => {
                 <label className="text-sm font-medium text-slate-700">
                   Category
                 </label>
-                <Input
-                  value={form.category}
-                  onChange={(e) =>
-                    setForm((prev) => ({ ...prev, category: e.target.value }))
+                <Select
+                  value={form.category || undefined}
+                  onValueChange={(value) =>
+                    setForm((prev) => ({ ...prev, category: value }))
                   }
-                  placeholder="e.g. Residential, Commercial"
                   required
-                />
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {CATEGORY_OPTIONS.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">

@@ -1,9 +1,13 @@
-import { useLocation, NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { cn } from "@/lib/utils";
 
 const NotFound = () => {
   const location = useLocation();
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>(0.1);
 
   useEffect(() => {
     console.error(
@@ -18,26 +22,35 @@ const NotFound = () => {
         title="Page Not Found"
         description="The page you are looking for does not exist on Abdallah Contracting Company's website."
       />
-      <div className="min-h-screen flex items-center justify-center bg-acg-navy">
-        <div className="text-center text-white px-4">
-          <p className="text-sm uppercase tracking-widest text-acg-gold mb-2">
-            404 Error
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Page not found
-          </h1>
-          <p className="text-lg text-gray-200 mb-8 max-w-xl mx-auto">
-            The page you&apos;re looking for may have been moved or no longer
-            exists. Please check the URL or return to the homepage.
-          </p>
-          <NavLink
-            to="/"
-            className="inline-block bg-white text-acg-navy px-8 py-3 rounded font-semibold hover:bg-acg-gold hover:text-white transition-colors"
-          >
-            Back to Home
-          </NavLink>
+      <section className="bg-acg-navy">
+        <div
+          ref={ref}
+          className={cn(
+            "min-h-[70vh] flex items-center justify-center px-8 py-28 md:py-36 reveal",
+            isVisible && "visible"
+          )}
+        >
+          <div className="text-center max-w-lg">
+            <p className="text-[11px] tracking-[0.3em] uppercase text-acg-gold mb-5">
+              404
+            </p>
+            <h1 className="text-3xl md:text-4xl font-display font-semibold text-white mb-5">
+              Page not found
+            </h1>
+            <p className="text-white/35 leading-relaxed mb-12">
+              The page you&apos;re looking for may have been moved or no longer exists.
+              Check the URL or return to the homepage.
+            </p>
+            <NavLink
+              to="/"
+              className="group inline-flex items-center gap-3 border border-acg-gold text-acg-gold px-10 py-4 text-[12px] tracking-[0.15em] uppercase font-bold hover:bg-acg-gold hover:text-acg-navy transition-all duration-500"
+            >
+              Back to Home
+              <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+            </NavLink>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

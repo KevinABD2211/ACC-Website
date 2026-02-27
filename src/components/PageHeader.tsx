@@ -1,82 +1,29 @@
-
-import { cn } from "@/lib/utils";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { useEffect, useState } from "react";
 
 export interface PageHeaderProps {
-  title: string;
-  subtitle: string;
-  imageUrl: string;
-  pattern?: string;
-  overlayOpacity?: number;
-  imagePosition?: "center" | "top" | "bottom" | "bottom-center" | "top-center" | "very-bottom" | "extreme-bottom"; 
-  objectFit?: "cover" | "contain"; // Added objectFit property
+  title?: string;
+  subtitle?: string;
+  imageUrl?: string;
 }
 
-const PageHeader = ({ 
-  title, 
-  subtitle, 
-  imageUrl, 
-  pattern,
-  overlayOpacity = 70,
-  imagePosition = "center", 
-  objectFit = "cover"  // Default to cover but allow contain
-}: PageHeaderProps) => {
-  // Function to determine background position based on imagePosition prop
-  const getBackgroundPosition = () => {
-    switch(imagePosition) {
-      case "top": return "center top";
-      case "bottom": return "center bottom";
-      case "bottom-center": return "center 80%";
-      case "top-center": return "center 20%";
-      case "very-bottom": return "center 95%";
-      case "extreme-bottom": return "center 99%";
-      default: return "center center";
-    }
-  };
+const PageHeader = ({}: PageHeaderProps) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoaded(true), 50);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
-    <div className="relative">
-      <AspectRatio ratio={16/6} className="relative">
-        <div 
-          className="absolute inset-0" 
-          style={{ 
-            backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: getBackgroundPosition(),
-            backgroundSize: objectFit,
-            backgroundRepeat: "no-repeat"
-          }}
+    <div className="relative h-[50vh] md:h-[60vh] min-h-[400px] flex items-end overflow-hidden bg-acg-navy">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <img
+          src="/acc-logo-white.png"
+          alt="ACC"
+          className="h-80 md:h-[26rem] lg:h-[32rem] w-auto opacity-90 transition-all duration-[1s] ease-out"
+          style={{ opacity: loaded ? 0.9 : 0, transform: loaded ? "translateY(0)" : "translateY(20px)" }}
         />
-        
-        {/* Dark overlay with configurable opacity */}
-        <div 
-          className={`absolute inset-0 bg-acg-navy`} 
-          style={{ opacity: overlayOpacity / 100 }}
-        />
-        
-        {/* Pattern overlay if provided */}
-        {pattern && (
-          <div 
-            className={cn(
-              "absolute inset-0 opacity-20",
-              {
-                "bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgMjAgMTAgTSAxMCAwIEwgMTAgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIgLz48L3N2Zz4=')]": pattern === "grid",
-                "bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImRpYWdvbmFsLWhhdGNoIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSAwIDApIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48bGluZSB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMTAiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNkaWFnb25hbC1oYXRjaCkiIC8+PC9zdmc+')]": pattern === "diagonal-lines",
-                "bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjEiIGZpbGw9IndoaXRlIi8+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMSIgZmlsbD0id2hpdGUiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZG90cykiIC8+PC9zdmc+')]": pattern === "dots"
-              }
-            )}
-          />
-        )}
-        
-        {/* Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 md:px-6 z-10">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h1>
-              <p className="text-xl text-gray-200">{subtitle}</p>
-            </div>
-          </div>
-        </div>
-      </AspectRatio>
+      </div>
     </div>
   );
 };

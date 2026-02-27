@@ -1,46 +1,57 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import SEO from "@/components/SEO";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { NavLink } from "react-router-dom";
-import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Target, Flag, Handshake, Users, Award } from "lucide-react";
+import { Shield, Target, Flag, Handshake, Users, Award, ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
+const coreValues = [
+  {
+    title: "Accountability",
+    description:
+      "We take ownership of our work and stand by our commitments, ensuring transparency and responsibility throughout every project phase.",
+    icon: <Shield className="h-6 w-6 text-acg-gold" />,
+  },
+  {
+    title: "Heritage & Trust",
+    description:
+      "Building on decades of Lebanese craftsmanship, we bring time-honored techniques into modern construction practices.",
+    icon: <Award className="h-6 w-6 text-acg-gold" />,
+  },
+  {
+    title: "Client-First Service",
+    description:
+      "Your vision drives our process. We listen intently and adapt our approach to meet your unique needs and expectations.",
+    icon: <Handshake className="h-6 w-6 text-acg-gold" />,
+  },
+  {
+    title: "Seamless Integration",
+    description:
+      "Our comprehensive approach integrates planning, design, and construction for a cohesive experience from concept to completion.",
+    icon: <Target className="h-6 w-6 text-acg-gold" />,
+  },
+  {
+    title: "Supervisory Excellence",
+    description:
+      "With meticulous attention to detail, our supervisory team ensures quality control at every stage of your project.",
+    icon: <Flag className="h-6 w-6 text-acg-gold" />,
+  },
+  {
+    title: "Lebanese Pride",
+    description:
+      "We proudly represent the best of Lebanese workmanship, bringing our cultural dedication to excellence into every project we undertake.",
+    icon: <Users className="h-6 w-6 text-acg-gold" />,
+  },
+];
 
 const AboutPage = () => {
-  const coreValues = [
-    {
-      title: "Accountability",
-      description: "We take ownership of our work and stand by our commitments, ensuring transparency and responsibility throughout every project phase.",
-      icon: <Shield className="h-8 w-8 text-acg-gold mb-2" />
-    },
-    {
-      title: "Heritage & Trust",
-      description: "Building on decades of Lebanese craftsmanship, we bring time-honored techniques into modern construction practices.",
-      icon: <Award className="h-8 w-8 text-acg-gold mb-2" />
-    },
-    {
-      title: "Client-First Service",
-      description: "Your vision drives our process. We listen intently and adapt our approach to meet your unique needs and expectations.",
-      icon: <Handshake className="h-8 w-8 text-acg-gold mb-2" />
-    },
-    {
-      title: "Seamless Integration",
-      description: "Our comprehensive approach integrates planning, design, and construction for a cohesive experience from concept to completion.",
-      icon: <Target className="h-8 w-8 text-acg-gold mb-2" />
-    }, 
-    {
-      title: "Supervisory Excellence",
-      description: "With meticulous attention to detail, our supervisory team ensures quality control at every stage of your project.",
-      icon: <Flag className="h-8 w-8 text-acg-gold mb-2" />
-    },
-    {
-      title: "Lebanese Pride",
-      description: "We proudly represent the best of Lebanese workmanship, bringing our cultural dedication to excellence into every project we undertake.",
-      icon: <Users className="h-8 w-8 text-acg-gold mb-2" />
-    }
-  ];
-  
+  const storyReveal = useScrollReveal<HTMLDivElement>(0.2);
+  const valuesReveal = useScrollReveal<HTMLDivElement>(0.2);
+  const teamReveal = useScrollReveal<HTMLDivElement>(0.2);
+  const promiseReveal = useScrollReveal<HTMLDivElement>(0.2);
+  const ctaReveal = useScrollReveal<HTMLDivElement>(0.2);
+
   return (
     <div>
       <SEO
@@ -56,136 +67,189 @@ const AboutPage = () => {
         objectFit="contain"
       />
 
-      {/* Our Story - using solid footer color */}
-      <section className="py-16 px-4 md:px-6 relative">
-        <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
-        
-        <div className="container mx-auto relative z-10">
-          <SectionTitle 
-            title="Our Story" 
-            center={true}
-            className="text-white"
+      {/* Our Story */}
+      <section className="py-28 md:py-36 bg-acg-navy relative">
+        <div
+          ref={storyReveal.ref}
+          className={`reveal ${storyReveal.isVisible ? "visible" : ""} max-w-[1200px] mx-auto px-8 relative z-10`}
+        >
+          <SectionTitle
+            title="Our Story"
+            center
+            className="text-white [&_h2]:text-white"
           />
-          <div className="space-y-4 text-white text-lg">
+          <div className="space-y-5 text-white/35 text-lg leading-relaxed max-w-3xl mx-auto">
             <p>
-              Abdallah Contracting Company's journey began with founder Fadi Abdallah's 28-year career in plumbing. His
-              dedication to quality and customer satisfaction built a reputation for excellence in Lebanon's
-              construction sector.
+              Abdallah Contracting Company's journey began with founder Fadi
+              Abdallah's 30-year career in plumbing and hands-on execution. His
+              dedication to quality and customer satisfaction built a reputation
+              for excellence in Lebanon's construction sector.
             </p>
             <p>
-              Eight years ago, we expanded our services to include electrical work, responding to client needs
-              and growing our expertise. Two years ago, we further evolved to take on comprehensive
-              renovation projects.
+              We expanded into electrical work and, over time, into full general
+              contracting—from land acquisition to turnkey delivery, including
+              permits, supervision, maintenance, and all trades.
             </p>
             <p>
-              Today, ACC is entering an exciting new chapter under the leadership of Kevin
-              Abdallah, who is bringing his academic background in finance and specialized training in real
-              estate economics from institutions like the London School of Economics to complement our
-              hands-on construction expertise.
+              Today, ACC is led by the next generation: Kevin Abdallah brings
+              academic training in finance and real estate economics from the
+              London School of Economics, McKinsey Forward, and University of
+              Cape Town Property Development—combining institutional-grade
+              financial analysis with our hands-on construction expertise.
             </p>
             <p>
-              This unique blend of practical experience and academic insight allows us to offer comprehensive
-              construction and property development services that consider both the technical aspects of
-              building and the financial implications of property investment.
+              This unique blend of trade mastery and financial rigor allows us to
+              offer full-scope construction and property development services:
+              technical execution and investment clarity under one accountable
+              team.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Core Values Section */}
-      <section className="py-16 px-4 md:px-6 bg-white">
-        <div className="container mx-auto">
-          <SectionTitle 
-            title="Our Core Values" 
-            subtitle="The principles that drive everything we do at ACG"
-            center={true}
+      {/* Core Values */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <SectionTitle
+            label="What We Stand For"
+            title="Our Core Values"
+            subtitle="The principles that drive everything we do at ACC"
+            center
+            className="mb-10 md:mb-12"
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+          <div
+            ref={valuesReveal.ref}
+            className={`stagger-children ${valuesReveal.isVisible ? "visible" : ""} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0`}
+          >
             {coreValues.map((value, index) => (
-              <Card key={index} className="border-l-4 border-acg-gold shadow-md hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex flex-col items-center md:items-start">
-                    {value.icon}
-                    <h3 className="text-xl font-bold text-acg-navy mb-2">{value.title}</h3>
-                    <p className="text-gray-700 text-center md:text-left">{value.description}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <div
+                key={index}
+                className="border border-slate-100 -ml-px -mt-px bg-white p-8 md:p-10 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] group"
+              >
+                <div className="mb-5">{value.icon}</div>
+                <h3 className="text-lg font-display text-acg-navy mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Our Team */}
-      <section className="py-16 px-4 md:px-6 bg-gray-50 relative">
-        {/* Background image with the ACG logo */}
-        <div className="absolute inset-0 bg-cover bg-center opacity-10" 
-             style={{ backgroundImage: `url('/lovable-uploads/148839f3-165d-4491-b8de-6839fe4c13a4.png')` }}></div>
-        
-        <div className="container mx-auto relative z-10">
-          <SectionTitle 
-            title="Our Team" 
-            center={true}
+      <section className="pt-8 md:pt-12 pb-16 md:pb-20 bg-white">
+        <div className="max-w-[1200px] mx-auto px-8">
+          <SectionTitle
+            label="Leadership"
+            title="Our Team"
+            subtitle="The Builder's Hands. The Analyst's Mind."
+            center
+            className="mb-10 md:mb-12"
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-8">
-            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center relative">
-              {/* Logo watermark */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                <img 
-                  src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="ACC Logo Watermark"
-                  className="w-48"
+
+          <div
+            ref={teamReveal.ref}
+            className={`stagger-children ${teamReveal.isVisible ? "visible" : ""} grid grid-cols-1 md:grid-cols-2 gap-0 max-w-4xl mx-auto`}
+          >
+            {/* Fadi */}
+            <div className="border border-slate-100 -ml-px -mt-px bg-white p-10 md:p-12 flex flex-col items-center transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <Avatar className="w-28 h-28 mb-6 border border-acg-gold/30 rounded-none">
+                <AvatarImage
+                  src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=200&h=200&q=80"
+                  alt="Fadi Abdallah"
                 />
-              </div>
-              
-              <Avatar className="w-32 h-32 mb-6 border-2 border-acg-navy">
-                <AvatarImage src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=200&h=200&q=80" alt="Fadi Abdallah" />
-                <AvatarFallback>FA</AvatarFallback>
+                <AvatarFallback className="bg-slate-50 text-acg-navy font-display text-xl rounded-none">
+                  FA
+                </AvatarFallback>
               </Avatar>
-              <h3 className="text-2xl font-bold text-acg-navy mb-4">Fadi Abdallah</h3>
-              <p className="text-gray-600 text-center">
-                With 28 years of experience, Fadi Abdallah built Abdallah Contracting Company on a foundation of plumbing expertise. 
-                Today, he leads with a commitment to quality and customer satisfaction.
+              <h3 className="text-xl font-display text-acg-navy mb-1">
+                Fadi Abdallah
+              </h3>
+              <p className="text-[11px] tracking-[0.3em] uppercase text-acg-gold mb-5">
+                Founder &amp; General Director
+              </p>
+              <p className="text-slate-400 text-center text-sm leading-relaxed">
+                With 30 years of hands-on field execution and supervision, Fadi
+                built ACC on a foundation of plumbing and electrical mastery. He
+                leads with a commitment to craftsmanship, quality control, and
+                client trust.
               </p>
             </div>
-            
-            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center relative">
-              {/* Logo watermark */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                <img 
-                  src="/lovable-uploads/403c2cc7-7a66-4fd0-a15f-7bbabc170ba8.png"
-                  alt="ACC Logo Watermark"
-                  className="w-48"
+
+            {/* Kevin */}
+            <div className="border border-slate-100 -ml-px -mt-px bg-white p-10 md:p-12 flex flex-col items-center transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <Avatar className="w-28 h-28 mb-6 border border-acg-gold/30 rounded-none">
+                <AvatarImage
+                  src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=200&h=200&q=80"
+                  alt="Kevin Abdallah"
                 />
-              </div>
-              
-              <Avatar className="w-32 h-32 mb-6 border-2 border-acg-navy">
-                <AvatarImage src="https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=crop&w=200&h=200&q=80" alt="Kevin Abdallah" />
-                <AvatarFallback>KA</AvatarFallback>
+                <AvatarFallback className="bg-slate-50 text-acg-navy font-display text-xl rounded-none">
+                  KA
+                </AvatarFallback>
               </Avatar>
-              <h3 className="text-2xl font-bold text-acg-navy mb-4">Kevin Abdallah</h3>
-              <p className="text-gray-600 text-center">
-                Kevin Abdallah, with a BS in Finance and specialized real estate training, drives ACC's 
-                strategic growth, blending practical experience with financial acumen.
+              <h3 className="text-xl font-display text-acg-navy mb-1">
+                Kevin Abdallah
+              </h3>
+              <p className="text-[11px] tracking-[0.3em] uppercase text-acg-gold mb-5">
+                Financial Strategy &amp; Development
               </p>
+              <p className="text-slate-400 text-center text-sm leading-relaxed mb-5">
+                Kevin brings institutional financial analysis to every project:
+                BS in Finance (LAU), LSE Real Estate Economics &amp; Finance, UCT
+                Property Development, McKinsey Forward—ensuring your investment
+                is managed with rigor and transparency.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <span className="px-3 py-1 bg-slate-50 text-acg-navy text-[11px] tracking-[0.15em]">
+                  LSE
+                </span>
+                <span className="px-3 py-1 bg-slate-50 text-acg-navy text-[11px] tracking-[0.15em]">
+                  McKinsey Forward
+                </span>
+                <span className="px-3 py-1 bg-slate-50 text-acg-navy text-[11px] tracking-[0.15em]">
+                  UCT
+                </span>
+              </div>
             </div>
           </div>
-          
-          <p className="text-center text-gray-700 font-medium mt-8 max-w-3xl mx-auto">
-            Together, they embody ACC's promise: Building Legacies, Delivering Homes.
-          </p>
+
+          <div
+            ref={promiseReveal.ref}
+            className={`reveal ${promiseReveal.isVisible ? "visible" : ""}`}
+          >
+            <p className="text-center text-slate-400 mt-14 max-w-3xl mx-auto text-sm leading-relaxed">
+              Together, they embody ACC&apos;s promise:{" "}
+              <strong className="text-acg-navy font-medium">
+                Vision. Execution. Completion.
+              </strong>
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 px-4 md:px-6 relative">
-        <div className="absolute inset-0 bg-acg-navy opacity-100"></div>
-             
-        <div className="container mx-auto text-center relative z-10">
-          <NavLink to="/process" className="text-2xl font-bold text-white mb-6 hover:text-acg-gold transition-colors inline-block">
+      {/* CTA */}
+      <section className="py-28 md:py-36 bg-acg-navy relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_30%_50%,rgba(200,164,94,0.3),transparent_50%)]" />
+        <div
+          ref={ctaReveal.ref}
+          className={`reveal ${ctaReveal.isVisible ? "visible" : ""} max-w-[1200px] mx-auto px-8 text-center relative z-10`}
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase text-acg-gold mb-6">
+            Next Step
+          </p>
+          <h2 className="text-2xl md:text-3xl font-display text-white mb-8">
             Discover Our Process
+          </h2>
+          <NavLink
+            to="/process"
+            className="group inline-flex items-center gap-3 border border-acg-gold text-acg-gold px-10 py-4 text-[12px] tracking-[0.15em] uppercase font-bold hover:bg-acg-gold hover:text-acg-navy transition-all duration-500"
+          >
+            Learn More
+            <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
           </NavLink>
         </div>
       </section>
