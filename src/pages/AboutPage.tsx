@@ -61,7 +61,7 @@ const AboutPage = () => {
       <PageHeader
         title="About ACC"
         subtitle="Our story and our people"
-        imageUrl="/lovable-uploads/d6f1e74a-b0e8-4108-b89c-0f4a0e201e73.png"
+        logoOnly
         pattern="diagonal-lines"
         imagePosition="center"
         objectFit="contain"
