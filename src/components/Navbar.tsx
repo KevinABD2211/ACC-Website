@@ -30,47 +30,53 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700",
-        isScrolled
-          ? "bg-white/[0.97] backdrop-blur-xl"
-          : "bg-transparent"
+        isScrolled ? "bg-white/[0.97] backdrop-blur-xl" : "bg-transparent"
       )}
     >
-      <div className="flex items-center justify-between min-h-[72px] px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
+      <div className="flex items-center min-h-[72px] px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
         <NavLink to="/" className="shrink-0 transition-opacity duration-500 hover:opacity-60">
           <img src={logoSrc} alt="ACC" className="h-8 md:h-10 w-auto object-contain" loading="eager" />
         </NavLink>
 
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={cn("md:hidden", useWhite ? "text-white" : "text-acg-navy")}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 8h16M4 16h16" />
-            )}
-          </svg>
-        </button>
-
-        <nav className="hidden md:flex items-center gap-10">
-          {navLinks.map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                cn(
-                  "text-[11px] tracking-[0.2em] uppercase transition-all duration-500 pb-1",
-                  isActive
-                    ? cn(useWhite ? "text-acg-gold" : "text-acg-gold")
-                    : cn(useWhite ? "text-white/50 hover:text-white" : "text-slate-400 hover:text-acg-navy")
-                )
-              }
+        <div className="flex items-center gap-6 md:gap-10 ml-auto">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={cn("md:hidden", useWhite ? "text-white" : "text-acg-navy")}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-5 h-5"
             >
-              {label}
-            </NavLink>
-          ))}
-        </nav>
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 8h16M4 16h16" />
+              )}
+            </svg>
+          </button>
+
+          <nav className="hidden md:flex items-center gap-10">
+            {navLinks.map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  cn(
+                    "text-[11px] tracking-[0.2em] uppercase transition-all duration-500 pb-1",
+                    isActive
+                      ? cn(useWhite ? "text-acg-gold" : "text-acg-gold")
+                      : cn(useWhite ? "text-white/50 hover:text-white" : "text-slate-400 hover:text-acg-navy")
+                  )
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
       </div>
 
       {mobileMenuOpen && (
