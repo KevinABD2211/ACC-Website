@@ -39,7 +39,7 @@ const HomePage = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-acg-navy via-acg-navy/70 to-acg-navy/30" />
 
-        <div className="relative z-10 w-full pb-20 md:pb-28 px-8 md:px-16 lg:px-24 max-w-[1400px]">
+        <div className="relative z-10 w-full pb-20 md:pb-28 px-8 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
           <div
             className="transition-all duration-[1.5s] ease-out"
             style={{
